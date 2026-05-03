@@ -1,9 +1,16 @@
-import Image from "next/image";
+import Navbar from "@/components/layout/Navbar";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Services from "@/components/sections/Services";
+
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-          <h1 className="text-[60px] text-red-600">hello</h1>
-    </div>
-  );
+    return (
+        <main className="min-h-screen">
+            <Navbar />
+            <Hero />
+            <Services />
+            <About />
+        </main>
+    );
 }
