@@ -100,114 +100,369 @@ export default function Hero() {
                 }}
             />
 
-            {/* ── Floating geometric rings ── */}
-            {/* Ring set 1 — top right, small pair */}
-            <div
-                className="absolute pointer-events-none"
-                style={{
-                    right: "8%",
-                    top: "15%",
-                    width: "80px",
-                    height: "80px",
-                    borderRadius: "50%",
-                    border: "2px solid rgba(109,40,217,0.2)",
-                    animation: "ringPulse 4s ease-in-out infinite",
-                }}
-            />
-            <div
-                className="absolute pointer-events-none"
-                style={{
-                    left: "8%",
-                    top: "28%",
-                    width: "80px",
-                    height: "80px",
-                    borderRadius: "50%",
-                    border: "1.5px solid rgba(109,40,217,0.2)",
-                    animation: "ringPulse 4s ease-in-out infinite",
-                }}
-            />
-            <div
-                className="absolute pointer-events-none"
-                style={{
-                    right: "8%",
-                    top: "15%",
-                    width: "120px",
-                    height: "120px",
-                    marginRight: "-20px",
-                    marginTop: "-20px",
-                    borderRadius: "50%",
-                    border: "2px solid rgba(196,181,253,0.15)",
-                    animation: "ringPulse 4s ease-in-out infinite 0.5s",
-                }}
-            />
+            {/* ══════════════════════════════════════
+                SMALL DOUBLE RINGS - ONLY THEME COLORS
+            ══════════════════════════════════════ */}
 
-            {/* Ring set 2 — large circle bottom-left */}
-            <div
-                className="absolute pointer-events-none"
-                style={{
-                    left: "-60px",
-                    bottom: "5%",
-                    width: "320px",
-                    height: "320px",
-                    borderRadius: "50%",
-                    border: "2px solid rgba(109,40,217,0.1)",
-                    animation: "ringPulse 6s ease-in-out infinite 1s",
-                }}
-            />
-            <div
-                className="absolute pointer-events-none"
-                style={{
-                    left: "-100px",
-                    bottom: "2%",
-                    width: "420px",
-                    height: "420px",
-                    borderRadius: "50%",
-                    border: "2px solid rgba(109,40,217,0.08)",
-                    animation: "ringPulse 6s ease-in-out infinite 1.8s",
-                }}
-            />
+            {/* Pair 1 - Primary purple double rings (top left) */}
+            <div className="absolute pointer-events-none" style={{ left: "5%", top: "10%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "45px",
+                        height: "45px",
+                        border: "1px solid rgba(109, 40, 217, 0.55)",
+                        animation: "smallRingPulse 3s ease-in-out infinite",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "70px",
+                        height: "70px",
+                        marginLeft: "-12px",
+                        marginTop: "-12px",
+                        border: "1px solid rgba(109, 40, 217, 0.35)",
+                        animation: "smallRingPulse 3s ease-in-out infinite 0.4s",
+                    }}
+                />
+            </div>
 
-            {/* Ring set 3 — very large circle centered-right */}
-            <div
-                className="absolute pointer-events-none"
-                style={{
-                    right: "-80px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    width: "500px",
-                    height: "500px",
-                    borderRadius: "50%",
-                    border: "2px solid rgba(109,40,217,0.1)",
-                    animation: "ringPulse 7s ease-in-out infinite 0.3s",
-                }}
-            />
-            <div
-                className="absolute pointer-events-none"
-                style={{
-                    right: "-140px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    width: "650px",
-                    height: "650px",
-                    borderRadius: "50%",
-                    border: "2px solid rgba(196,181,253,0.08)",
-                    animation: "ringPulse 7s ease-in-out infinite 1.2s",
-                }}
-            />
+            {/* Pair 2 - Rings color double rings (top right) */}
+            <div className="absolute pointer-events-none" style={{ right: "8%", top: "15%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "40px",
+                        height: "40px",
+                        border: "1px solid rgba(195, 179, 255, 0.6)",
+                        animation: "smallRingPulse 3.2s ease-in-out infinite 0.2s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "62px",
+                        height: "62px",
+                        marginLeft: "-11px",
+                        marginTop: "-11px",
+                        border: "1px solid rgba(195, 179, 255, 0.4)",
+                        animation: "smallRingPulse 3.2s ease-in-out infinite 0.6s",
+                    }}
+                />
+            </div>
 
-            {/* Ring set 4 — medium circle top-center */}
-            <div
-                className="absolute pointer-events-none"
-                style={{
-                    left: "38%",
-                    top: "-80px",
-                    width: "260px",
-                    height: "260px",
-                    borderRadius: "50%",
-                    border: "2px solid rgba(109,40,217,0.08)",
-                    animation: "ringPulse 5s ease-in-out infinite 2s",
-                }}
-            />
+            {/* Pair 3 - Secondary deep purple double rings (mid left) */}
+            <div className="absolute pointer-events-none" style={{ left: "50%", top: "42%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "38px",
+                        height: "38px",
+                        border: "1px solid rgba(48, 36, 81, 0.55)",
+                        animation: "smallRingPulse 2.8s ease-in-out infinite 0.1s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "58px",
+                        height: "58px",
+                        marginLeft: "-10px",
+                        marginTop: "-10px",
+                        border: "1px solid rgba(48, 36, 81, 0.35)",
+                        animation: "smallRingPulse 2.8s ease-in-out infinite 0.5s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 4 - Accent light purple double rings (mid right) */}
+            <div className="absolute pointer-events-none" style={{ right: "15%", top: "50%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "42px",
+                        height: "42px",
+                        border: "1px solid rgba(196, 181, 253, 0.6)",
+                        animation: "smallRingPulse 3.5s ease-in-out infinite 0.15s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "65px",
+                        height: "65px",
+                        marginLeft: "-11px",
+                        marginTop: "-11px",
+                        border: "1px solid rgba(196, 181, 253, 0.4)",
+                        animation: "smallRingPulse 3.5s ease-in-out infinite 0.55s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 5 - Primary purple double rings (bottom left) */}
+            <div className="absolute pointer-events-none" style={{ left: "8%", bottom: "18%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "36px",
+                        height: "36px",
+                        border: "1px solid rgba(109, 40, 217, 0.55)",
+                        animation: "smallRingPulse 3.6s ease-in-out infinite 0.3s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "56px",
+                        height: "56px",
+                        marginLeft: "-10px",
+                        marginTop: "-10px",
+                        border: "1px solid rgba(109, 40, 217, 0.35)",
+                        animation: "smallRingPulse 3.6s ease-in-out infinite 0.7s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 6 - Rings color double rings (bottom right) */}
+            <div className="absolute pointer-events-none" style={{ right: "10%", bottom: "15%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "44px",
+                        height: "44px",
+                        border: "1px solid rgba(195, 179, 255, 0.6)",
+                        animation: "smallRingPulse 3.1s ease-in-out infinite 0.25s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "68px",
+                        height: "68px",
+                        marginLeft: "-12px",
+                        marginTop: "-12px",
+                        border: "1px solid rgba(195, 179, 255, 0.4)",
+                        animation: "smallRingPulse 3.1s ease-in-out infinite 0.65s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 7 - Secondary deep purple double rings (center area) */}
+            <div className="absolute pointer-events-none" style={{ left: "35%", top: "55%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "32px",
+                        height: "32px",
+                        border: "1px solid rgba(48, 36, 81, 0.55)",
+                        animation: "smallRingPulse 2.9s ease-in-out infinite 0.05s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "50px",
+                        height: "50px",
+                        marginLeft: "-9px",
+                        marginTop: "-9px",
+                        border: "1px solid rgba(48, 36, 81, 0.35)",
+                        animation: "smallRingPulse 2.9s ease-in-out infinite 0.45s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 8 - Accent light purple double rings (top center) */}
+            <div className="absolute pointer-events-none" style={{ left: "45%", top: "5%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "35px",
+                        height: "35px",
+                        border: "1px solid rgba(196, 181, 253, 0.6)",
+                        animation: "smallRingPulse 3.4s ease-in-out infinite 0.12s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "55px",
+                        height: "55px",
+                        marginLeft: "-10px",
+                        marginTop: "-10px",
+                        border: "1px solid rgba(196, 181, 253, 0.4)",
+                        animation: "smallRingPulse 3.4s ease-in-out infinite 0.52s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 9 - Primary purple double rings (bottom center) */}
+            <div className="absolute pointer-events-none" style={{ left: "30%", bottom: "8%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "38px",
+                        height: "38px",
+                        border: "1px solid rgba(109, 40, 217, 0.55)",
+                        animation: "smallRingPulse 3.3s ease-in-out infinite 0.18s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "60px",
+                        height: "60px",
+                        marginLeft: "-11px",
+                        marginTop: "-11px",
+                        border: "1px solid rgba(109, 40, 217, 0.35)",
+                        animation: "smallRingPulse 3.3s ease-in-out infinite 0.58s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 10 - Rings color double rings (right side) */}
+            <div className="absolute pointer-events-none" style={{ right: "22%", top: "30%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "30px",
+                        height: "30px",
+                        border: "1px solid rgba(195, 179, 255, 0.6)",
+                        animation: "smallRingPulse 3.8s ease-in-out infinite 0.08s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "48px",
+                        height: "48px",
+                        marginLeft: "-9px",
+                        marginTop: "-9px",
+                        border: "1px solid rgba(195, 179, 255, 0.4)",
+                        animation: "smallRingPulse 3.8s ease-in-out infinite 0.48s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 11 - Secondary deep purple double rings (upper mid right) */}
+            <div className="absolute pointer-events-none" style={{ right: "28%", top: "22%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "34px",
+                        height: "34px",
+                        border: "1px solid rgba(48, 36, 81, 0.55)",
+                        animation: "smallRingPulse 2.7s ease-in-out infinite 0.22s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "52px",
+                        height: "52px",
+                        marginLeft: "-9px",
+                        marginTop: "-9px",
+                        border: "1px solid rgba(48, 36, 81, 0.35)",
+                        animation: "smallRingPulse 2.7s ease-in-out infinite 0.62s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 12 - Accent light purple double rings (left side lower) */}
+            <div className="absolute pointer-events-none" style={{ left: "18%", bottom: "35%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "28px",
+                        height: "28px",
+                        border: "1px solid rgba(196, 181, 253, 0.6)",
+                        animation: "smallRingPulse 3.9s ease-in-out infinite 0.14s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "44px",
+                        height: "44px",
+                        marginLeft: "-8px",
+                        marginTop: "-8px",
+                        border: "1px solid rgba(196, 181, 253, 0.4)",
+                        animation: "smallRingPulse 3.9s ease-in-out infinite 0.54s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 13 - Primary purple double rings (near content) */}
+            <div className="absolute pointer-events-none" style={{ left: "50%", top: "75%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "33px",
+                        height: "33px",
+                        border: "1px solid rgba(109, 40, 217, 0.55)",
+                        animation: "smallRingPulse 3.15s ease-in-out infinite 0.28s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "51px",
+                        height: "51px",
+                        marginLeft: "-9px",
+                        marginTop: "-9px",
+                        border: "1px solid rgba(109, 40, 217, 0.35)",
+                        animation: "smallRingPulse 3.15s ease-in-out infinite 0.68s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 14 - Rings color double rings (top far left) */}
+            <div className="absolute pointer-events-none" style={{ left: "2%", top: "25%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "37px",
+                        height: "37px",
+                        border: "1px solid rgba(195, 179, 255, 0.6)",
+                        animation: "smallRingPulse 3.45s ease-in-out infinite 0.35s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "57px",
+                        height: "57px",
+                        marginLeft: "-10px",
+                        marginTop: "-10px",
+                        border: "1px solid rgba(195, 179, 255, 0.4)",
+                        animation: "smallRingPulse 3.45s ease-in-out infinite 0.75s",
+                    }}
+                />
+            </div>
+
+            {/* Pair 15 - Secondary deep purple double rings (bottom far right) */}
+            <div className="absolute pointer-events-none" style={{ right: "4%", bottom: "40%" }}>
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "41px",
+                        height: "41px",
+                        border: "1px solid rgba(48, 36, 81, 0.55)",
+                        animation: "smallRingPulse 3.25s ease-in-out infinite 0.42s",
+                    }}
+                />
+                <div
+                    className="absolute rounded-full"
+                    style={{
+                        width: "63px",
+                        height: "63px",
+                        marginLeft: "-11px",
+                        marginTop: "-11px",
+                        border: "1px solid rgba(48, 36, 81, 0.35)",
+                        animation: "smallRingPulse 3.25s ease-in-out infinite 0.82s",
+                    }}
+                />
+            </div>
 
             {/* ── Additional floating decorative dots - PRESERVED and enhanced ── */}
             <div
@@ -322,9 +577,9 @@ export default function Hero() {
                     0%, 100% { transform: translate(0, 0); }
                     50%       { transform: translate(10px, -15px); }
                 }
-                @keyframes ringPulse {
-                    0%, 100% { transform: scale(1); opacity: 0.6; }
-                    50%       { transform: scale(1.08); opacity: 0.2; }
+                @keyframes smallRingPulse {
+                    0%, 100% { transform: scale(1); opacity: 0.7; }
+                    50%       { transform: scale(1.15); opacity: 0.2; }
                 }
                 @keyframes dotFloat {
                     0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
