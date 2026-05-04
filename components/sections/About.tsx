@@ -12,11 +12,24 @@ export default function About() {
                     <div className="relative flex-1">
                         <div
                             className="relative flex justify-start lg:mx-auto h-80 w-full max-w-md rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/20 p-4 md:h-96 lg:h-[450px]">
+
                             {/* Decorative elements */}
-                            <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-[var(--accent)]/30"></div>
                             <div
-                                className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-[var(--primary)]/20"></div>
-                            <div className="relative h-full w-full overflow-hidden rounded-xl">
+                                className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-[var(--accent)]/30"
+                                style={{
+                                    animation: "floatSoft 4s ease-in-out infinite",
+                                }}
+                            ></div>
+
+                            <div
+                                className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-[var(--primary)]/20"
+                                style={{
+                                    animation: "floatSoft 5s ease-in-out infinite 1s",
+                                }}
+                            ></div>
+                            <div
+                                className="relative h-full w-full overflow-hidden rounded-xl transition-transform duration-500 hover:scale-[1.03]">
+
                                 <Image
                                     src={aboutImage}
                                     alt="About Us - Team working together"
@@ -41,7 +54,8 @@ export default function About() {
 
                         <div className="space-y-4 text-base leading-relaxed text-[var(--paragraph)] md:text-lg">
                             <p>
-                                We don't just deliver digital solutions — we partner with you to drive real business success.
+                                We don't just deliver digital solutions — we partner with you to drive real business
+                                success.
                                 Our team combines strategy, design, and technology to create solutions that are not only
                                 visually impressive but also built to perform.
                             </p>
@@ -60,6 +74,17 @@ export default function About() {
                     </div>
                 </div>
             </div>
+
+            <style>{`
+                @keyframes floatSoft {
+                  0%, 100% {
+                    transform: translateY(0px) translateX(0px);
+                  }
+                  50% {
+                    transform: translateY(-12px) translateX(6px);
+                  }
+                }
+            `}</style>
         </section>
     );
 }
