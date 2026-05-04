@@ -46,7 +46,7 @@ export default function Hero() {
             />
 
             {/* MAIN LAYOUT */}
-            <div className="relative z-10 w-full mx-auto 2xl:max-w-[1420px] px-6 sm:px-10 lg:px-16 xl:px-20 flex flex-col lg:flex-row items-center lg:items-center gap-10 lg:gap-10 py-10 lg:py-14">
+            <div className="relative z-10 w-full mx-auto 2xl:max-w-[1420px] px-6 sm:px-10 lg:px-20 flex flex-col lg:flex-row items-center lg:items-center gap-10 lg:gap-10 py-10 lg:py-14 bg-white">
 
                 {/* LEFT CONTENT */}
                 <div
