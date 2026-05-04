@@ -365,8 +365,6 @@ export default function Hero() {
                         Drive{" "}
                         <span className="text-[var(--primary)] relative inline-block">
                             Real Growth
-                            <span
-                                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[var(--primary)]/30 to-transparent rounded-full"></span>
                         </span>
                     </h1>
 
