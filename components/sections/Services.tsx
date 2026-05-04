@@ -2,21 +2,25 @@
 "use client";
 
 import StartNowButton from "@/components/buttons/StartNowButton";
+import ViewOurWorkButton from "@/components/buttons/ViewOurWorkButton";
+import {IoDocumentTextOutline, IoDocumentTextSharp, IoMegaphoneOutline} from "react-icons/io5";
+import {FiMonitor} from "react-icons/fi";
+import {TbSpeakerphone} from "react-icons/tb";
+import {FaCheck} from "react-icons/fa";
+import {FaArrowRight} from "react-icons/fa6";
+import Link from "next/link";
 
 const services = [
     {
-        title: "WEB DESIGN & DEVELOPMENT",
+        title: "Web Design & Development",
         description: "Web design and development like building a digital house for your business.",
         features: [
             "Visually stunning interfaces",
             "User-friendly flow",
             "Looks great on any device",
         ],
-        icon: (
-            <svg className="h-8 w-8 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-        ),
+        icon: <FiMonitor className="h-8 w-8 text-[var(--primary)]" />,
+        link: "/services/web-design",
     },
     {
         title: "SOCIAL MEDIA MARKETING",
@@ -26,11 +30,8 @@ const services = [
             "Boost engagement",
             "Drive measurable results",
         ],
-        icon: (
-            <svg className="h-8 w-8 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
-            </svg>
-        ),
+        icon: <TbSpeakerphone className="h-8 w-8 text-[var(--primary)]" />,
+        link: "/services/web-design",
     },
     {
         title: "IT CONSULTING",
@@ -40,34 +41,30 @@ const services = [
             "Improved efficiency",
             "Future-ready strategy",
         ],
-        icon: (
-            <svg className="h-8 w-8 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-        ),
+        icon: <IoDocumentTextSharp className="h-8 w-8 text-[var(--primary)]" />,
+        link: "/services/web-design",
     },
 ];
 
 export default function Services() {
     return (
-        <section className="py-16 md:py-24 lg:py-32">
-            <div className="container mx-auto px-6 md:px-8 lg:px-12">
+        <section className="py-16 md:py-24 lg:py-32 mx-auto bg-[#D9CFFF26]">
+            <div className="container mx-auto 2xl:max-w-[1420px] px-6 sm:px-10 lg:px-20">
                 {/* Header Section - Flex row for desktop */}
                 <div className="mb-12 flex flex-col items-start justify-between gap-6 md:mb-16 lg:mb-20 lg:flex-row lg:items-end">
                     {/* Left side - Heading */}
                     <div className="text-left">
-                        <div className="inline-block rounded-full bg-[var(--accent)]/20 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-4">
+                        <div className="inline-block text-sm font-medium text-[var(--primary)] mb-5 uppercase leading-[100%] tracking-[0.01em]">
                             Our Services
                         </div>
-                        <h2 className="font-heading text-3xl font-bold text-[var(--heading)] md:text-4xl lg:text-5xl">
+                        <h2 className="font-heading text-3xl font-semibold text-[var(--heading)] md:text-4xl lg:text-[36px] leading-[130%] tracking-0">
                             Find out what we can do for you
                         </h2>
                     </div>
 
                     {/* Right side - Button on desktop only */}
                     <div className="hidden lg:block">
-                        <StartNowButton href="/services" label="MORE INFO" />
+                        <ViewOurWorkButton href="/portfolio" label="Explore Our Services" className="ml-4" />
                     </div>
                 </div>
 
@@ -83,48 +80,54 @@ export default function Services() {
                             }}
                         >
                             {/* Icon */}
-                            <div className="mb-5 inline-flex rounded-xl bg-[var(--accent)]/20 p-3 transition-all duration-300 group-hover:bg-[var(--accent)]/30">
+                            <div
+                                className="mb-[35px] inline-flex rounded-full bg-[var(--background-purple)]/20 p-3 transition-all duration-300 group-hover:bg-[var(--accent)]/30">
                                 {service.icon}
                             </div>
 
                             {/* Title */}
-                            <h3 className="font-heading text-xl font-bold text-[var(--heading)] md:text-2xl">
+                            <h3 className="font-heading text-base lg:text-[22px] font-semibold text-[var(--heading)] mb-[28px] tracking-[0.01em] leading-[100%]">
                                 {service.title}
                             </h3>
 
                             {/* Description */}
-                            <p className="mb-4 mt-3 text-sm leading-relaxed text-[var(--paragraph)] md:text-base">
+                            <p className="mb-[28px] text-sm leading-[100%] tracking-0 text-[var(--paragraph)] md:text-[18px]">
                                 {service.description}
                             </p>
 
                             {/* Features List */}
-                            <ul className="space-y-2">
+                            <ul className="space-y-2 mb-[45px]">
                                 {service.features.map((feature, idx) => (
-                                    <li key={idx} className="flex items-start gap-2 text-sm text-[var(--text-muted)] md:text-base">
-                                        <svg
-                                            className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--primary)]"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M5 13l4 4L19 7"
-                                            />
-                                        </svg>
+                                    <li key={idx}
+                                        className="flex items-start gap-5 text-sm text-[var(--text-muted)] md:text-base">
+                                        <div
+                                            className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[var(--primary)]">
+                                            <FaCheck className="h-3 w-3 text-white"/>
+                                        </div>
                                         <span>{feature}</span>
                                     </li>
                                 ))}
                             </ul>
+
+                            <div className="mt-auto">
+                                <Link
+                                    href={service.link}
+                                    className="group/btn inline-flex items-center gap-[14px] text-base font-semibold text-[var(--primary)] transition-all duration-300 hover:gap-3"
+                                >
+                                    <span>Learn More</span>
+                                    <FaArrowRight
+                                        size={14}
+                                        className="transition-transform duration-300 group-hover/btn:translate-x-1"
+                                    />
+                                </Link>
+                            </div>
                         </div>
                     ))}
                 </div>
 
                 {/* Bottom Button - Below cards on mobile AND desktop */}
-                <div className="mt-12 text-center md:mt-16 lg:hidden">
-                    <StartNowButton href="/services" label="MORE INFO" />
+                <div className="mt-12 text-center flex justify-start md:mt-16 lg:hidden">
+                    <StartNowButton href="/services" label="MORE INFO"/>
                 </div>
             </div>
         </section>
