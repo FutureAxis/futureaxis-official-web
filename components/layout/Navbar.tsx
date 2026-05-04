@@ -25,11 +25,11 @@ export default function Navbar() {
 
     return (
         <header
-            className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500"
+            className="fixed top-0 left-0 right-0 z-[9999] w-full transition-all duration-500"
             style={{
                 background: scrolled
                     ? "rgba(255,255,255,0.85)"
-                    : "transparent",
+                    : "#FFFFFF",
                 backdropFilter: scrolled ? "blur(16px)" : "none",
                 WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
                 borderBottom: scrolled
