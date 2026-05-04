@@ -29,8 +29,8 @@ export default function Navbar() {
             style={{
                 background: scrolled
                     ? "rgba(255,255,255,0.85)"
-                    : "#FFFFFF",
-                backdropFilter: scrolled ? "blur(16px)" : "none",
+                    : "transparent",
+                backdropFilter: scrolled ? "blur(16px)" : "blur(16px)",
                 WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
                 borderBottom: scrolled
                     ? "1px solid rgba(109,40,217,0.08)"
