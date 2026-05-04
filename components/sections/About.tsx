@@ -11,7 +11,7 @@ export default function About() {
                 <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
                     <div className="relative flex-1">
                         <div
-                            className="relative mx-auto h-80 w-full max-w-md rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/20 p-4 md:h-96 lg:h-[450px]">
+                            className="relative flex justify-start lg:mx-auto h-80 w-full max-w-md rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/20 p-4 md:h-96 lg:h-[450px]">
                             {/* Decorative elements */}
                             <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-[var(--accent)]/30"></div>
                             <div
