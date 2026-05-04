@@ -1,7 +1,9 @@
 import Navbar from "@/components/layout/Navbar";
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Services from "@/components/sections/Services";
+import Hero from "@/components/sections/Home/Hero";
+import About from "@/components/sections/Home/About";
+import Services from "@/components/sections/Home/Services";
+import OurProcess from "@/components/sections/Home/OurProcess";
+import CTASection from "@/components/sections/Home/CTASection";
 
 
 export default function Home() {
@@ -11,6 +13,8 @@ export default function Home() {
             <Hero />
             <Services />
             <About />
+            <OurProcess />
+            <CTASection />
         </main>
     );
 }
