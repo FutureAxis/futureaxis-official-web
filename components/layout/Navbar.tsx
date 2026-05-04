@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import StartNowButton from "@/components/buttons/StartNowButton";
@@ -14,14 +14,36 @@ const navLinks = [
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
 
-    return (
-        <header className="fixed top-0 left-0 right-0 z-50 w-full pt-5 lg:pt-[46px] bg-white">
-            <div className="mx-auto 2xl:max-w-[1420px] px-10 lg:px-16 xl:px-20">
-                <div className="flex items-center justify-between h-20">
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
-                    {/* ── Logo — left ── */}
+    return (
+        <header
+            className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500"
+            style={{
+                background: scrolled
+                    ? "rgba(255,255,255,0.85)"
+                    : "transparent",
+                backdropFilter: scrolled ? "blur(16px)" : "none",
+                WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
+                borderBottom: scrolled
+                    ? "1px solid rgba(109,40,217,0.08)"
+                    : "1px solid transparent",
+                paddingTop: scrolled ? "0" : "20px",
+            }}
+        >
+            <div className="mx-auto 2xl:max-w-[1420px] px-10 lg:px-16 xl:px-20">
+                <div
+                    className="flex items-center justify-between transition-all duration-500"
+                    style={{ height: scrolled ? "68px" : "80px" }}
+                >
+                    {/* ── Logo ── */}
                     <Link href="/" className="flex items-center gap-2 flex-shrink-0">
                         <div
                             className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -33,13 +55,17 @@ export default function Navbar() {
                             </svg>
                         </div>
                         <span
-                            className="text-base font-semibold"
-                            style={{ color: "var(--secondary)", fontFamily: "var(--font-heading)" }}
+                            className="text-base font-semibold transition-colors duration-500"
+                            style={{
+                                color: "var(--secondary)",
+                                fontFamily: "var(--font-heading)",
+                            }}
                         >
                             FutureAxis
                         </span>
                     </Link>
 
+                    {/* ── Desktop: Nav + Button ── */}
                     <div className="hidden lg:flex items-center gap-16">
                         <nav className="flex items-center gap-16">
                             {navLinks.map((link) => {
@@ -50,14 +76,16 @@ export default function Navbar() {
                                         href={link.href}
                                         className="relative flex flex-col items-center gap-2 text-base font-semibold leading-[100%] tracking-0 transition-colors duration-200 hover:text-[var(--primary)]"
                                         style={{
-                                            color: isActive ? "var(--primary)" : "text-black",
+                                            color: isActive ? "var(--primary)" : "var(--text-muted)",
                                             fontFamily: "var(--font-body)",
                                         }}
                                     >
                                         {link.label}
                                         <span
                                             className="w-2 h-2 rounded-full transition-all duration-200"
-                                            style={{ background: isActive ? "var(--primary)" : "transparent" }}
+                                            style={{
+                                                background: isActive ? "var(--primary)" : "transparent",
+                                            }}
                                         />
                                     </Link>
                                 );
@@ -118,10 +146,7 @@ export default function Navbar() {
                         );
                     })}
                     <div className="mt-1 px-1">
-                        <StartNowButton
-                            href="/contact"
-                            label="Contact Us"
-                        />
+                        <StartNowButton href="/contact" label="Contact Us" />
                     </div>
                 </div>
             </div>
