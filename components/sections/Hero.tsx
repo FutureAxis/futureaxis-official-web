@@ -46,20 +46,21 @@ export default function Hero() {
                 }}
             />
 
-            {/* Dot grid */}
+            {/* Dot grid - PRESERVED and enhanced */}
             <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                    backgroundImage: "radial-gradient(circle, rgba(109,40,217,0.12) 1px, transparent 1px)",
+                    backgroundImage: "radial-gradient(circle, rgba(109,40,217,0.15) 1px, transparent 1px)",
                     backgroundSize: "28px 28px",
-                    maskImage: "radial-gradient(ellipse 80% 80% at 60% 50%, black 20%, transparent 80%)",
-                    WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 60% 50%, black 20%, transparent 80%)",
+                    maskImage: "radial-gradient(ellipse 80% 80% at 60% 50%, black 25%, transparent 85%)",
+                    WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 60% 50%, black 25%, transparent 85%)",
+                    animation: "dotGridMove 20s linear infinite",
                 }}
             />
 
             {/* ── Animated orb 1 — large, slow drift top-right ── */}
             <div
-                className="absolute pointer-events-none rounded-full animate-orb-1"
+                className="absolute pointer-events-none rounded-full"
                 style={{
                     right: "5%",
                     top: "10%",
@@ -109,7 +110,19 @@ export default function Hero() {
                     width: "80px",
                     height: "80px",
                     borderRadius: "50%",
-                    border: "1.5px solid rgba(109,40,217,0.15)",
+                    border: "2px solid rgba(109,40,217,0.2)",
+                    animation: "ringPulse 4s ease-in-out infinite",
+                }}
+            />
+            <div
+                className="absolute pointer-events-none"
+                style={{
+                    left: "8%",
+                    top: "28%",
+                    width: "80px",
+                    height: "80px",
+                    borderRadius: "50%",
+                    border: "1.5px solid rgba(109,40,217,0.2)",
                     animation: "ringPulse 4s ease-in-out infinite",
                 }}
             />
@@ -123,7 +136,7 @@ export default function Hero() {
                     marginRight: "-20px",
                     marginTop: "-20px",
                     borderRadius: "50%",
-                    border: "1px solid rgba(196,181,253,0.12)",
+                    border: "2px solid rgba(196,181,253,0.15)",
                     animation: "ringPulse 4s ease-in-out infinite 0.5s",
                 }}
             />
@@ -137,7 +150,7 @@ export default function Hero() {
                     width: "320px",
                     height: "320px",
                     borderRadius: "50%",
-                    border: "1px solid rgba(109,40,217,0.08)",
+                    border: "2px solid rgba(109,40,217,0.1)",
                     animation: "ringPulse 6s ease-in-out infinite 1s",
                 }}
             />
@@ -149,7 +162,7 @@ export default function Hero() {
                     width: "420px",
                     height: "420px",
                     borderRadius: "50%",
-                    border: "1px solid rgba(109,40,217,0.05)",
+                    border: "2px solid rgba(109,40,217,0.08)",
                     animation: "ringPulse 6s ease-in-out infinite 1.8s",
                 }}
             />
@@ -164,7 +177,7 @@ export default function Hero() {
                     width: "500px",
                     height: "500px",
                     borderRadius: "50%",
-                    border: "1px solid rgba(109,40,217,0.07)",
+                    border: "2px solid rgba(109,40,217,0.1)",
                     animation: "ringPulse 7s ease-in-out infinite 0.3s",
                 }}
             />
@@ -177,7 +190,7 @@ export default function Hero() {
                     width: "650px",
                     height: "650px",
                     borderRadius: "50%",
-                    border: "1px solid rgba(196,181,253,0.06)",
+                    border: "2px solid rgba(196,181,253,0.08)",
                     animation: "ringPulse 7s ease-in-out infinite 1.2s",
                 }}
             />
@@ -191,35 +204,108 @@ export default function Hero() {
                     width: "260px",
                     height: "260px",
                     borderRadius: "50%",
-                    border: "1px solid rgba(109,40,217,0.06)",
+                    border: "2px solid rgba(109,40,217,0.08)",
                     animation: "ringPulse 5s ease-in-out infinite 2s",
                 }}
             />
 
-            {/* ── Floating dots ── */}
-            {[
-                { right: "32%", top: "18%", size: 5, delay: "0s", opacity: 0.4 },
-                { right: "28%", top: "72%", size: 4, delay: "1s", opacity: 0.3 },
-                { right: "48%", top: "12%", size: 3, delay: "1.5s", opacity: 0.5 },
-                { right: "55%", bottom: "20%", size: 4, delay: "0.7s", opacity: 0.3 },
-                { left: "42%", top: "25%", size: 3, delay: "2s", opacity: 0.25 },
-            ].map((dot, i) => (
-                <div
-                    key={i}
-                    className="absolute pointer-events-none rounded-full"
-                    style={{
-                        right: dot.right,
-                        top: dot.top,
-                        bottom: (dot as any).bottom,
-                        left: (dot as any).left,
-                        width: `${dot.size}px`,
-                        height: `${dot.size}px`,
-                        background: "var(--primary)",
-                        opacity: dot.opacity,
-                        animation: `dotFloat 3s ease-in-out infinite ${dot.delay}`,
-                    }}
-                />
-            ))}
+            {/* ── Additional floating decorative dots - PRESERVED and enhanced ── */}
+            <div
+                className="absolute pointer-events-none rounded-full"
+                style={{
+                    right: "12%",
+                    top: "18%",
+                    width: "5px",
+                    height: "5px",
+                    background: "var(--primary)",
+                    opacity: 0.5,
+                    animation: "dotFloat 3s ease-in-out infinite",
+                }}
+            />
+            <div
+                className="absolute pointer-events-none rounded-full"
+                style={{
+                    left: "8%",
+                    top: "68%",
+                    width: "5px",
+                    height: "5px",
+                    background: "var(--primary)",
+                    opacity: 0.2,
+                    animation: "dotFloat 3s ease-in-out infinite",
+                }}
+            />
+            <div
+                className="absolute pointer-events-none rounded-full"
+                style={{
+                    right: "28%",
+                    top: "72%",
+                    width: "4px",
+                    height: "4px",
+                    background: "var(--primary)",
+                    opacity: 0.4,
+                    animation: "dotFloat 3s ease-in-out infinite 1s",
+                }}
+            />
+            <div
+                className="absolute pointer-events-none rounded-full"
+                style={{
+                    right: "55%",
+                    bottom: "20%",
+                    width: "4px",
+                    height: "4px",
+                    background: "var(--accent)",
+                    opacity: 0.4,
+                    animation: "dotFloat 4s ease-in-out infinite 0.7s",
+                }}
+            />
+            <div
+                className="absolute pointer-events-none rounded-full"
+                style={{
+                    left: "42%",
+                    top: "25%",
+                    width: "3px",
+                    height: "3px",
+                    background: "var(--primary)",
+                    opacity: 0.35,
+                    animation: "dotFloat 2.8s ease-in-out infinite 2s",
+                }}
+            />
+            <div
+                className="absolute pointer-events-none rounded-full"
+                style={{
+                    left: "15%",
+                    bottom: "40%",
+                    width: "4px",
+                    height: "4px",
+                    background: "var(--accent)",
+                    opacity: 0.45,
+                    animation: "dotFloat 3.2s ease-in-out infinite 0.3s",
+                }}
+            />
+            <div
+                className="absolute pointer-events-none rounded-full"
+                style={{
+                    right: "12%",
+                    bottom: "45%",
+                    width: "3px",
+                    height: "3px",
+                    background: "var(--primary)",
+                    opacity: 0.5,
+                    animation: "dotFloat 3.7s ease-in-out infinite 1.2s",
+                }}
+            />
+            <div
+                className="absolute pointer-events-none rounded-full"
+                style={{
+                    left: "60%",
+                    bottom: "15%",
+                    width: "5px",
+                    height: "5px",
+                    background: "var(--accent)",
+                    opacity: 0.3,
+                    animation: "dotFloat 4.2s ease-in-out infinite 0.5s",
+                }}
+            />
 
             {/* ── Keyframe styles injected ── */}
             <style>{`
@@ -238,26 +324,32 @@ export default function Hero() {
                 }
                 @keyframes ringPulse {
                     0%, 100% { transform: scale(1); opacity: 0.6; }
-                    50%       { transform: scale(1.1); opacity: 0.2; }
+                    50%       { transform: scale(1.08); opacity: 0.2; }
                 }
                 @keyframes dotFloat {
-                    0%, 100% { transform: translateY(0); }
-                    50%       { transform: translateY(-6px); }
+                    0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+                    50%       { transform: translateY(-8px) scale(1.2); opacity: 0.7; }
+                }
+                @keyframes dotGridMove {
+                    from { background-position: 0 0; }
+                    to { background-position: 28px 28px; }
                 }
             `}</style>
 
             {/* ══════════════════════════════════════
                 MAIN LAYOUT
             ══════════════════════════════════════ */}
-            <div className="relative z-10 w-full mx-auto 2xl:max-w-[1420px] px-6 sm:px-10 lg:px-20 flex flex-col lg:flex-row items-center gap-10 lg:gap-10 py-10 lg:py-14">
+            <div
+                className="relative z-10 w-full mx-auto 2xl:max-w-[1420px] px-6 sm:px-10 lg:px-20 flex flex-col lg:flex-row items-center gap-10 lg:gap-10 py-10 lg:py-14">
 
                 {/* ── LEFT: Content ── */}
                 <div ref={contentRef} className="w-full lg:w-[48%] flex flex-col">
 
                     {/* Tag */}
                     <div data-animate className="flex items-center mb-5 lg:mb-6">
-                        <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[22px] text-xs font-semibold uppercase bg-[#F3EFFE] text-[var(--primary)]">
-                            <span className="w-2 h-2 rounded-full bg-[var(--primary)]" />
+                        <span
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[22px] text-xs font-semibold uppercase bg-[#F3EFFE] text-[var(--primary)]">
+                            <span className="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse"/>
                             Welcome to FutureAxis
                         </span>
                     </div>
@@ -265,20 +357,24 @@ export default function Hero() {
                     {/* Heading */}
                     <h1
                         data-animate
-                        className="text-[34px] sm:text-[38px] lg:text-[45px] font-bold leading-[110%] tracking-[0.02em] mb-6 text-[var(--heading)]"
-                        style={{ fontFamily: "var(--font-heading)" }}
+                        className="text-[34px] sm:text-[38px] lg:text-[45px] font-black leading-[100%] tracking-0 mb-6 text-[var(--heading)]"
+                        style={{fontFamily: "var(--font-heading)"}}
                     >
-                        Engineering Digital <br />
-                        Experiences That <br />
+                        Engineering Digital <br/>
+                        Experiences That <br/>
                         Drive{" "}
-                        <span className="text-[var(--primary)]">Real Growth</span>
+                        <span className="text-[var(--primary)] relative inline-block">
+                            Real Growth
+                            <span
+                                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[var(--primary)]/30 to-transparent rounded-full"></span>
+                        </span>
                     </h1>
 
                     {/* Paragraph */}
                     <p
                         data-animate
-                        className="text-[14px] sm:text-[15px] lg:text-[18px] leading-relaxed mb-10 max-w-[420px] text-[var(--paragraph)]"
-                        style={{ fontFamily: "var(--font-body)" }}
+                        className="text-[14px] sm:text-[15px] lg:text-[16px] leading-relaxed mb-10 max-w-[420px] text-[var(--paragraph)]"
+                        style={{fontFamily: "var(--font-body)"}}
                     >
                         We deliver reliable, high-quality digital solutions designed to elevate
                         your business and drive long-term growth.
@@ -286,8 +382,8 @@ export default function Hero() {
 
                     {/* Buttons */}
                     <div data-animate className="flex items-center gap-4 flex-wrap">
-                        <StartNowButton href="/contact" label="Start Your Project" />
-                        <ViewOurWorkButton href="/portfolio" />
+                        <StartNowButton href="/contact" label="Start Your Project"/>
+                        <ViewOurWorkButton href="/portfolio"/>
                     </div>
 
 
@@ -295,7 +391,7 @@ export default function Hero() {
 
                 {/* ── RIGHT: Dashboard ── */}
                 <div className="w-full lg:w-[52%] h-[360px] sm:h-[400px] lg:h-[460px] xl:h-[520px]">
-                    <DashboardMockup />
+                    <DashboardMockup/>
                 </div>
             </div>
         </section>
