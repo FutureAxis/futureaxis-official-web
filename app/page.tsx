@@ -2,7 +2,7 @@ import Hero from "@/components/sections/Home/Hero";
 import About from "@/components/sections/Home/About";
 import Services from "@/components/sections/Home/Services";
 import OurProcess from "@/components/sections/Home/OurProcess";
-import CTASection from "@/components/sections/Home/CTASection";
+import CTASection from "@/components/layout/CTASection";
 
 export default function Home() {
     return (
@@ -11,7 +11,6 @@ export default function Home() {
             <Services />
             <About />
             <OurProcess />
-            <CTASection />
         </main>
     );
 }
