@@ -1,36 +1,36 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {BsGraphUpArrow} from "react-icons/bs";
-import {FaLightbulb, FaSearch} from "react-icons/fa";
-import {MdEditDocument} from "react-icons/md";
-import {PiCodeBold} from "react-icons/pi";
+import { BsGraphUpArrow } from "react-icons/bs";
+import { FaLightbulb, FaSearch } from "react-icons/fa";
+import { MdEditDocument } from "react-icons/md";
+import { PiCodeBold } from "react-icons/pi";
 
 const steps = [
     {
-        icon: FaSearch ,
+        icon: FaSearch,
         label: "Discover",
-        description: "Research & understand your goals",
+        description: "We understand your business, goals and set clear objectives.",
     },
     {
-        icon: FaLightbulb ,
+        icon: FaLightbulb,
         label: "Strategize",
-        description: "Plan the best path forward",
+        description: "We create a tailored strategy to achieve your goals.",
     },
     {
-        icon: MdEditDocument ,
+        icon: MdEditDocument,
         label: "Design",
-        description: "Craft beautiful, intuitive interfaces",
+        description: "We craft innovative designs that will set you apart.",
     },
     {
-        icon: PiCodeBold ,
+        icon: PiCodeBold,
         label: "Development",
-        description: "Build with clean, scalable code",
+        description: "We build fast, reliable, and flexible digital solutions.",
     },
     {
-        icon: BsGraphUpArrow ,
+        icon: BsGraphUpArrow,
         label: "Scale",
-        description: "Grow and optimise over time",
+        description: "We lead, optimize, and transform your business growth.",
     },
 ];
 
@@ -71,7 +71,7 @@ export default function OurProcess() {
                     </h2>
                 </div>
 
-                {/* ── Steps — desktop horizontal ── */}
+                {/* ── Steps — desktop horizontal with descriptions ── */}
                 <div className="hidden lg:flex items-start justify-between relative">
 
                     {steps.map((step, i) => {
@@ -84,33 +84,41 @@ export default function OurProcess() {
 
                                 {/* Step content */}
                                 <div
-                                    className="flex flex-col items-center text-center flex-1"
+                                    className="flex flex-col items-center text-center flex-1 px-2"
                                     style={{
                                         opacity: visible ? 1 : 0,
                                         transform: visible ? "translateY(0)" : "translateY(24px)",
                                         transition: `opacity 0.55s ease ${delay}, transform 0.55s ease ${delay}`,
                                     }}
                                 >
-                                    {/* Icon circle - no border, only bottom shadow */}
+                                    {/* Icon circle */}
                                     <div
-                                        className="relative flex items-center justify-center rounded-full mb-[45px] transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                                        className="relative flex items-center justify-center rounded-full mb-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                                         style={{
-                                            width: "120px",
-                                            height: "120px",
+                                            width: "100px",
+                                            height: "100px",
                                             background: "white",
                                             boxShadow: visible ? "0 8px 24px rgba(109,40,217,0.15)" : "none",
                                             transition: `box-shadow 0.4s ease ${delay}`,
                                         }}
                                     >
-                                        <Icon size={48} color="var(--primary)" />
+                                        <Icon size={40} color="var(--primary)" />
                                     </div>
 
                                     {/* Label */}
                                     <p
-                                        className="text-base font-bold mb-1.5"
+                                        className="text-base font-bold mb-2"
                                         style={{ color: "var(--heading)", fontFamily: "var(--font-heading)" }}
                                     >
                                         {step.label}
+                                    </p>
+
+                                    {/* Description - NEW */}
+                                    <p
+                                        className="text-sm text-[var(--paragraph)] leading-relaxed max-w-[160px] mx-auto"
+                                        style={{ fontFamily: "var(--font-body)" }}
+                                    >
+                                        {step.description}
                                     </p>
                                 </div>
 
@@ -119,9 +127,9 @@ export default function OurProcess() {
                                     <div
                                         className="absolute"
                                         style={{
-                                            top: "60px", /* Half of 120px circle height */
-                                            left: "calc(50% + 60px)",
-                                            right: "calc(-50% + 60px)",
+                                            top: "50px", /* Half of 100px circle height */
+                                            left: "calc(50% + 50px)",
+                                            right: "calc(-50% + 50px)",
                                             height: "3px",
                                             display: "flex",
                                             alignItems: "center",
@@ -174,7 +182,7 @@ export default function OurProcess() {
                     })}
                 </div>
 
-                {/* ── Steps — mobile vertical ── */}
+                {/* ── Steps — mobile vertical with descriptions ── */}
                 <div className="flex lg:hidden flex-col gap-6">
                     {steps.map((step, i) => {
                         const Icon = step.icon;
@@ -211,9 +219,9 @@ export default function OurProcess() {
                                     )}
                                 </div>
 
-                                {/* Right: text */}
+                                {/* Right: text with description */}
                                 <div
-                                    className="pt-2"
+                                    className="pt-2 flex-1"
                                     style={{
                                         opacity: visible ? 1 : 0,
                                         transform: visible ? "translateX(0)" : "translateX(16px)",
@@ -227,7 +235,7 @@ export default function OurProcess() {
                                         {step.label}
                                     </p>
                                     <p
-                                        className="text-sm text-[var(--paragraph)] mt-1"
+                                        className="text-sm text-[var(--paragraph)] mt-1 leading-relaxed"
                                         style={{ fontFamily: "var(--font-body)" }}
                                     >
                                         {step.description}
