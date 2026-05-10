@@ -3,6 +3,7 @@ import {Geist, Geist_Mono, Inter, Poppins} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CTASection from "@/components/layout/CTASection";
 
 const poppins = Poppins({
   variable: "--font-heading",
@@ -38,6 +39,7 @@ export default function RootLayout({
         {children}
       </main>
 
+      <CTASection />
       <Footer />
       </body>
     </html>
