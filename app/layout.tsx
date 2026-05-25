@@ -1,18 +1,14 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import {Inter, Poppins} from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 
-const poppins = Poppins({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
 const inter = Inter({
-  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"], // Added 700 for bold text
+  variable: "--font-body",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,21 +17,21 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-      <main className="flex-1">
-        {children}
-      </main>
-      <Footer />
-      </body>
-    </html>
+      <html
+          lang="en"
+          className={`${inter.variable} h-full antialiased`}
+      >
+        <body className="min-h-full flex flex-col font-sans" style={{ fontFamily: "var(--font-body)" }}>
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </html>
   );
 }
