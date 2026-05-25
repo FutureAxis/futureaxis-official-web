@@ -1,155 +1,120 @@
+// components/layout/Navbar.tsx
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import StartNowButton from "@/components/buttons/StartNowButton";
-
-const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Projects", href: "/projects" },
-];
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import GradientButton from "@/components/buttons/GradientButton";
 
 export default function Navbar() {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-    const pathname = usePathname();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeItem, setActiveItem] = useState("home");
+    const [isScrolled, setIsScrolled] = useState(false);
 
+    // Handle scroll effect for navbar background
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isMobileMenuOpen]);
+
+    const navItems = [
+        { id: "home", label: "Home", href: "#" },
+        { id: "team", label: "Our Team", href: "#" },
+        { id: "contact", label: "Contact", href: "#" },
+    ];
+
     return (
-        <header
-            className="fixed top-0 left-0 right-0 z-[9999] w-full transition-all duration-500"
-            style={{
-                background: scrolled
-                    ? "rgba(255,255,255,0.85)"
-                    : "transparent",
-                backdropFilter: scrolled ? "blur(16px)" : "blur(16px)",
-                WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
-                borderBottom: scrolled
-                    ? "1px solid rgba(109,40,217,0.08)"
-                    : "1px solid transparent",
-                paddingTop: scrolled ? "0" : "20px",
-            }}
-        >
-            <div className="mx-auto 2xl:max-w-[1420px] px-10 lg:px-16 xl:px-20">
-                <div
-                    className="flex items-center justify-between transition-all duration-500"
-                    style={{ height: scrolled ? "68px" : "80px" }}
-                >
-                    {/* ── Logo ── */}
-                    <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-                        <div
-                            className="w-8 h-8 rounded-lg flex items-center justify-center"
-                            style={{ background: "var(--primary)" }}
-                        >
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M8 2L14 6V10L8 14L2 10V6L8 2Z" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
-                                <circle cx="8" cy="8" r="2" fill="white" />
-                            </svg>
-                        </div>
-                        <span
-                            className="text-base font-semibold transition-colors duration-500"
-                            style={{
-                                color: "var(--secondary)",
-                                fontFamily: "var(--font-heading)",
-                            }}
-                        >
-                            FutureAxis
-                        </span>
-                    </Link>
-
-                    {/* ── Desktop: Nav + Button ── */}
-                    <div className="hidden lg:flex items-center gap-16">
-                        <nav className="flex items-center gap-16">
-                            {navLinks.map((link) => {
-                                const isActive = pathname === link.href;
-                                return (
-                                    <Link
-                                        key={link.label}
-                                        href={link.href}
-                                        className="relative flex flex-col items-center gap-2 text-base font-semibold leading-[100%] tracking-0 transition-colors duration-200 hover:text-[var(--primary)]"
-                                        style={{
-                                            color: isActive ? "var(--primary)" : "var(--text-muted)",
-                                            fontFamily: "var(--font-body)",
-                                        }}
-                                    >
-                                        {link.label}
-                                        <span
-                                            className="w-2 h-2 rounded-full transition-all duration-200"
-                                            style={{
-                                                background: isActive ? "var(--primary)" : "transparent",
-                                            }}
-                                        />
-                                    </Link>
-                                );
-                            })}
-                        </nav>
-
-                        <StartNowButton href="/contact" label="Contact Us" />
-                    </div>
-
-                    {/* ── Mobile hamburger ── */}
-                    <button
-                        onClick={() => setMenuOpen(!menuOpen)}
-                        className="lg:hidden flex flex-col gap-1.5 p-2"
-                        aria-label="Toggle menu"
-                    >
-                        <span
-                            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-                            style={{ background: "var(--secondary)" }}
-                        />
-                        <span
-                            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-                            style={{ background: "var(--secondary)" }}
-                        />
-                        <span
-                            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-                            style={{ background: "var(--secondary)" }}
-                        />
-                    </button>
-                </div>
-            </div>
-
-            {/* ── Mobile dropdown ── */}
-            <div
-                className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-72 opacity-100" : "max-h-0 opacity-0"}`}
+        <>
+            <nav
+                className={`fixed top-0 left-0 right-0 z-50 flex flex-wrap items-center justify-between px-5 lg:px-[90px] py-5 transition-all duration-300 ${
+                    isScrolled ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
+                }`}
             >
-                <div className="bg-white/95 backdrop-blur-md mx-4 rounded-2xl shadow-lg px-4 py-7 flex flex-col gap-1">
-                    {navLinks.map((link) => {
-                        const isActive = pathname === link.href;
-                        return (
-                            <Link
-                                key={link.label}
-                                href={link.href}
-                                onClick={() => setMenuOpen(false)}
-                                className="flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-semibold leading-[100%] tracking-0 transition-colors"
-                                style={{
-                                    color: isActive ? "var(--primary)" : "var(--text-muted)",
-                                    background: isActive ? "rgba(109,40,217,0.06)" : "transparent",
-                                }}
-                            >
-                                {link.label}
-                                {isActive && (
-                                    <span
-                                        className="w-1.5 h-1.5 rounded-full"
-                                        style={{ background: "var(--primary)" }}
-                                    />
-                                )}
-                            </Link>
-                        );
-                    })}
-                    <div className="mt-1 px-1">
-                        <StartNowButton href="/contact" label="Contact Us" />
+                {/* Logo / Brand */}
+                <a href="#" className="text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+                    FutureAxis
+                </a>
+
+                {/* Desktop Menu */}
+                <div className="hidden md:flex items-center gap-[30px]">
+                    {navItems.map((item) => (
+                        <a
+                            key={item.id}
+                            href={item.href}
+                            onClick={() => setActiveItem(item.id)}
+                            className="relative text-white hover:text-[#7C3AED] text-sm font-medium leading-[100%] tracking-0 transition-colors duration-200 pb-2"
+                        >
+                            {item.label}
+                            {activeItem === item.id && (
+                                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#7C3AED] rounded-full" />
+                            )}
+                        </a>
+                    ))}
+                    <GradientButton>Let's Talk</GradientButton>
+                </div>
+
+                {/* Mobile Menu Button */}
+                <button
+                    className="md:hidden text-white focus:outline-none z-50 relative"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label="Toggle menu"
+                >
+                    {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                </button>
+            </nav>
+
+            {/* Mobile Menu Overlay */}
+            <div
+                className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
+                    isMobileMenuOpen
+                        ? "opacity-100 visible"
+                        : "opacity-0 invisible"
+                }`}
+                style={{ top: "73px" }}
+            >
+                <div className="flex flex-col px-[90px] py-8 gap-6">
+                    {navItems.map((item) => (
+                        <a
+                            key={item.id}
+                            href={item.href}
+                            onClick={() => {
+                                setActiveItem(item.id);
+                                setIsMobileMenuOpen(false);
+                            }}
+                            className="text-white hover:text-[#7C3AED] text-lg font-medium leading-[100%] tracking-0 transition-colors duration-200 py-3 border-b border-white/10 w-full"
+                        >
+                            {item.label}
+                            {activeItem === item.id && (
+                                <span className="block w-12 h-0.5 bg-[#7C3AED] rounded-full mt-2" />
+                            )}
+                        </a>
+                    ))}
+                    <div className="pt-4">
+                        <GradientButton>Let's Talk</GradientButton>
                     </div>
                 </div>
             </div>
-        </header>
+
+            <div className="h-[73px]" />
+        </>
     );
 }
