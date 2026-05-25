@@ -58,12 +58,12 @@ export default function AboutSection() {
 
     return (
         <section ref={sectionRef} className="w-full py-16 lg:py-24">
-            <div className="px-[90px]">
+            <div className="px-5 lg:px-[90px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
                     {/* RIGHT SIDE - Icon + Text Layout without last divider */}
                     <div
-                        className={`flex w-full transition-all duration-1000 delay-300 transform ${
+                        className={`order-2 lg:order-1 flex w-full transition-all duration-1000 delay-300 transform ${
                             isVisible
                                 ? "opacity-100 translate-x-0"
                                 : "opacity-0 translate-x-12"
@@ -125,7 +125,7 @@ export default function AboutSection() {
 
                     {/* LEFT SIDE - Content */}
                     <div
-                        className={`space-y-6 transition-all duration-1000 transform ${
+                        className={`order-1 lg:order-2 space-y-6 transition-all duration-1000 transform ${
                             isVisible
                                 ? "opacity-100 translate-x-0"
                                 : "opacity-0 -translate-x-12"
