@@ -33,13 +33,9 @@ export default function RootLayout({
       className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-      <Navbar />
-
       <main className="flex-1">
         {children}
       </main>
-
-      <CTASection />
       <Footer />
       </body>
     </html>
