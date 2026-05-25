@@ -6,6 +6,7 @@ import AboutSection from "@/components/sections/Home/About";
 import backgroundImage from "@/public/images/home/background-image.png";
 import ProcessSection from "@/components/sections/Home/OurProcess";
 import ServicesSection from "@/components/sections/Home/Services";
+import CTASection from "@/components/sections/Home/CTASection";
 
 export default function Home() {
     return (
@@ -28,6 +29,7 @@ export default function Home() {
                     <AboutSection />
                     <ServicesSection />
                     <ProcessSection />
+                    <CTASection />
                 </div>
             </div>
         </main>
