@@ -7,7 +7,7 @@ import { IoMail } from "react-icons/io5";
 export default function Footer() {
     return (
         <footer className="w-full bg-black">
-            <div className="px-[90px] py-12 lg:py-16">
+            <div className="px-5 lg:px-[90px] py-12 lg:py-16">
                 {/* Main Footer Grid - Custom column widths */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
 
