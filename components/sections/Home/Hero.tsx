@@ -42,7 +42,7 @@ export default function HeroSection() {
 
             {/* Animated Left Bottom Content */}
             <div
-                className={`absolute bottom-10 left-0 z-20 max-w-2xl px-[90px] transition-all duration-1000 ease-out transform ${
+                className={`absolute bottom-10 left-0 z-20 max-w-2xl px-5 lg:px-[90px] transition-all duration-1000 ease-out transform ${
                     isContentVisible
                         ? "opacity-100 translate-x-0"
                         : "opacity-0 -translate-x-20"
