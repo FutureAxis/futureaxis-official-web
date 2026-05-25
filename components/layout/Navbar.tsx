@@ -4,11 +4,28 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import GradientButton from "@/components/buttons/GradientButton";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeItem, setActiveItem] = useState("home");
     const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname();
+
+    const navItems = [
+        { id: "home", label: "Home", href: "/" },
+        { id: "team", label: "Our Team", href: "/team" },
+        { id: "contact", label: "Contact", href: "/contact" },
+    ];
+
+    // Determine active item based on current path
+    const getActiveItem = () => {
+        if (pathname === "/") return "home";
+        if (pathname === "/team") return "team";
+        if (pathname === "/contact") return "contact";
+        return "home";
+    };
+
+    const activeItem = getActiveItem();
 
     // Handle scroll effect for navbar background
     useEffect(() => {
@@ -36,11 +53,10 @@ export default function Navbar() {
         };
     }, [isMobileMenuOpen]);
 
-    const navItems = [
-        { id: "home", label: "Home", href: "#" },
-        { id: "team", label: "Our Team", href: "#" },
-        { id: "contact", label: "Contact", href: "#" },
-    ];
+    // Close mobile menu on route change
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [pathname]);
 
     return (
         <>
@@ -50,7 +66,7 @@ export default function Navbar() {
                 }`}
             >
                 {/* Logo / Brand */}
-                <a href="#" className="text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+                <a href="/" className="text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
                     FutureAxis
                 </a>
 
@@ -60,7 +76,6 @@ export default function Navbar() {
                         <a
                             key={item.id}
                             href={item.href}
-                            onClick={() => setActiveItem(item.id)}
                             className="relative text-white hover:text-[#7C3AED] text-sm font-medium leading-[100%] tracking-0 transition-colors duration-200 pb-2"
                         >
                             {item.label}
@@ -91,13 +106,12 @@ export default function Navbar() {
                 }`}
                 style={{ top: "73px" }}
             >
-                <div className="flex flex-col px-[90px] py-8 gap-6">
+                <div className="flex flex-col px-5 lg:px-[90px] py-8 gap-6">
                     {navItems.map((item) => (
                         <a
                             key={item.id}
                             href={item.href}
                             onClick={() => {
-                                setActiveItem(item.id);
                                 setIsMobileMenuOpen(false);
                             }}
                             className="text-white hover:text-[#7C3AED] text-lg font-medium leading-[100%] tracking-0 transition-colors duration-200 py-3 border-b border-white/10 w-full"
@@ -114,6 +128,7 @@ export default function Navbar() {
                 </div>
             </div>
 
+            {/* Spacer to prevent content from going under fixed navbar */}
             <div className="h-[73px]" />
         </>
     );
