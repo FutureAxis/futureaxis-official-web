@@ -1,241 +1,155 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import {BsGraphUpArrow} from "react-icons/bs";
-import {FaLightbulb, FaSearch} from "react-icons/fa";
-import {MdEditDocument} from "react-icons/md";
-import {PiCodeBold} from "react-icons/pi";
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import icon1 from "@/public/images/icons/Vector-5.png";
+import icon2 from "@/public/images/icons/Vector-1.png";
+import icon3 from "@/public/images/icons/Vector-6.png";
+import icon4 from "@/public/images/icons/Vector-4.png";
 
-const steps = [
-    {
-        icon: FaSearch ,
-        label: "Discover",
-        description: "Research & understand your goals",
-    },
-    {
-        icon: FaLightbulb ,
-        label: "Strategize",
-        description: "Plan the best path forward",
-    },
-    {
-        icon: MdEditDocument ,
-        label: "Design",
-        description: "Craft beautiful, intuitive interfaces",
-    },
-    {
-        icon: PiCodeBold ,
-        label: "Development",
-        description: "Build with clean, scalable code",
-    },
-    {
-        icon: BsGraphUpArrow ,
-        label: "Scale",
-        description: "Grow and optimise over time",
-    },
-];
+export default function AboutSection() {
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef<HTMLElement>(null);
 
-export default function OurProcess() {
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const [visible, setVisible] = useState(false);
+    const features = [
+        {
+            icon: icon1,
+            title: "Discover",
+            description:
+                "We understand your business, goals and target audience."
+        },
+        {
+            icon: icon2,
+            title: "Strategize",
+            description:
+                "We create a tailored strategy to solve real problems."
+        },
+        {
+            icon: icon3,
+            title: "Develop",
+            description:
+                "We build fast, scalable, and secure digital solutions."
+        },
+        {
+            icon: icon4,
+            title: "Scale",
+            description:
+                "We launch, optimize, and support your continuous growth."
+        }
+    ];
 
     useEffect(() => {
         const observer = new IntersectionObserver(
-            ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-            { threshold: 0.3 }
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
         );
-        if (sectionRef.current) observer.observe(sectionRef.current);
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
         return () => observer.disconnect();
     }, []);
 
     return (
-        <section
-            ref={sectionRef}
-            className="w-full py-20 lg:py-28 bg-[#D9CFFF26]"
-        >
-            <div className="mx-auto 2xl:max-w-[1420px] px-6 sm:px-10 lg:px-20">
+        <section ref={sectionRef} className="w-full py-16 lg:py-24">
+            <div className="px-[90px]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
-                {/* ── Header ── */}
-                <div className="flex flex-col items-center text-center mb-16 lg:mb-20">
-                    <span
-                        className="text-sm font-medium text-[var(--primary)] mb-5 uppercase leading-[100%] tracking-[0.01em]"
-                        style={{ fontFamily: "var(--font-body)" }}
+                    {/* RIGHT SIDE - Icon + Text Layout without last divider */}
+                    <div
+                        className={`flex w-full transition-all duration-1000 delay-300 transform ${
+                            isVisible
+                                ? "opacity-100 translate-x-0"
+                                : "opacity-0 translate-x-12"
+                        }`}
                     >
-                        Our Process
-                    </span>
-                    <h2
-                        className="font-heading text-3xl font-semibold text-[var(--heading)] md:text-4xl lg:text-[36px] leading-[130%] tracking-0"
-                        style={{ color: "var(--heading)" }}
-                    >
-                        Transforming Ideas into
-                        Measurable Impact
-                    </h2>
-                </div>
+                        {/* ICON COLUMN */}
+                        <div className="relative w-14 flex flex-col items-center">
+                            {/* Vertical Gradient Line - doesn't extend to last icon */}
+                            <div
+                                className="absolute top-0 w-[2px] bg-gradient-to-b from-[#7C3AED] to-[#6A2187] opacity-40"
+                                style={{
+                                    height: `calc(100% - ${features.length - 1} * (100% / ${features.length}) )`,
+                                    bottom: "auto"
+                                }}
+                            />
 
-                {/* ── Steps — desktop horizontal ── */}
-                <div className="hidden lg:flex items-start justify-between relative">
-
-                    {steps.map((step, i) => {
-                        const Icon = step.icon;
-                        const isLast = i === steps.length - 1;
-                        const delay = `${i * 120}ms`;
-
-                        return (
-                            <div key={step.label} className="flex items-start flex-1 relative">
-
-                                {/* Step content */}
+                            {features.map((feature, index) => (
                                 <div
-                                    className="flex flex-col items-center text-center flex-1"
-                                    style={{
-                                        opacity: visible ? 1 : 0,
-                                        transform: visible ? "translateY(0)" : "translateY(24px)",
-                                        transition: `opacity 0.55s ease ${delay}, transform 0.55s ease ${delay}`,
-                                    }}
+                                    key={feature.title}
+                                    className={`relative z-10 ${
+                                        index !== features.length - 1 ? "mb-16" : ""
+                                    }`}
                                 >
-                                    {/* Icon circle - no border, only bottom shadow */}
-                                    <div
-                                        className="relative flex items-center justify-center rounded-full mb-[45px] transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-                                        style={{
-                                            width: "120px",
-                                            height: "120px",
-                                            background: "white",
-                                            boxShadow: visible ? "0 8px 24px rgba(109,40,217,0.15)" : "none",
-                                            transition: `box-shadow 0.4s ease ${delay}`,
-                                        }}
-                                    >
-                                        <Icon size={48} color="var(--primary)" />
+                                    {/* Gradient Circle Icon */}
+                                    <div className="w-14 h-14 rounded-full p-[2px] bg-gradient-to-b from-[#7C3AED] to-[#6A2187]">
+                                        <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
+                                            <Image
+                                                src={feature.icon}
+                                                alt={feature.title}
+                                                width={24}
+                                                height={24}
+                                                className="w-6 h-6 object-contain"
+                                            />
+                                        </div>
                                     </div>
 
-                                    {/* Label */}
-                                    <p
-                                        className="text-base font-bold mb-1.5"
-                                        style={{ color: "var(--heading)", fontFamily: "var(--font-heading)" }}
-                                    >
-                                        {step.label}
-                                    </p>
-                                </div>
-
-                                {/* Connecting line + dot — centered between circles */}
-                                {!isLast && (
-                                    <div
-                                        className="absolute"
-                                        style={{
-                                            top: "60px", /* Half of 120px circle height */
-                                            left: "calc(50% + 60px)",
-                                            right: "calc(-50% + 60px)",
-                                            height: "3px",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            transform: "translateY(-50%)",
-                                        }}
-                                    >
-                                        {/* Line left half */}
-                                        <div
-                                            style={{
-                                                flex: 1,
-                                                height: "3px",
-                                                background: "rgba(109,40,217,0.25)",
-                                                transformOrigin: "left",
-                                                transform: visible ? "scaleX(1)" : "scaleX(0)",
-                                                transition: `transform 0.5s ease ${delay}`,
-                                                borderRadius: "2px",
-                                            }}
-                                        />
-                                        {/* Center dot */}
-                                        <div
-                                            style={{
-                                                width: "10px",
-                                                height: "10px",
-                                                borderRadius: "50%",
-                                                background: "var(--primary)",
-                                                flexShrink: 0,
-                                                margin: "0 2px",
-                                                opacity: visible ? 0.8 : 0,
-                                                transform: visible ? "scale(1)" : "scale(0)",
-                                                transition: `opacity 0.4s ease ${delay}, transform 0.4s ease ${delay}`,
-                                                boxShadow: "0 2px 6px rgba(109,40,217,0.3)",
-                                            }}
-                                        />
-                                        {/* Line right half */}
-                                        <div
-                                            style={{
-                                                flex: 1,
-                                                height: "3px",
-                                                background: "rgba(109,40,217,0.25)",
-                                                transformOrigin: "right",
-                                                transform: visible ? "scaleX(1)" : "scaleX(0)",
-                                                transition: `transform 0.5s ease ${delay}`,
-                                                borderRadius: "2px",
-                                            }}
-                                        />
-                                    </div>
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
-
-                {/* ── Steps — mobile vertical ── */}
-                <div className="flex lg:hidden flex-col gap-6">
-                    {steps.map((step, i) => {
-                        const Icon = step.icon;
-                        const isLast = i === steps.length - 1;
-                        const delay = `${i * 100}ms`;
-
-                        return (
-                            <div key={step.label} className="flex gap-4 items-start">
-                                {/* Left: icon + vertical line */}
-                                <div className="flex flex-col items-center flex-shrink-0">
-                                    <div
-                                        className="flex items-center justify-center rounded-full"
-                                        style={{
-                                            width: "64px",
-                                            height: "64px",
-                                            background: "white",
-                                            boxShadow: "0 8px 20px rgba(109,40,217,0.12)",
-                                            opacity: visible ? 1 : 0,
-                                            transform: visible ? "scale(1)" : "scale(0.8)",
-                                            transition: `all 0.45s ease ${delay}`,
-                                        }}
-                                    >
-                                        <Icon size={28} color="var(--primary)" />
-                                    </div>
-                                    {!isLast && (
-                                        <div
-                                            style={{
-                                                width: "2px",
-                                                height: "32px",
-                                                marginTop: "8px",
-                                                background: "linear-gradient(to bottom, rgba(109,40,217,0.3), rgba(109,40,217,0.05))",
-                                            }}
-                                        />
+                                    {/* Divider line below icon (except last one) - Increased height */}
+                                    {index < features.length - 1 && (
+                                        <div className="absolute left-1/2 -translate-x-1/2 top-14 w-[1.5px] h-24 bg-gradient-to-b from-[#7C3AED] to-[#6A2187]/30" />
                                     )}
                                 </div>
+                            ))}
+                        </div>
 
-                                {/* Right: text */}
-                                <div
-                                    className="pt-2"
-                                    style={{
-                                        opacity: visible ? 1 : 0,
-                                        transform: visible ? "translateX(0)" : "translateX(16px)",
-                                        transition: `all 0.5s ease ${delay}`,
-                                    }}
-                                >
-                                    <p
-                                        className="text-base font-bold"
-                                        style={{ color: "var(--heading)", fontFamily: "var(--font-heading)" }}
-                                    >
-                                        {step.label}
-                                    </p>
-                                    <p
-                                        className="text-sm text-[var(--paragraph)] mt-1"
-                                        style={{ fontFamily: "var(--font-body)" }}
-                                    >
-                                        {step.description}
+                        {/* TEXT COLUMN */}
+                        <div className="flex-1 ml-6 space-y-16">
+                            {features.map((feature, index) => (
+                                <div key={feature.title}>
+                                    <h3 className="text-white text-lg font-semibold mb-2">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-[#A4A4A4] text-sm leading-relaxed">
+                                        {feature.description}
                                     </p>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* LEFT SIDE - Content */}
+                    <div
+                        className={`space-y-6 transition-all duration-1000 transform ${
+                            isVisible
+                                ? "opacity-100 translate-x-0"
+                                : "opacity-0 -translate-x-12"
+                        }`}
+                    >
+                        <div className="flex items-center gap-3 mb-[45px]">
+                            <div className="w-2 h-2 rounded-full bg-[#7C3AED]"/>
+                            <p className="text-[#7C3AED] uppercase tracking-[3px] leading-[100%] text-sm font-semibold">
+                                OUR PROCESS
+                            </p>
+                        </div>
+
+                        <h2 className="text-4xl md:text-[36px] font-semibold leading-[130%] tracking-0 mb-[45px]">
+                            <span className="text-white">Transforming Ideas into <br/> </span>
+                            <span
+                                className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">Measurable Impact</span>
+                        </h2>
+
+                        <p className="text-[#7D7D7D] text-[18px] leading-[100%] tracking-0 max-w-md font-normal">
+                            We don't just deliver digital solutions — we partner with you to drive real business
+                            success. Our team combines strategy, design, and technology to create solutions that are not
+                            only visually impressive but also built to perform.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
