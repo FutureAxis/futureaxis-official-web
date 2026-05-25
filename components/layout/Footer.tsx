@@ -6,7 +6,7 @@ import { IoMail } from "react-icons/io5";
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-black">
+        <footer className="w-full bg-black relative z-20">
             <div className="px-5 lg:px-[90px] py-12 lg:py-16">
                 {/* Main Footer Grid - Responsive columns */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
