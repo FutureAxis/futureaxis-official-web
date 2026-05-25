@@ -8,11 +8,11 @@ export default function Footer() {
     return (
         <footer className="w-full bg-black">
             <div className="px-5 lg:px-[90px] py-12 lg:py-16">
-                {/* Main Footer Grid - Custom column widths */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+                {/* Main Footer Grid - Responsive columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
 
-                    {/* Brand Section - Wider (5 columns) */}
-                    <div className="md:col-span-5 space-y-4">
+                    {/* Brand Section - Full width on mobile, 2 cols on tablet, 5 cols on desktop */}
+                    <div className="sm:col-span-2 lg:col-span-5 space-y-4">
                         <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                             FutureAxis
                         </h2>
@@ -45,8 +45,8 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Quick Links - Smaller (2.5 columns) */}
-                    <div className="md:col-span-2 space-y-4">
+                    {/* Quick Links */}
+                    <div className="sm:col-span-1 lg:col-span-2 space-y-4">
                         <h3 className="text-white font-semibold text-lg">Quick Links</h3>
                         <ul className="space-y-2">
                             <li>
@@ -72,8 +72,8 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Services - Smaller (2.5 columns) */}
-                    <div className="md:col-span-2 space-y-4">
+                    {/* Services */}
+                    <div className="sm:col-span-1 lg:col-span-2 space-y-4">
                         <h3 className="text-white font-semibold text-lg">Services</h3>
                         <ul className="space-y-2">
                             <li>
@@ -94,13 +94,13 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact Us - Smaller (2.5 columns) */}
-                    <div className="md:col-span-2 space-y-4">
+                    {/* Contact Us */}
+                    <div className="sm:col-span-2 lg:col-span-2 space-y-4">
                         <h3 className="text-white font-semibold text-lg">Contact Us</h3>
                         <ul className="space-y-3">
-                            <li className="flex items-center gap-3 text-[#A4A4A4] text-base font-normal cursor-pointer">
+                            <li className="flex items-center gap-3 text-[#A4A4A4] text-base font-normal cursor-pointer break-all sm:break-normal">
                                 <IoMail className="w-4 h-4 text-purple-400 flex-shrink-0" />
-                                <span>futureaxisdigitals.com</span>
+                                <span className="break-all sm:break-normal">futureaxisdigitals.com</span>
                             </li>
                             <li className="flex items-center gap-3 text-[#A4A4A4] text-base font-normal cursor-pointer">
                                 <MdPhone className="w-4 h-4 text-purple-400 flex-shrink-0" />
@@ -113,7 +113,7 @@ export default function Footer() {
                 {/* Bottom Bar - Full width border top */}
                 <div className="mt-12 pt-6 border-t border-purple-500/30 w-full">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <p className="text-[#676767] text-sm font-medium">
+                        <p className="text-[#676767] text-sm font-medium text-center">
                             Copyright © 2026 FutureAxis. All rights reserved.
                         </p>
                         <div className="flex items-center gap-6">
