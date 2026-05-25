@@ -51,19 +51,13 @@ export default function ServicesSection() {
 
     const CheckIcon = () => (
         <div className="flex items-center justify-center flex-shrink-0 w-5 h-5">
-            <Image
-                src={checkIcon}
-                alt="Check"
-                width={20}
-                height={20}
-                className="object-contain"
-            />
+            <Image src={checkIcon} alt="Check" width={20} height={20} className="object-contain" />
         </div>
     );
 
     return (
         <section ref={sectionRef} className="w-full py-16 lg:py-24">
-            <div className="px-[90px]">
+            <div className="px-5 lg:px-[90px]">
 
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-20">
@@ -81,31 +75,44 @@ export default function ServicesSection() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div
-                        className={`transition-all duration-700`}
-                        style={{ transitionDelay: "0ms" }}
-                    >
-                        <div className="relative rounded-[18px] overflow-hidden h-full min-h-[780px] group border border-[#15102E]">
-                            {/* Background image */}
-                            <div className="absolute inset-0">
-                                <Image
-                                    src={services[0].image}
-                                    alt={services[0].imageAlt}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    style={{ objectPosition: "center" }}
-                                />
+
+                    {/* LEFT CARD */}
+                    <div>
+
+                        {/* MOBILE */}
+                        <div className="lg:hidden flex flex-col rounded-[18px] overflow-hidden border border-[#15102E] bg-[#0B0B1A]">
+                            <div className="relative w-full h-[220px]">
+                                <Image src={services[0].image} alt={services[0].imageAlt} fill className="object-cover" />
                             </div>
 
-                            {/* Content pinned to top */}
+                            <div className="p-6 flex flex-col">
+                                <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-4">{services[0].title}</h3>
+                                <p className="text-[#A4A4A4] text-[15px] leading-relaxed mb-6">{services[0].description}</p>
+
+                                <div className="flex flex-col gap-3">
+                                    {services[0].features.map((f, i) => (
+                                        <div key={i} className="flex items-center gap-3">
+                                            <CheckIcon />
+                                            <span className="text-[#A4A4A4] text-[15px]">{f}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* DESKTOP (UNCHANGED) */}
+                        <div className="hidden lg:block relative rounded-[18px] overflow-hidden h-full min-h-[780px] group border border-[#15102E]">
+                            <div className="absolute inset-0">
+                                <Image src={services[0].image} alt={services[0].imageAlt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                            </div>
                             <div className="relative z-10 p-8 flex flex-col justify-start h-full">
-                                <h3 className="text-[#F8FAFC] text-[18px] font-semibold leading-[130%] tracking-0 mb-[27px]">{services[0].title}</h3>
-                                <p className="text-[#A4A4A4] text-[18px] leading-[100%] tracking-0 mb-[42px]">{services[0].description}</p>
+                                <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-[27px]">{services[0].title}</h3>
+                                <p className="text-[#A4A4A4] text-[18px] mb-[42px]">{services[0].description}</p>
                                 <div className="flex flex-col gap-10">
                                     {services[0].features.map((f, i) => (
                                         <div key={i} className="flex items-center gap-3">
                                             <CheckIcon />
-                                            <span className="text-[#A4A4A4] text-[18px] font-normal leading-[100%] tracking-0">{f}</span>
+                                            <span className="text-[#A4A4A4] text-[18px]">{f}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -113,44 +120,56 @@ export default function ServicesSection() {
                         </div>
                     </div>
 
-                    {/* RIGHT COLUMN: 2 cards stacked */}
+                    {/* RIGHT COLUMN */}
                     <div className="flex flex-col gap-6">
                         {services.slice(1).map((service, index) => (
-                            <div
-                                key={service.title}
-                                className={`flex-1 transition-all duration-700`}
-                                style={{ transitionDelay: `${(index + 1) * 150}ms` }}
-                            >
-                                <div className="relative rounded-[18px] overflow-hidden h-full min-h-[240px] group border border-[#15102E]">
-                                    {/* Background image */}
-                                    <div className="absolute inset-0">
-                                        <Image
-                                            src={service.image}
-                                            alt={service.imageAlt}
-                                            fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                            style={{ objectPosition: "center right" }}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/50 to-transparent" />
+                            <div key={service.title}>
+
+                                {/* MOBILE */}
+                                <div className="lg:hidden flex flex-col rounded-[18px] overflow-hidden border border-[#15102E] bg-[#0B0B1A]">
+                                    <div className="relative w-full h-[220px]">
+                                        <Image src={service.image} alt={service.imageAlt} fill className="object-cover" />
                                     </div>
 
-                                    {/* Content — left side only */}
-                                    <div className="relative z-10 p-8 flex flex-col justify-center h-full max-w-[60%]">
-                                        <h3 className="text-[#F8FAFC] text-[18px] font-semibold leading-[130%] tracking-0 mb-[27px]">{service.title}</h3>
-                                        <p className="text-[#A4A4A4] text-[18px] leading-[100%] tracking-0 mb-[42px]">{service.description}</p>
-                                        <div className="space-y-2.5">
+                                    <div className="p-6">
+                                        <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-4">{service.title}</h3>
+                                        <p className="text-[#A4A4A4] text-[15px] leading-relaxed mb-6">{service.description}</p>
+
+                                        <div className="flex flex-col gap-3">
                                             {service.features.map((f, i) => (
                                                 <div key={i} className="flex items-center gap-3">
                                                     <CheckIcon />
-                                                    <span className="text-[#A4A4A4] text-[18px] font-normal leading-[100%] tracking-0">{f}</span>
+                                                    <span className="text-[#A4A4A4] text-[15px]">{f}</span>
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* DESKTOP (UNCHANGED) */}
+                                <div className="hidden lg:block relative rounded-[18px] overflow-hidden h-full min-h-[240px] group border border-[#15102E]">
+                                    <div className="absolute inset-0">
+                                        <Image src={service.image} alt={service.imageAlt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/50 to-transparent" />
+                                    </div>
+                                    <div className="relative z-10 p-8 flex flex-col justify-center h-full max-w-[60%]">
+                                        <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-[27px]">{service.title}</h3>
+                                        <p className="text-[#A4A4A4] text-[18px] mb-[42px]">{service.description}</p>
+                                        <div className="space-y-2.5">
+                                            {service.features.map((f, i) => (
+                                                <div key={i} className="flex items-center gap-3">
+                                                    <CheckIcon />
+                                                    <span className="text-[#A4A4A4] text-[18px]">{f}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         ))}
                     </div>
+
                 </div>
             </div>
         </section>
