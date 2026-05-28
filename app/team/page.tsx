@@ -4,7 +4,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
-import backgroundImage from "@/public/images/home/background-image.png";
+import backgroundImage from "@/public/images/home/background-bg.png";
 import yehan from "@/public/images/team/yehan.png";
 
 export default function TeamPage() {
@@ -118,7 +118,7 @@ export default function TeamPage() {
 
     return (
         <>
-            {/* Background Image */}
+            {/* Background Image with Dark Overlay */}
             <div className="fixed inset-0 z-0">
                 <Image
                     src={backgroundImage}
@@ -128,6 +128,8 @@ export default function TeamPage() {
                     priority
                     quality={100}
                 />
+                {/* Dark Overlay to make background darker */}
+                <div className="absolute inset-0 bg-black/70" />
             </div>
 
             {/* Content */}
