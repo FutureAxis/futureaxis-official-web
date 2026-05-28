@@ -58,7 +58,7 @@ export default function HeroSection() {
                     </div>
 
                     {/* Description text */}
-                    <p className="text-sm md:text-base text-[#A4A4A4] font-normal tracking-0 leading-[150%] max-w-sm mb-[23px]">
+                    <p className="text-sm md:text-[17px] text-[#A4A4A4] font-normal tracking-0 leading-[150%] max-w-sm mb-[23px]">
                         We deliver reliable, high-quality digital solutions designed to elevate
                         your business and drive long-term growth.
                     </p>
