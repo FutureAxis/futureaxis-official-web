@@ -167,7 +167,6 @@ export default function TeamPage() {
                         </div>
 
                         <div className="mb-20">
-                            <h2 className="sr-only">Leadership Team</h2>
                             <div className="flex justify-center">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto w-full">
                                     {leaders.map((member, index) => (
@@ -178,7 +177,6 @@ export default function TeamPage() {
                         </div>
 
                         <div>
-                            <h2 className="sr-only">Core Team Members</h2>
                             <div className="hidden lg:block">
                                 <div className="grid grid-cols-5 gap-6 lg:gap-8 mb-[64px]">
                                     {firstFiveMembers.map((member, index) => (
