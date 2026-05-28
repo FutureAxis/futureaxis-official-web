@@ -1,11 +1,10 @@
-// app/contact/page.tsx
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import GradientButton from "@/components/buttons/GradientButton";
-import backgroundImage from "@/public/images/home/background-image.png";
+import backgroundImage from "@/public/images/home/background-bg.png";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function ContactPage() {
@@ -42,7 +41,7 @@ export default function ContactPage() {
                     priority
                     quality={100}
                 />
-                <div className="absolute inset-0 bg-black/70" />
+                <div className="absolute inset-0 bg-black/70"/>
             </div>
 
             {/* Content */}
@@ -99,12 +98,16 @@ export default function ContactPage() {
                                     </p>
                                 </div>
 
-                                {/* Contact Info - Call and Email in same row */}
+                                {/* Contact Info - Call and Email in same row with radial gradient icons */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div className="flex items-start gap-4">
+                                    <div className="flex items-start gap-4 group">
                                         <div
-                                            className="w-10 h-10 rounded-full bg-[#7C3AED]/20 flex items-center justify-center flex-shrink-0">
-                                            <FaPhone className="w-4 h-4 text-[#7C3AED]" />
+                                            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#7C3AED]/30"
+                                            style={{
+                                                background: 'radial-gradient(circle at center, #7C3AED 0%, #341A60 100%)'
+                                            }}
+                                        >
+                                            <FaPhone className="w-4 h-4 text-white" />
                                         </div>
                                         <div>
                                             <h4 className="text-white font-semibold text-[11px]">Call Us</h4>
@@ -114,9 +117,14 @@ export default function ContactPage() {
                                         </div>
                                     </div>
 
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-[#7C3AED]/20 flex items-center justify-center flex-shrink-0">
-                                            <FaEnvelope className="w-4 h-4 text-[#7C3AED]" />
+                                    <div className="flex items-start gap-4 group">
+                                        <div
+                                            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#7C3AED]/30"
+                                            style={{
+                                                background: 'radial-gradient(circle at center, #7C3AED 0%, #341A60 100%)'
+                                            }}
+                                        >
+                                            <FaEnvelope className="w-4 h-4 text-white" />
                                         </div>
                                         <div>
                                             <h4 className="text-white font-semibold text-[11px]">Email Us</h4>
@@ -127,11 +135,16 @@ export default function ContactPage() {
                                     </div>
                                 </div>
 
-                                {/* Office Info with Gradient Border Below */}
+                                {/* Office Info with Gradient Border Below and radial gradient icon */}
                                 <div>
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-[#7C3AED]/20 flex items-center justify-center flex-shrink-0">
-                                            <FaMapMarkerAlt className="w-4 h-4 text-[#7C3AED]" />
+                                    <div className="flex items-start gap-4 group">
+                                        <div
+                                            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#7C3AED]/30"
+                                            style={{
+                                                background: 'radial-gradient(circle at center, #7C3AED 0%, #341A60 100%)'
+                                            }}
+                                        >
+                                            <FaMapMarkerAlt className="w-4 h-4 text-white" />
                                         </div>
                                         <div>
                                             <h4 className="text-white font-semibold text-[11px]">Our Office</h4>
@@ -145,30 +158,39 @@ export default function ContactPage() {
                                     <div className="w-full h-px bg-gradient-to-r from-[#6A2187] to-[#7C3AED] mt-[40px]" />
                                 </div>
 
-                                {/* Social Media */}
+                                {/* Social Media with Radial Gradient */}
                                 <div>
                                     <h4 className="text-white text-sm font-semibold mb-[18px]">Follow Us on Social Media</h4>
                                     <div className="flex items-center gap-4">
                                         <a
                                             href="#"
-                                            className="w-10 h-10 rounded-full bg-[#15102E] flex items-center justify-center text-[#A4A4A4] hover:bg-[#7C3AED] hover:text-white transition-all duration-300"
+                                            className="group relative w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300 overflow-hidden hover:scale-110 hover:shadow-lg hover:shadow-[#7C3AED]/30"
                                             aria-label="Facebook"
+                                            style={{
+                                                background: 'radial-gradient(circle at center, #7C3AED 0%, #341A60 100%)'
+                                            }}
                                         >
-                                            <FaFacebookF size={16} />
+                                            <FaFacebookF size={16} className="relative z-10 group-hover:scale-110 transition-transform" />
                                         </a>
                                         <a
                                             href="#"
-                                            className="w-10 h-10 rounded-full bg-[#15102E] flex items-center justify-center text-[#A4A4A4] hover:bg-[#7C3AED] hover:text-white transition-all duration-300"
+                                            className="group relative w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300 overflow-hidden hover:scale-110 hover:shadow-lg hover:shadow-[#7C3AED]/30"
                                             aria-label="Instagram"
+                                            style={{
+                                                background: 'radial-gradient(circle at center, #7C3AED 0%, #341A60 100%)'
+                                            }}
                                         >
-                                            <FaInstagram size={16} />
+                                            <FaInstagram size={16} className="relative z-10 group-hover:scale-110 transition-transform" />
                                         </a>
                                         <a
                                             href="#"
-                                            className="w-10 h-10 rounded-full bg-[#15102E] flex items-center justify-center text-[#A4A4A4] hover:bg-[#7C3AED] hover:text-white transition-all duration-300"
+                                            className="group relative w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300 overflow-hidden hover:scale-110 hover:shadow-lg hover:shadow-[#7C3AED]/30"
                                             aria-label="LinkedIn"
+                                            style={{
+                                                background: 'radial-gradient(circle at center, #7C3AED 0%, #341A60 100%)'
+                                            }}
                                         >
-                                            <FaLinkedinIn size={16} />
+                                            <FaLinkedinIn size={16} className="relative z-10 group-hover:scale-110 transition-transform" />
                                         </a>
                                     </div>
                                 </div>
