@@ -83,31 +83,33 @@ export default function TeamPage() {
 
     const TeamCard = ({ member, index }: { member: any; index: number }) => (
         <div
-            className={`transition-all duration-700 transform ${
+            className={`transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
                 isVisible
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-12"
+                    : "opacity-0 translate-y-10"
             }`}
-            style={{ transitionDelay: `${index * 100}ms` }}
+            style={{ transitionDelay: `${index * 120}ms` }}
         >
-            <div className="group cursor-pointer">
+            <div className="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+
                 <div className="relative w-full aspect-square rounded-[14px] overflow-hidden mb-5 bg-gradient-to-br from-[#7C3AED]/20 to-[#6A2187]/20">
                     <Image
                         src={member.image}
-                        alt={`${member.name} - ${member.role} at Future Axis Digital`}
+                        alt={`${member.name} - ${member.role}`}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                 </div>
 
                 <div className="text-center">
-                    <h3 className="text-[#A4A4A4] text-base font-medium mb-5 leading-[100%] tracking-0">
+                    <h3 className="text-[#A4A4A4] text-base font-medium mb-2">
                         {member.name}
                     </h3>
-                    <p className="text-white text-base font-medium leading-[100%] tracking-0">
+                    <p className="text-white text-base font-medium">
                         {member.role}
                     </p>
                 </div>
+
             </div>
         </div>
     );
@@ -151,25 +153,33 @@ export default function TeamPage() {
 
                 <section ref={sectionRef} className="w-full py-20 lg:pt-24 lg:pb-[150px]">
                     <div className="px-5 lg:px-[90px]">
-                        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-1000 transform mb-[130px] ${
-                            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-                        }`}>
+                        <div
+                            className={`text-center max-w-3xl mx-auto mb-[130px] transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
+                                isVisible
+                                    ? "opacity-100 translate-y-0"
+                                    : "opacity-0 -translate-y-12"
+                            }`}
+                        >
                             <h1 className="text-[24px] md:text-[36px] font-semibold text-white leading-[130%] mb-[34px]">
                                 <span>Visionary Team </span>
-                                <span className="bg-gradient-to-r from-[#6A2187] to-[#7C3AED] bg-clip-text text-transparent">
+                                <span
+                                    className="bg-gradient-to-r from-[#6A2187] to-[#7C3AED] bg-clip-text text-transparent">
                                     Exceptional Results
                                 </span>
                             </h1>
                             <p className="text-[#7D7D7D] text-base leading-relaxed">
-                                We are a passionate team of designers, developers, and digital innovators dedicated to creating modern experiences that combine creativity, strategy, and technology to help brands
+                                We are a passionate team of designers, developers, and digital innovators dedicated to
+                                creating modern experiences that combine creativity, strategy, and technology to help
+                                brands
                                 grow in the digital world.
                             </p>
                         </div>
 
                         <div className="mb-20">
                             <div className="flex justify-center">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto w-full">
-                                    {leaders.map((member, index) => (
+                                <div
+                                    className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto w-full">
+                                {leaders.map((member, index) => (
                                         <TeamCard key={member.name} member={member} index={index} />
                                     ))}
                                 </div>
