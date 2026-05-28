@@ -54,7 +54,7 @@ export default function AboutSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full py-16 lg:py-24">
+        <section ref={sectionRef} className="w-full pt-16 lg:pt-24">
             <div className="px-5 lg:px-[90px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
                     {/* Left Column */}
@@ -105,7 +105,7 @@ export default function AboutSection() {
                             </p>
                         </div>
 
-                        <GradientButton className="mt-4">
+                        <GradientButton>
                             Meet Our Team
                         </GradientButton>
                     </div>
