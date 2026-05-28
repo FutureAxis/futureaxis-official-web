@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Head from "next/head";
 import Navbar from "@/components/layout/Navbar";
 import GradientButton from "@/components/buttons/GradientButton";
 import backgroundImage from "@/public/images/home/background-bg.png";
@@ -31,11 +32,25 @@ export default function ContactPage() {
 
     return (
         <>
+            <Head>
+                <title>Contact Us | Start Your Digital Journey with Future Axis Digital</title>
+                <meta name="description" content="Get in touch with Future Axis Digital. Discuss your web development, social media marketing, or IT consulting project. Our team is ready to help your business grow." />
+                <meta name="keywords" content="contact digital agency, web development contact, IT consulting Melbourne, digital marketing inquiry, Future Axis Digital contact" />
+                <link rel="canonical" href="https://futureaxisdigital.com/contact" />
+
+                {/* Open Graph / Facebook / LinkedIn */}
+                <meta property="og:title" content="Contact Future Axis Digital | Let's Discuss Your Project" />
+                <meta property="og:description" content="Connect with our creative team to discuss your next project. We combine strategy, design, and technology to craft premium digital experiences." />
+                <meta property="og:url" content="https://futureaxisdigital.com/contact" />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="Future Axis Digital" />
+            </Head>
+
             {/* Background Image */}
             <div className="fixed inset-0 z-0">
                 <Image
                     src={backgroundImage}
-                    alt="Background"
+                    alt="Background pattern for Future Axis Digital contact page"
                     fill
                     className="object-cover"
                     priority
@@ -58,12 +73,12 @@ export default function ContactPage() {
                                     : "opacity-0 translate-y-12"
                             }`}
                         >
-                            <h2 className="text-[28px] md:text-[36px] font-semibold text-white leading-[130%] mb-[37px]">
+                            <h1 className="text-[28px] md:text-[36px] font-semibold text-white leading-[130%] mb-[37px]">
                                 <span>Let's Talk About Your </span>
                                 <span className="bg-gradient-to-r from-[#6A2187] to-[#7C3AED] bg-clip-text text-transparent">
                                     Next Project
                                 </span>
-                            </h2>
+                            </h1>
 
                             <p className="text-[#7D7D7D] text-[18px] font-medium leading-[100%] tracking-0 max-w-2xl mx-auto">
                                 Connect with our creative team to discuss your next project. We combine strategy, design,
@@ -71,9 +86,8 @@ export default function ContactPage() {
                             </p>
                         </div>
 
-                        {/* Two Column Layout */}
+                        {/* Rest of your contact page content remains exactly the same */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-
                             {/* LEFT COLUMN - Contact Details */}
                             <div
                                 className={`space-y-8 transition-all duration-1000 delay-200 transform ${
@@ -82,7 +96,6 @@ export default function ContactPage() {
                                         : "opacity-0 -translate-x-12"
                                 }`}
                             >
-                                {/* GET IN TOUCH Heading with circle */}
                                 <div>
                                     <div className="flex items-center justify-start gap-3 mb-[30px]">
                                         <div className="w-2 h-2 rounded-full bg-[#7C3AED]"/>
@@ -98,7 +111,7 @@ export default function ContactPage() {
                                     </p>
                                 </div>
 
-                                {/* Contact Info - Call and Email in same row with radial gradient icons */}
+                                {/* Contact Info */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div className="flex items-start gap-4 group">
                                         <div
@@ -135,7 +148,7 @@ export default function ContactPage() {
                                     </div>
                                 </div>
 
-                                {/* Office Info with Gradient Border Below and radial gradient icon */}
+                                {/* Office Info */}
                                 <div>
                                     <div className="flex items-start gap-4 group">
                                         <div
@@ -154,11 +167,10 @@ export default function ContactPage() {
                                             </p>
                                         </div>
                                     </div>
-                                    {/* Gradient Border Below Address */}
                                     <div className="w-full h-px bg-gradient-to-r from-[#6A2187] to-[#7C3AED] mt-[40px]" />
                                 </div>
 
-                                {/* Social Media with Radial Gradient */}
+                                {/* Social Media */}
                                 <div>
                                     <h4 className="text-white text-sm font-semibold mb-[18px]">Follow Us on Social Media</h4>
                                     <div className="flex items-center gap-4">
@@ -196,7 +208,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            {/* RIGHT COLUMN - Contact Form (Bottom border only) */}
+                            {/* RIGHT COLUMN - Contact Form */}
                             <div
                                 className={`transition-all duration-1000 delay-400 transform ${
                                     isVisible
