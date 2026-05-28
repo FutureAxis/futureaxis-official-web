@@ -16,34 +16,37 @@ export default function AboutSection() {
         {
             icon: icon1,
             title: "Innovation",
-            description: "We embrace creativity and technology to build future-ready solutions."
+            description:
+                "We embrace creativity and technology to build future-ready solutions.",
         },
         {
             icon: icon2,
             title: "Partnership",
-            description: "We grow together with our client through collaboration and trust."
+            description:
+                "We grow together with our client through collaboration and trust.",
         },
         {
             icon: icon3,
             title: "Transparency",
-            description: "We believe in clear communication and honesty in every interaction."
+            description:
+                "We believe in clear communication and honesty in every interaction.",
         },
         {
             icon: icon4,
             title: "Performance",
-            description: "We focus on results that drive real impact and measurable growth."
-        }
+            description:
+                "We focus on results that drive real impact and measurable growth.",
+        },
     ];
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect();
-                }
+                setIsVisible(entry.isIntersecting);
             },
-            { threshold: 0.1 }
+            {
+                threshold: 0.2,
+            }
         );
 
         if (sectionRef.current) {
@@ -57,73 +60,99 @@ export default function AboutSection() {
         <section ref={sectionRef} className="w-full pt-16 lg:pt-24">
             <div className="px-5 lg:px-[90px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+
                     {/* Left Column */}
                     <div className="space-y-6">
-                        <div className="flex items-center gap-3 mb-[26px]">
+
+                        {/* ABOUT US */}
+                        <div
+                            className={`flex items-center gap-3 mb-[26px] transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform will-change-transform ${
+                                isVisible
+                                    ? "opacity-100 translate-y-0"
+                                    : "opacity-0 -translate-y-10"
+                            }`}
+                        >
                             <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
-                            <p className="text-[#7C3AED] uppercase tracking-[3px] leading-[100%] text-sm font-semibold">
+                            <p className="text-[#7C3AED] uppercase tracking-[3px] text-sm font-semibold">
                                 ABOUT US
                             </p>
                         </div>
 
+                        {/* Heading */}
                         <div
-                            className={`transition-all duration-1000 transform mb-[60px] ${
+                            className={`transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100 transform will-change-transform mb-[60px] ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-12"
+                                    : "opacity-0 -translate-y-16"
                             }`}
                         >
-                            <h2 className="text-4xl md:text-[36px] font-semibold leading-[130%] tracking-0">
-                                <span className="text-white">Driven by Purpose </span> <span
-                                className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">Focus on Impact</span>
+                            <h2 className="text-4xl md:text-[36px] font-semibold leading-[130%]">
+                                <span className="text-white">
+                                    Driven by Purpose{" "}
+                                </span>
+                                <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">
+                                    Focus on Impact
+                                </span>
                             </h2>
                         </div>
 
+                        {/* Description */}
                         <div
-                            className={`transition-all duration-1000 delay-100 transform ${
+                            className={`transition-all duration-1000 delay-200 transform will-change-transform ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
                                     : "opacity-0 -translate-y-12"
                             }`}
                         >
-                            <p className="text-[#7D7D7D] text-[18px] font-normal leading-[150%] tracking-0 max-w-lg mb-[33px]">
-                                FutureAxis is a digital solutions company focused on delivering innovative,
-                                scalable, and results-driven solutions that help business grow and succeed
-                                in the digital world.
+                            <p className="text-[#7D7D7D] text-[18px] leading-[150%] max-w-lg mb-[33px]">
+                                FutureAxis is a digital solutions company
+                                focused on delivering innovative, scalable, and
+                                results-driven solutions that help business grow
+                                and succeed in the digital world.
                             </p>
                         </div>
 
+                        {/* Mission */}
                         <div
-                            className={`transition-all duration-1000 delay-200 transform mb-8 ${
+                            className={`transition-all duration-1000 delay-300 transform will-change-transform mb-8 ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
                                     : "opacity-0 -translate-y-12"
                             }`}
                         >
-                            <p className="text-[#F8FAFC] text-[18px] leading-[150%] tracking-0 font-normal max-w-md">
-                                Our Mission is To empower business with innovative digital solutions that drive growth, efficiency and long-term success.
+                            <p className="text-[#F8FAFC] text-[18px] leading-[150%] max-w-md">
+                                Our Mission is to empower businesses with
+                                innovative digital solutions that drive growth,
+                                efficiency, and long-term success.
                             </p>
                         </div>
 
-                        <GradientButton>
-                            Meet Our Team
-                        </GradientButton>
+                        {/* Button */}
+                        <div
+                            className={`transition-all duration-1000 delay-500 transform ${
+                                isVisible
+                                    ? "opacity-100 translate-y-0"
+                                    : "opacity-0 -translate-y-10"
+                            }`}
+                        >
+                            <GradientButton>Meet Our Team</GradientButton>
+                        </div>
                     </div>
 
-                    {/* Right Column - Features with Dividers matching image */}
+                    {/* Right Column */}
                     <div className="space-y-6">
                         {features.map((feature, index) => (
                             <React.Fragment key={feature.title}>
-                                {/* Feature Item */}
                                 <div className="flex gap-4 items-start">
-                                    {/* Icon Circle with Gradient Border */}
+
+                                    {/* Icon */}
                                     <div className="relative w-[45px] h-[45px] flex-shrink-0">
                                         <div
                                             className="absolute inset-0 rounded-full"
                                             style={{
-                                                background: "linear-gradient(135deg, #7C3AED 0%, #9B4DFF 50%, #6A2187 100%)",
+                                                background:
+                                                    "linear-gradient(135deg, #7C3AED 0%, #9B4DFF 50%, #6A2187 100%)",
                                                 padding: "2px",
-                                                borderRadius: "50%",
                                             }}
                                         >
                                             <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
@@ -146,6 +175,7 @@ export default function AboutSection() {
                                         <p className="text-[#A4A4A4] text-sm leading-relaxed">
                                             {feature.description}
                                         </p>
+
                                         {index < features.length - 1 && (
                                             <div className="w-full h-px bg-gradient-to-r from-[#6A2187] to-[#472187] my-2" />
                                         )}

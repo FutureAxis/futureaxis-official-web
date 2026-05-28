@@ -16,35 +16,32 @@ export default function AboutSection() {
             icon: icon1,
             title: "Discover",
             description:
-                "We understand your business, goals and target audience."
+                "We understand your business, goals and target audience.",
         },
         {
             icon: icon2,
             title: "Strategize",
             description:
-                "We create a tailored strategy to solve real problems."
+                "We create a tailored strategy to solve real problems.",
         },
         {
             icon: icon3,
             title: "Develop",
             description:
-                "We build fast, scalable, and secure digital solutions."
+                "We build fast, scalable, and secure digital solutions.",
         },
         {
             icon: icon4,
             title: "Scale",
             description:
-                "We launch, optimize, and support your continuous growth."
-        }
+                "We launch, optimize, and support your continuous growth.",
+        },
     ];
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect();
-                }
+                setIsVisible(entry.isIntersecting);
             },
             { threshold: 0.1 }
         );
@@ -57,29 +54,32 @@ export default function AboutSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full py-16 lg:pt-24 lg:pb-10">
+        <section
+            ref={sectionRef}
+            className="w-full py-16 lg:pt-24 lg:pb-10"
+        >
             <div className="px-5 lg:px-[90px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
-                    {/* RIGHT SIDE - Icon + Text Layout without last divider */}
+                    {/* RIGHT SIDE - PROCESS VISUAL */}
                     <div
-                        className={`order-2 lg:order-1 flex w-full transition-all duration-1000 delay-300 transform ${
+                        className={`order-2 lg:order-1 flex w-full transition-all duration-1000 transform ${
                             isVisible
                                 ? "opacity-100 translate-x-0"
                                 : "opacity-0 translate-x-12"
                         }`}
                     >
-                        {/* ICON COLUMN - Responsive spacing */}
+                        {/* ICON COLUMN */}
                         <div className="relative w-12 sm:w-14 flex flex-col items-center">
-                            {/* Mobile: Smaller spacing between icons */}
                             {features.map((feature, index) => (
                                 <div
                                     key={feature.title}
                                     className={`relative z-10 ${
-                                        index !== features.length - 1 ? "mb-12 sm:mb-16" : ""
+                                        index !== features.length - 1
+                                            ? "mb-12 sm:mb-16"
+                                            : ""
                                     }`}
                                 >
-                                    {/* Gradient Circle Icon - Responsive sizing */}
                                     <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full p-[2px] bg-gradient-to-b from-[#7C3AED] to-[#6A2187]">
                                         <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
                                             <Image
@@ -92,7 +92,6 @@ export default function AboutSection() {
                                         </div>
                                     </div>
 
-                                    {/* Divider line below icon - Responsive height */}
                                     {index < features.length - 1 && (
                                         <div className="absolute left-1/2 -translate-x-1/2 top-12 sm:top-14 w-[1.5px] h-16 sm:h-24 bg-gradient-to-b from-[#7C3AED] to-[#6A2187]/30" />
                                     )}
@@ -100,9 +99,9 @@ export default function AboutSection() {
                             ))}
                         </div>
 
-                        {/* TEXT COLUMN - Responsive spacing */}
+                        {/* TEXT COLUMN */}
                         <div className="flex-1 ml-4 sm:ml-6 space-y-10 sm:space-y-16">
-                            {features.map((feature, index) => (
+                            {features.map((feature) => (
                                 <div key={feature.title}>
                                     <h3 className="text-white text-base sm:text-lg font-semibold mb-1 sm:mb-2">
                                         {feature.title}
@@ -115,34 +114,50 @@ export default function AboutSection() {
                         </div>
                     </div>
 
-                    {/* LEFT SIDE - Content */}
-                    <div
-                        className={`order-1 lg:order-2 space-y-4 sm:space-y-6 transition-all duration-1000 transform ${
-                            isVisible
-                                ? "opacity-100 translate-x-0"
-                                : "opacity-0 -translate-x-12"
-                        }`}
-                    >
-                        <div className="flex items-center gap-3 mb-6 sm:mb-[45px]">
-                            <div className="w-2 h-2 rounded-full bg-[#7C3AED]"/>
-                            <p className="text-[#7C3AED] uppercase tracking-[3px] leading-[100%] text-xs sm:text-sm font-semibold">
+                    {/* LEFT SIDE - ANIMATED CONTENT */}
+                    <div className="order-1 lg:order-2 space-y-4 sm:space-y-6">
+
+                        {/* LABEL */}
+                        <div
+                            className={`flex items-center gap-3 mb-6 sm:mb-[45px] transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
+                                isVisible
+                                    ? "opacity-100 translate-y-0"
+                                    : "opacity-0 -translate-y-10"
+                            }`}
+                        >
+                            <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
+                            <p className="text-[#7C3AED] uppercase tracking-[3px] text-xs sm:text-sm font-semibold">
                                 OUR PROCESS
                             </p>
                         </div>
 
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[36px] font-semibold leading-[130%] tracking-0 mb-6 sm:mb-[45px]">
-                            <span className="text-white">Transforming Ideas into <br className="hidden sm:block"/> </span>
-                            <span
-                                className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">
+                        {/* HEADING */}
+                        <h2
+                            className={`text-2xl sm:text-3xl md:text-4xl lg:text-[36px] font-semibold leading-[130%] mb-6 sm:mb-[45px] transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100 transform ${
+                                isVisible
+                                    ? "opacity-100 translate-y-0"
+                                    : "opacity-0 -translate-y-14"
+                            }`}
+                        >
+                            <span className="text-white">
+                                Transforming Ideas into <br className="hidden sm:block" />
+                            </span>
+                            <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">
                                 Measurable Impact
                             </span>
                         </h2>
 
-                        <p className="text-[#7D7D7D] text-sm sm:text-[16px] lg:text-[18px] leading-[150%] sm:leading-[100%] tracking-0 max-w-md font-normal">
-                            We don't just deliver digital solutions — we partner with you to drive real business
-                            success. Our team combines strategy, design, and technology to create solutions that are not
-                            only visually impressive but also built to perform.
+                        {/* PARAGRAPH */}
+                        <p
+                            className={`text-[#7D7D7D] text-sm sm:text-[16px] lg:text-[18px] leading-[150%] max-w-md font-normal transition-all duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-200 transform ${
+                                isVisible
+                                    ? "opacity-100 translate-y-0"
+                                    : "opacity-0 -translate-y-10"
+                            }`}
+                        >
+                            We don't just deliver digital solutions — we partner with you to drive real business success. Our team combines strategy, design, and technology to create solutions that are not only visually impressive but also built to perform.
                         </p>
+
                     </div>
                 </div>
             </div>

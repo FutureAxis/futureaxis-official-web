@@ -30,17 +30,17 @@ export default function CTASection() {
         <section ref={sectionRef} className="w-full pt-3 pb-[60px]">
             <div className="px-5 lg:px-[90px]">
                 <div
-                    className={`text-center max-w-4xl mx-auto transition-all duration-1000 transform ${
+                    className={`text-center mx-auto transition-all duration-1000 transform ${
                         isVisible
                             ? "opacity-100 translate-y-0"
                             : "opacity-0 translate-y-12"
                     }`}
                 >
-                    <h2 className="text-base md:text-[25px] font-semibold text-white leading-[130%] mb-[43px]">
-                        Ready to Build Something  Exceptional Together ?
+                    <h2 className="text-lg sm:text-xl md:text-[25px] font-semibold text-white leading-[130%] mb-[43px] max-w-[280px] sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-auto">
+                        Ready to Build Something Exceptional Together?
                     </h2>
 
-                    <GradientButton className="inline-flex items-center gap-2 text-lg px-8 py-3">
+                    <GradientButton className="inline-flex items-center gap-2 text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3">
                         Let's Talk
                     </GradientButton>
                 </div>

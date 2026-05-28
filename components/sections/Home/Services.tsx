@@ -40,12 +40,15 @@ export default function ServicesSection() {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.disconnect();
+                } else {
+                    setIsVisible(false);
                 }
             },
-            { threshold: 0.1 }
+            { threshold: 0.2 }
         );
+
         if (sectionRef.current) observer.observe(sectionRef.current);
+
         return () => observer.disconnect();
     }, []);
 
@@ -56,16 +59,15 @@ export default function ServicesSection() {
     );
 
     return (
-        <section ref={sectionRef} className="w-full py-16 lg:pt-[146px] lg:pb-24">
-            <div className="px-5 lg:px-[90px]">
-
+        <section ref={sectionRef} className="w-full py-12 md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden">
+            <div className="px-4 sm:px-5 lg:px-[90px]">
                 {/* Header with Animations */}
-                <div className="text-center max-w-3xl mx-auto mb-20">
+                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
                     <div
-                        className={`flex items-center justify-center gap-3 mb-[26px] transition-all duration-700 transform ${
+                        className={`flex items-center justify-center gap-3 mb-[26px] transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
                             isVisible
                                 ? "opacity-100 translate-y-0"
-                                : "opacity-0 -translate-y-8"
+                                : "opacity-0 -translate-y-10"
                         }`}
                     >
                         <p className="text-[#7C3AED] uppercase tracking-[3px] text-xs font-semibold">
@@ -73,29 +75,33 @@ export default function ServicesSection() {
                         </p>
                     </div>
 
+                    {/* MAIN HEADING */}
                     <h2
-                        className={`text-4xl md:text-5xl font-semibold text-white leading-tight mb-[48px] transition-all duration-700 delay-200 transform ${
+                        className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 md:mb-[48px] px-4 transition-all duration-[1500ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100 transform ${
                             isVisible
                                 ? "opacity-100 translate-y-0"
-                                : "opacity-0 translate-y-8"
+                                : "opacity-0 -translate-y-14"
                         }`}
                     >
-                        Solutions That <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">Drive Results</span>
+                        Solutions That{" "}
+                        <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent     whitespace-nowrap">
+                            Drive Results
+                        </span>
                     </h2>
 
+                    {/* DESCRIPTION */}
                     <p
-                        className={`text-[#7D7D7D] text-base leading-relaxed transition-all duration-700 delay-300 transform ${
+                        className={`text-[#7D7D7D] text-sm sm:text-base leading-relaxed px-4 max-w-full mx-auto transition-all duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-200 transform ${
                             isVisible
                                 ? "opacity-100 translate-y-0"
-                                : "opacity-0 translate-y-8"
+                                : "opacity-0 -translate-y-10"
                         }`}
                     >
                         Growth isn't accidental; it's engineered. We deliver end-to-end digital solutions—from custom Web Development and strategic Social Media Marketing to expert IT Consulting—designed to scale your business faster and secure lasting success.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                     {/* LEFT CARD with Animation */}
                     <div
                         className={`transition-all duration-800 delay-400 transform ${
@@ -106,7 +112,7 @@ export default function ServicesSection() {
                     >
                         {/* MOBILE */}
                         <div className="lg:hidden flex flex-col rounded-[18px] overflow-hidden border border-[#15102E] bg-[#0B0B1A] transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-[#7C3AED]/10">
-                            <div className="relative w-full h-[220px] overflow-hidden">
+                            <div className="relative w-full h-[200px] sm:h-[220px] overflow-hidden">
                                 <Image
                                     src={services[0].image}
                                     alt={services[0].imageAlt}
@@ -115,11 +121,11 @@ export default function ServicesSection() {
                                 />
                             </div>
 
-                            <div className="p-6 flex flex-col">
-                                <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-4">{services[0].title}</h3>
-                                <p className="text-[#A4A4A4] text-[15px] leading-relaxed mb-6">{services[0].description}</p>
+                            <div className="p-5 sm:p-6 flex flex-col">
+                                <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-3 sm:mb-4">{services[0].title}</h3>
+                                <p className="text-[#A4A4A4] text-[14px] sm:text-[15px] leading-relaxed mb-4 sm:mb-6">{services[0].description}</p>
 
-                                <div className="flex flex-col gap-3">
+                                <div className="flex flex-col gap-2 sm:gap-3">
                                     {services[0].features.map((f, i) => (
                                         <div
                                             key={i}
@@ -131,7 +137,7 @@ export default function ServicesSection() {
                                             style={{ transitionDelay: `${500 + i * 100}ms` }}
                                         >
                                             <CheckIcon />
-                                            <span className="text-[#A4A4A4] text-[15px]">{f}</span>
+                                            <span className="text-[#A4A4A4] text-[14px] sm:text-[15px]">{f}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -167,7 +173,7 @@ export default function ServicesSection() {
                     </div>
 
                     {/* RIGHT COLUMN with Staggered Animations */}
-                    <div className="flex flex-col gap-6">
+                    <div className="flex flex-col gap-4 md:gap-6">
                         {services.slice(1).map((service, index) => (
                             <div
                                 key={service.title}
@@ -180,7 +186,7 @@ export default function ServicesSection() {
                             >
                                 {/* MOBILE */}
                                 <div className="lg:hidden flex flex-col rounded-[18px] overflow-hidden border border-[#15102E] bg-[#0B0B1A] transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-[#7C3AED]/10">
-                                    <div className="relative w-full h-[220px] overflow-hidden">
+                                    <div className="relative w-full h-[200px] sm:h-[220px] overflow-hidden">
                                         <Image
                                             src={service.image}
                                             alt={service.imageAlt}
@@ -189,11 +195,11 @@ export default function ServicesSection() {
                                         />
                                     </div>
 
-                                    <div className="p-6">
-                                        <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-4">{service.title}</h3>
-                                        <p className="text-[#A4A4A4] text-[15px] leading-relaxed mb-6">{service.description}</p>
+                                    <div className="p-5 sm:p-6">
+                                        <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-3 sm:mb-4">{service.title}</h3>
+                                        <p className="text-[#A4A4A4] text-[14px] sm:text-[15px] leading-relaxed mb-4 sm:mb-6">{service.description}</p>
 
-                                        <div className="flex flex-col gap-3">
+                                        <div className="flex flex-col gap-2 sm:gap-3">
                                             {service.features.map((f, i) => (
                                                 <div
                                                     key={i}
@@ -205,7 +211,7 @@ export default function ServicesSection() {
                                                     style={{ transitionDelay: `${700 + index * 100 + i * 100}ms` }}
                                                 >
                                                     <CheckIcon />
-                                                    <span className="text-[#A4A4A4] text-[15px]">{f}</span>
+                                                    <span className="text-[#A4A4A4] text-[14px] sm:text-[15px]">{f}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -218,10 +224,10 @@ export default function ServicesSection() {
                                         <Image src={service.image} alt={service.imageAlt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                                         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/50 to-transparent" />
                                     </div>
-                                    <div className="relative z-10 p-8 flex flex-col justify-center h-full max-w-[60%]">
-                                        <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-[27px]">{service.title}</h3>
-                                        <p className="text-[#A4A4A4] text-[18px] mb-[42px]">{service.description}</p>
-                                        <div className="space-y-2.5">
+                                    <div className="relative z-10 p-6 lg:p-8 flex flex-col justify-center h-full lg:max-w-[70%] xl:max-w-[60%]">
+                                        <h3 className="text-[#F8FAFC] text-[18px] font-semibold mb-4 lg:mb-[27px]">{service.title}</h3>
+                                        <p className="text-[#A4A4A4] text-[15px] lg:text-[18px] mb-6 lg:mb-[42px]">{service.description}</p>
+                                        <div className="space-y-2 lg:space-y-2.5">
                                             {service.features.map((f, i) => (
                                                 <div
                                                     key={i}
@@ -233,7 +239,7 @@ export default function ServicesSection() {
                                                     style={{ transitionDelay: `${600 + index * 150 + i * 100}ms` }}
                                                 >
                                                     <CheckIcon />
-                                                    <span className="text-[#A4A4A4] text-[18px]">{f}</span>
+                                                    <span className="text-[#A4A4A4] text-[15px] lg:text-[18px]">{f}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -242,7 +248,6 @@ export default function ServicesSection() {
                             </div>
                         ))}
                     </div>
-
                 </div>
             </div>
         </section>
