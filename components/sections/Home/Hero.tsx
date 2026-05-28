@@ -9,7 +9,6 @@ export default function HeroSection() {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
-        // Check if video is already playing
         if (videoRef.current && videoRef.current.readyState >= 2) {
             setIsContentVisible(true);
         }
@@ -34,36 +33,32 @@ export default function HeroSection() {
                 Your browser does not support the video tag.
             </video>
 
-
-            {/* Navbar - Higher z-index to stay on top */}
+            {/* Navbar */}
             <div className="relative z-50">
                 <Navbar />
             </div>
 
-            {/* Animated Left Bottom Content */}
+            {/* Animated Content - Smooth slide without delays */}
             <div
-                className={`absolute bottom-10 left-0 z-20 max-w-2xl px-5 lg:px-[90px] transition-all duration-1000 ease-out transform ${
+                className={`absolute bottom-10 left-0 z-20 px-5 lg:px-[90px] transition-all duration-[1500ms] ease-out transform ${
                     isContentVisible
                         ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-20"
+                        : "opacity-0 -translate-x-32"
                 }`}
             >
-                <div className="space-y-6">
-                    {/* Dot with purple color */}
+                <div className="space-y-6 max-w-[280px] md:max-w-md lg:max-w-2xl">
                     <div className="flex items-center gap-3 mb-2.5">
                         <div className="w-2 h-2 rounded-full bg-[#7C3AED]"/>
-                        <p className="text-xs uppercase leading-[100%] tracking-0 text-white font-semibold">
+                        <p className="text-xs uppercase tracking-[3px] text-white font-semibold whitespace-nowrap">
                             WELCOME TO FUTUREAXIS
                         </p>
                     </div>
 
-                    {/* Description text */}
-                    <p className="text-sm md:text-[17px] text-[#A4A4A4] font-normal tracking-0 leading-[150%] max-w-sm mb-[23px]">
+                    <p className="text-sm md:text-[17px] text-[#A4A4A4] font-normal leading-[150%] max-w-sm md:max-w-md mb-[23px]">
                         We deliver reliable, high-quality digital solutions designed to elevate
                         your business and drive long-term growth.
                     </p>
 
-                    {/* CTA Button */}
                     <GradientButton className="mt-2">
                         Find More
                     </GradientButton>
