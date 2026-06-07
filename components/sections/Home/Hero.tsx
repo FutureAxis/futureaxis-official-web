@@ -16,10 +16,16 @@ export default function HeroSection() {
 
     return (
         <section className="relative w-full h-screen overflow-hidden">
-            {/* Background Video */}
+            {/* Mobile Background Image - visible below 768px */}
+            <div
+                className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0 md:hidden"
+                style={{ backgroundImage: "url('/images/hero/hero-mobile.png')" }}
+            />
+
+            {/* Background Video - hidden on mobile, visible above 768px */}
             <video
                 ref={videoRef}
-                className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden md:block"
                 autoPlay
                 loop
                 muted
