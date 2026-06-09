@@ -11,11 +11,11 @@ interface GradientButtonProps {
 }
 
 export default function GradientButton({
-                                           children,
-                                           onClick,
-                                           className = "",
-                                           showArrow = true
-                                       }: GradientButtonProps) {
+        children,
+        onClick,
+        className = "",
+        showArrow = true
+    }: GradientButtonProps) {
     return (
         <button
             onClick={onClick}
