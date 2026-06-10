@@ -47,8 +47,6 @@ export default function TeamPage() {
 
             {/* Content */}
             <div className="relative z-10">
-                <Navbar />
-
                 <section ref={sectionRef} className="w-full py-20 lg:pt-24 lg:pb-[150px]">
                     <div className="px-5 lg:px-[90px]">
                         <div
