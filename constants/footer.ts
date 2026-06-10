@@ -47,9 +47,9 @@ export const QUICK_LINKS: NavLink[] = [
 ];
 
 export const SERVICE_LINKS: ServiceLink[] = [
-    { name: "Web Development", href: "/services/web-development" },
-    { name: "Social Media Marketing", href: "/services/social-media-marketing" },
-    { name: "IT Consulting", href: "/services/it-consulting" },
+    { name: "Web Development", href: "/" },
+    { name: "Social Media Marketing", href: "/" },
+    { name: "IT Consulting", href: "/" },
 ];
 
 export const CONTACT_INFO = {
