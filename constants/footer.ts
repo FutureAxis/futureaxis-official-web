@@ -1,0 +1,65 @@
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { IconType } from "react-icons";
+
+export interface SocialLink {
+    name: string;
+    icon: IconType;
+    url: string;
+    ariaLabel: string;
+}
+
+export interface NavLink {
+    name: string;
+    href: string;
+}
+
+export interface ServiceLink {
+    name: string;
+    href: string;
+}
+
+export const SOCIAL_LINKS: SocialLink[] = [
+    {
+        name: "Facebook",
+        icon: FaFacebookF,
+        url: "https://facebook.com/futureaxis",
+        ariaLabel: "Follow us on Facebook",
+    },
+    {
+        name: "Instagram",
+        icon: FaInstagram,
+        url: "https://instagram.com/futureaxis",
+        ariaLabel: "Follow us on Instagram",
+    },
+    {
+        name: "LinkedIn",
+        icon: FaLinkedinIn,
+        url: "https://linkedin.com/company/futureaxis",
+        ariaLabel: "Connect with us on LinkedIn",
+    },
+];
+
+export const QUICK_LINKS: NavLink[] = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
+];
+
+export const SERVICE_LINKS: ServiceLink[] = [
+    { name: "Web Development", href: "/services/web-development" },
+    { name: "Social Media Marketing", href: "/services/social-media-marketing" },
+    { name: "IT Consulting", href: "/services/it-consulting" },
+];
+
+export const CONTACT_INFO = {
+    email: "futureaxisdigitals.com",
+    phone: "+61411749417",
+} as const;
+
+export const FOOTER_CONFIG = {
+    companyName: "FutureAxis",
+    tagline: "FutureAxis delivers high-impact, scalable digital solutions to accelerate your business growth.",
+    copyrightYear: 2026,
+    copyrightText: "FutureAxis",
+} as const;
