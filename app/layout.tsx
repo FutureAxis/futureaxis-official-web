@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/SEO/JsonLd";
 import Analytics from "@/components/SEO/Analytics";
+import Navbar from "@/components/layout/Navbar";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -98,6 +99,7 @@ export default function RootLayout({
         <body className="min-h-full flex flex-col font-sans" style={{ fontFamily: "var(--font-body)" }}>
         <JsonLd />
         <Analytics />
+        <Navbar />
         <main className="flex-1">
             {children}
         </main>
