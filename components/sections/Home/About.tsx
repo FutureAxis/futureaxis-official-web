@@ -9,43 +9,42 @@ import icon3 from "@/public/images/icons/Vector-3.png";
 import icon4 from "@/public/images/icons/Vector-4.png";
 
 export default function AboutSection() {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true); // Changed to true by default
     const sectionRef = useRef<HTMLElement>(null);
 
     const features = [
         {
             icon: icon1,
             title: "Innovation",
-            description:
-                "We embrace creativity and technology to build future-ready solutions.",
+            description: "We embrace creativity and technology to build future-ready solutions.",
         },
         {
             icon: icon2,
             title: "Partnership",
-            description:
-                "We grow together with our client through collaboration and trust.",
+            description: "We grow together with our client through collaboration and trust.",
         },
         {
             icon: icon3,
             title: "Transparency",
-            description:
-                "We believe in clear communication and honesty in every interaction.",
+            description: "We believe in clear communication and honesty in every interaction.",
         },
         {
             icon: icon4,
             title: "Performance",
-            description:
-                "We focus on results that drive real impact and measurable growth.",
+            description: "We focus on results that drive real impact and measurable growth.",
         },
     ];
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setIsVisible(entry.isIntersecting);
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
             },
             {
-                threshold: 0.2,
+                threshold: 0.05,
+                rootMargin: "0px 0px -50px 0px",
             }
         );
 
@@ -57,19 +56,18 @@ export default function AboutSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full pt-16 lg:pt-24">
+        <section ref={sectionRef} className="w-full pt-16 lg:pt-24" id="about">
             <div className="px-5 lg:px-[90px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
-                    {/* Left Column */}
+                    {/* Left Column - Fixed visibility */}
                     <div className="space-y-6">
-
                         {/* ABOUT US */}
                         <div
-                            className={`flex items-center gap-3 mb-[26px] transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform will-change-transform ${
+                            className={`flex items-center gap-3 mb-[26px] transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-10"
+                                    : "opacity-100 translate-y-0" // Always visible
                             }`}
                         >
                             <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
@@ -80,16 +78,14 @@ export default function AboutSection() {
 
                         {/* Heading */}
                         <div
-                            className={`transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100 transform will-change-transform mb-[60px] ${
+                            className={`transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100 transform mb-[60px] ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-16"
+                                    : "opacity-100 translate-y-0" // Always visible
                             }`}
                         >
-                            <h2 className="text-4xl md:text-[36px] font-semibold leading-[130%]">
-                                <span className="text-white">
-                                    Driven by Purpose{" "}
-                                </span>
+                            <h2 className="text-3xl md:text-[36px] font-semibold leading-[130%]">
+                                <span className="text-white">Driven by Purpose </span>
                                 <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">
                                     Focus on Impact
                                 </span>
@@ -98,32 +94,30 @@ export default function AboutSection() {
 
                         {/* Description */}
                         <div
-                            className={`transition-all duration-1000 delay-200 transform will-change-transform ${
+                            className={`transition-all duration-1000 delay-200 transform ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-12"
+                                    : "opacity-100 translate-y-0" // Always visible
                             }`}
                         >
-                            <p className="text-[#7D7D7D] text-[18px] leading-[150%] max-w-lg mb-[33px]">
-                                FutureAxis is a digital solutions company
-                                focused on delivering innovative, scalable, and
-                                results-driven solutions that help business grow
-                                and succeed in the digital world.
+                            <p className="text-[#7D7D7D] text-base md:text-[18px] leading-[150%] max-w-lg mb-[33px]">
+                                FutureAxis is a digital solutions company focused on delivering
+                                innovative, scalable, and results-driven solutions that help
+                                business grow and succeed in the digital world.
                             </p>
                         </div>
 
                         {/* Mission */}
                         <div
-                            className={`transition-all duration-1000 delay-300 transform will-change-transform mb-8 ${
+                            className={`transition-all duration-1000 delay-300 transform mb-8 ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-12"
+                                    : "opacity-100 translate-y-0" // Always visible
                             }`}
                         >
-                            <p className="text-[#F8FAFC] text-[18px] leading-[150%] max-w-md">
-                                Our Mission is to empower businesses with
-                                innovative digital solutions that drive growth,
-                                efficiency, and long-term success.
+                            <p className="text-[#F8FAFC] text-base md:text-[18px] leading-[150%] max-w-md">
+                                Our Mission is to empower businesses with innovative digital
+                                solutions that drive growth, efficiency, and long-term success.
                             </p>
                         </div>
 
@@ -132,7 +126,7 @@ export default function AboutSection() {
                             className={`transition-all duration-1000 delay-500 transform ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-10"
+                                    : "opacity-100 translate-y-0" // Always visible
                             }`}
                         >
                             <GradientButton>Meet Our Team</GradientButton>
@@ -150,8 +144,7 @@ export default function AboutSection() {
                                         <div
                                             className="absolute inset-0 rounded-full"
                                             style={{
-                                                background:
-                                                    "linear-gradient(135deg, #7C3AED 0%, #9B4DFF 50%, #6A2187 100%)",
+                                                background: "linear-gradient(135deg, #7C3AED 0%, #9B4DFF 50%, #6A2187 100%)",
                                                 padding: "2px",
                                             }}
                                         >
