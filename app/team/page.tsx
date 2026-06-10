@@ -3,11 +3,10 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import Head from "next/head";
-import Navbar from "@/components/layout/Navbar";
 import backgroundImage from "@/public/images/home/background-bg.png";
 import { TEAM_LEADERS, TEAM_MEMBERS } from "@/constants/team";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import {TeamCard} from "@/components/ui/TeamCard";
+import {TeamCard} from "@/components/team/TeamCard";
 
 export default function TeamPage() {
     const sectionRef = useRef<HTMLElement>(null);
