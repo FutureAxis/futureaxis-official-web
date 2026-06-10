@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Navbar from "@/components/layout/Navbar";
 import GradientButton from "@/components/buttons/GradientButton";
 
 export default function HeroSection() {
@@ -38,11 +37,6 @@ export default function HeroSection() {
                 <source src="/images/hero/hero-video.mp4" type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
-
-            {/* Navbar */}
-            <div className="relative z-50">
-                <Navbar />
-            </div>
 
             {/* Animated Content - Smooth slide without delays */}
             <div
