@@ -40,11 +40,7 @@ export default function HeroSection() {
 
             {/* Animated Content - Smooth slide without delays */}
             <div
-                className={`absolute bottom-10 left-0 z-20 px-5 lg:px-[90px] transition-all duration-[1500ms] ease-out transform ${
-                    isContentVisible
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-32"
-                }`}
+                className={`absolute bottom-10 left-0 z-20 px-5 lg:px-[90px] transition-all duration-[1500ms] ease-out transform`}
             >
                 <div className="space-y-6 max-w-[280px] md:max-w-md lg:max-w-2xl">
                     <div className="flex items-center gap-3 mb-2.5">
