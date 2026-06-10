@@ -39,11 +39,11 @@ export const metadata = {
 
 export default function Home() {
     return (
-        <main className="relative min-h-screen overflow-x-hidden">
+        <div className="relative min-h-screen">
             <HeroSection />
 
             <div className="relative">
-                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 z-0 pointer-events-none">
                     <Image
                         src={backgroundImage}
                         alt="Background"
@@ -61,6 +61,6 @@ export default function Home() {
                     <CTASection />
                 </div>
             </div>
-        </main>
+        </div>
     );
 }
