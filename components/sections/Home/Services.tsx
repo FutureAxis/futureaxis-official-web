@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import checkIcon from "@/public/images/icons/check-icon.png";
 import Image from "next/image";
 import card1 from "@/public/images/home/web-design.png";
@@ -8,7 +8,6 @@ import card2 from "@/public/images/home/social-media.png";
 import card3 from "@/public/images/home/consulting.png";
 
 export default function ServicesSection() {
-    const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef<HTMLElement>(null);
 
     const services = [
@@ -35,23 +34,6 @@ export default function ServicesSection() {
         },
     ];
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                } else {
-                    setIsVisible(false);
-                }
-            },
-            { threshold: 0.2 }
-        );
-
-        if (sectionRef.current) observer.observe(sectionRef.current);
-
-        return () => observer.disconnect();
-    }, []);
-
     const CheckIcon = () => (
         <div className="flex items-center justify-center flex-shrink-0 w-5 h-5">
             <Image src={checkIcon} alt="Check" width={20} height={20} className="object-contain" />
@@ -59,57 +41,33 @@ export default function ServicesSection() {
     );
 
     return (
-        <section ref={sectionRef} className="w-full py-12 md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden">
+        <section ref={sectionRef} className="w-full py-12 md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden" id="services">
             <div className="px-4 sm:px-5 lg:px-[90px]">
-                {/* Header with Animations */}
+                {/* Header - No Animations */}
                 <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
-                    <div
-                        className={`flex items-center justify-center gap-3 mb-[26px] transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
-                            isVisible
-                                ? "opacity-100 translate-y-0"
-                                : "opacity-0 -translate-y-10"
-                        }`}
-                    >
+                    <div className="flex items-center justify-center gap-3 mb-[26px]">
                         <p className="text-[#7C3AED] uppercase tracking-[3px] text-xs font-semibold">
                             OUR SERVICES
                         </p>
                     </div>
 
                     {/* MAIN HEADING */}
-                    <h2
-                        className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 md:mb-[48px] px-4 transition-all duration-[1500ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100 transform ${
-                            isVisible
-                                ? "opacity-100 translate-y-0"
-                                : "opacity-0 -translate-y-14"
-                        }`}
-                    >
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 md:mb-[48px] px-4">
                         Solutions That{" "}
-                        <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent     whitespace-nowrap">
+                        <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent whitespace-nowrap">
                             Drive Results
                         </span>
                     </h2>
 
                     {/* DESCRIPTION */}
-                    <p
-                        className={`text-[#7D7D7D] text-sm sm:text-base leading-relaxed px-4 max-w-full mx-auto transition-all duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-200 transform ${
-                            isVisible
-                                ? "opacity-100 translate-y-0"
-                                : "opacity-0 -translate-y-10"
-                        }`}
-                    >
+                    <p className="text-[#7D7D7D] text-sm sm:text-base leading-relaxed px-4 max-w-full mx-auto">
                         Growth isn't accidental; it's engineered. We deliver end-to-end digital solutions—from custom Web Development and strategic Social Media Marketing to expert IT Consulting—designed to scale your business faster and secure lasting success.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-                    {/* LEFT CARD with Animation */}
-                    <div
-                        className={`transition-all duration-800 delay-400 transform ${
-                            isVisible
-                                ? "opacity-100 translate-x-0"
-                                : "opacity-0 -translate-x-12"
-                        }`}
-                    >
+                    {/* LEFT CARD - No Animations */}
+                    <div>
                         {/* MOBILE */}
                         <div className="lg:hidden flex flex-col rounded-[18px] overflow-hidden border border-[#15102E] bg-[#0B0B1A] transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-[#7C3AED]/10">
                             <div className="relative w-full h-[200px] sm:h-[220px] overflow-hidden">
@@ -127,15 +85,7 @@ export default function ServicesSection() {
 
                                 <div className="flex flex-col gap-2 sm:gap-3">
                                     {services[0].features.map((f, i) => (
-                                        <div
-                                            key={i}
-                                            className={`flex items-center gap-3 transition-all duration-500 transform ${
-                                                isVisible
-                                                    ? "opacity-100 translate-x-0"
-                                                    : "opacity-0 -translate-x-4"
-                                            }`}
-                                            style={{ transitionDelay: `${500 + i * 100}ms` }}
-                                        >
+                                        <div key={i} className="flex items-center gap-3">
                                             <CheckIcon />
                                             <span className="text-[#A4A4A4] text-[14px] sm:text-[15px]">{f}</span>
                                         </div>
@@ -154,15 +104,7 @@ export default function ServicesSection() {
                                 <p className="text-[#A4A4A4] text-[18px] mb-[42px]">{services[0].description}</p>
                                 <div className="flex flex-col gap-10">
                                     {services[0].features.map((f, i) => (
-                                        <div
-                                            key={i}
-                                            className={`flex items-center gap-3 transition-all duration-500 transform ${
-                                                isVisible
-                                                    ? "opacity-100 translate-x-0"
-                                                    : "opacity-0 -translate-x-8"
-                                            }`}
-                                            style={{ transitionDelay: `${400 + i * 150}ms` }}
-                                        >
+                                        <div key={i} className="flex items-center gap-3">
                                             <CheckIcon />
                                             <span className="text-[#A4A4A4] text-[18px]">{f}</span>
                                         </div>
@@ -172,18 +114,10 @@ export default function ServicesSection() {
                         </div>
                     </div>
 
-                    {/* RIGHT COLUMN with Staggered Animations */}
+                    {/* RIGHT COLUMN - No Animations */}
                     <div className="flex flex-col gap-4 md:gap-6">
                         {services.slice(1).map((service, index) => (
-                            <div
-                                key={service.title}
-                                className={`transition-all duration-800 transform ${
-                                    isVisible
-                                        ? "opacity-100 translate-x-0"
-                                        : "opacity-0 translate-x-12"
-                                }`}
-                                style={{ transitionDelay: `${500 + index * 200}ms` }}
-                            >
+                            <div key={service.title}>
                                 {/* MOBILE */}
                                 <div className="lg:hidden flex flex-col rounded-[18px] overflow-hidden border border-[#15102E] bg-[#0B0B1A] transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-[#7C3AED]/10">
                                     <div className="relative w-full h-[200px] sm:h-[220px] overflow-hidden">
@@ -201,15 +135,7 @@ export default function ServicesSection() {
 
                                         <div className="flex flex-col gap-2 sm:gap-3">
                                             {service.features.map((f, i) => (
-                                                <div
-                                                    key={i}
-                                                    className={`flex items-center gap-3 transition-all duration-500 transform ${
-                                                        isVisible
-                                                            ? "opacity-100 translate-x-0"
-                                                            : "opacity-0 translate-x-4"
-                                                    }`}
-                                                    style={{ transitionDelay: `${700 + index * 100 + i * 100}ms` }}
-                                                >
+                                                <div key={i} className="flex items-center gap-3">
                                                     <CheckIcon />
                                                     <span className="text-[#A4A4A4] text-[14px] sm:text-[15px]">{f}</span>
                                                 </div>
@@ -229,15 +155,7 @@ export default function ServicesSection() {
                                         <p className="text-[#A4A4A4] text-[15px] lg:text-[18px] mb-6 lg:mb-[42px]">{service.description}</p>
                                         <div className="space-y-2 lg:space-y-2.5">
                                             {service.features.map((f, i) => (
-                                                <div
-                                                    key={i}
-                                                    className={`flex items-center gap-3 transition-all duration-500 transform ${
-                                                        isVisible
-                                                            ? "opacity-100 translate-x-0"
-                                                            : "opacity-0 translate-x-8"
-                                                    }`}
-                                                    style={{ transitionDelay: `${600 + index * 150 + i * 100}ms` }}
-                                                >
+                                                <div key={i} className="flex items-center gap-3">
                                                     <CheckIcon />
                                                     <span className="text-[#A4A4A4] text-[15px] lg:text-[18px]">{f}</span>
                                                 </div>

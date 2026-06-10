@@ -6,14 +6,12 @@ import Head from "next/head";
 import { CONTACT_INFO } from "@/constants/contact";
 import backgroundImage from "@/public/images/home/background-bg.png";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import {ContactInfoCard} from "@/components/contact/ContactInfoCard";
-import {SocialMediaIcons} from "@/components/contact/SocialMediaIcons";
-import {ContactForm} from "@/components/contact/ContactForm";
+import { ContactInfoCard } from "@/components/contact/ContactInfoCard";
+import { SocialMediaIcons } from "@/components/contact/SocialMediaIcons";
+import { ContactForm } from "@/components/contact/ContactForm";
 
 export default function ContactPage() {
     const sectionRef = useRef<HTMLElement>(null);
-    const isVisible = useScrollAnimation(sectionRef);
 
     return (
         <>
@@ -47,14 +45,8 @@ export default function ContactPage() {
             <div className="relative z-10">
                 <section ref={sectionRef} className="w-full py-16 lg:pt-20 lg:pb-[140px]">
                     <div className="px-5 lg:px-[90px]">
-                        {/* Header Section - Reduced margin */}
-                        <div
-                            className={`text-center max-w-2xl mx-auto mb-12 lg:mb-[95px] transition-all duration-1000 transform ${
-                                isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-0 translate-y-12"
-                            }`}
-                        >
+                        {/* Header Section - No Animation */}
+                        <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-[95px]">
                             <h1 className="text-2xl md:text-3xl font-semibold text-white leading-tight mb-[37px]">
                                 <span>Let's Talk About Your </span>
                                 <span className="bg-gradient-to-r from-[#6A2187] to-[#7C3AED] bg-clip-text text-transparent">
@@ -68,16 +60,10 @@ export default function ContactPage() {
                             </p>
                         </div>
 
-                        {/* Main Content Grid - More balanced columns */}
+                        {/* Main Content Grid */}
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 max-w-7xl mx-auto">
-                            {/* LEFT COLUMN - Contact Details (4 columns wide) */}
-                            <div
-                                className={`lg:col-span-5 space-y-6 transition-all duration-1000 delay-200 transform ${
-                                    isVisible
-                                        ? "opacity-100 translate-x-0"
-                                        : "opacity-0 -translate-x-12"
-                                }`}
-                            >
+                            {/* LEFT COLUMN - Contact Details */}
+                            <div className="lg:col-span-5 space-y-6">
                                 <div>
                                     <div className="flex items-center justify-start gap-3 mb-[30px]">
                                         <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
@@ -93,7 +79,7 @@ export default function ContactPage() {
                                     </p>
                                 </div>
 
-                                {/* Contact Info Grid - Smaller gap */}
+                                {/* Contact Info Grid */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <ContactInfoCard
                                         icon={<FaPhone className="w-3.5 h-3.5 text-white" />}
@@ -139,14 +125,8 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            {/* RIGHT COLUMN - Contact Form (8 columns wide) */}
-                            <div
-                                className={`lg:col-span-7 transition-all duration-1000 delay-400 transform ${
-                                    isVisible
-                                        ? "opacity-100 translate-x-0"
-                                        : "opacity-0 translate-x-12"
-                                }`}
-                            >
+                            {/* RIGHT COLUMN - Contact Form */}
+                            <div className="lg:col-span-7">
                                 <ContactForm />
                             </div>
                         </div>

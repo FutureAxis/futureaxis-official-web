@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import icon1 from "@/public/images/icons/Vector-5.png";
 import icon2 from "@/public/images/icons/Vector-1.png";
 import icon3 from "@/public/images/icons/Vector-6.png";
 import icon4 from "@/public/images/icons/Vector-4.png";
 
-export default function AboutSection() {
-    const [isVisible, setIsVisible] = useState(false);
+export default function ProcessSection() {
     const sectionRef = useRef<HTMLElement>(null);
 
     const features = [
@@ -38,21 +37,6 @@ export default function AboutSection() {
         },
     ];
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsVisible(entry.isIntersecting);
-            },
-            { threshold: 0.1 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
     return (
         <section
             ref={sectionRef}
@@ -62,13 +46,7 @@ export default function AboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
                     {/* RIGHT SIDE - PROCESS VISUAL */}
-                    <div
-                        className={`order-2 lg:order-1 flex w-full transition-all duration-1000 transform ${
-                            isVisible
-                                ? "opacity-100 translate-x-0"
-                                : "opacity-0 translate-x-12"
-                        }`}
-                    >
+                    <div className="order-2 lg:order-1 flex w-full">
                         {/* ICON COLUMN */}
                         <div className="relative w-12 sm:w-14 flex flex-col items-center">
                             {features.map((feature, index) => (
@@ -114,17 +92,10 @@ export default function AboutSection() {
                         </div>
                     </div>
 
-                    {/* LEFT SIDE - ANIMATED CONTENT */}
+                    {/* LEFT SIDE - CONTENT */}
                     <div className="order-1 lg:order-2 space-y-4 sm:space-y-6">
-
                         {/* LABEL */}
-                        <div
-                            className={`flex items-center gap-3 mb-6 sm:mb-[45px] transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
-                                isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-10"
-                            }`}
-                        >
+                        <div className="flex items-center gap-3 mb-6 sm:mb-[45px]">
                             <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
                             <p className="text-[#7C3AED] uppercase tracking-[3px] text-xs sm:text-sm font-semibold">
                                 OUR PROCESS
@@ -132,13 +103,7 @@ export default function AboutSection() {
                         </div>
 
                         {/* HEADING */}
-                        <h2
-                            className={`text-2xl sm:text-3xl md:text-4xl lg:text-[36px] font-semibold leading-[130%] mb-6 sm:mb-[45px] transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100 transform ${
-                                isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-14"
-                            }`}
-                        >
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[36px] font-semibold leading-[130%] mb-6 sm:mb-[45px]">
                             <span className="text-white">
                                 Transforming Ideas into <br className="hidden sm:block" />
                             </span>
@@ -148,16 +113,9 @@ export default function AboutSection() {
                         </h2>
 
                         {/* PARAGRAPH */}
-                        <p
-                            className={`text-[#7D7D7D] text-sm sm:text-[16px] lg:text-[18px] leading-[150%] max-w-md font-normal transition-all duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-200 transform ${
-                                isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-10"
-                            }`}
-                        >
+                        <p className="text-[#7D7D7D] text-sm sm:text-[16px] lg:text-[18px] leading-[150%] max-w-md font-normal">
                             We don't just deliver digital solutions — we partner with you to drive real business success. Our team combines strategy, design, and technology to create solutions that are not only visually impressive but also built to perform.
                         </p>
-
                     </div>
                 </div>
             </div>
