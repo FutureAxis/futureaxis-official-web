@@ -34,13 +34,17 @@ export default function HeroSection() {
                     setTimeout(() => setIsContentVisible(true), 50);
                 }}
             >
-                <source src="/images/hero/hero-video.mp4" type="video/mp4"/>
+                <source src="/images/hero/new-hero-video.mp4" type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
 
-            {/* Animated Content - Smooth slide without delays */}
+            {/* Animated Content - Slide from left */}
             <div
-                className={`absolute bottom-10 left-0 z-20 px-5 lg:px-[90px] transition-all duration-[1500ms] ease-out transform`}
+                className={`absolute bottom-10 left-0 z-20 px-5 lg:px-[90px] transition-all duration-1000 ease-out ${
+                    isContentVisible
+                        ? "opacity-100 translate-x-0"
+                        : "opacity-0 -translate-x-full"
+                }`}
             >
                 <div className="space-y-6 max-w-[280px] md:max-w-md lg:max-w-2xl">
                     <div className="flex items-center gap-3 mb-2.5">
