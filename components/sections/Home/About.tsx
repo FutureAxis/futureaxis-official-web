@@ -112,7 +112,7 @@ export default function AboutSection() {
                             className={`transition-all duration-1000 delay-300 transform mb-8 ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
-                                    : "opacity-100 translate-y-0" // Always visible
+                                    : "opacity-100 translate-y-0" 
                             }`}
                         >
                             <p className="text-[#F8FAFC] text-base md:text-[18px] leading-[150%] max-w-md">
@@ -126,7 +126,7 @@ export default function AboutSection() {
                             className={`transition-all duration-1000 delay-500 transform ${
                                 isVisible
                                     ? "opacity-100 translate-y-0"
-                                    : "opacity-100 translate-y-0" // Always visible
+                                    : "opacity-100 translate-y-0" 
                             }`}
                         >
                             <GradientButton>Meet Our Team</GradientButton>
