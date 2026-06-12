@@ -18,16 +18,16 @@ export default function ContactPage() {
     return (
         <>
             <Head>
-                <title>Contact Us | Start Your Digital Journey with Future Axis Digital</title>
-                <meta name="description" content="Get in touch with Future Axis Digital. Discuss your web development, social media marketing, or IT consulting project. Our team is ready to help your business grow." />
-                <meta name="keywords" content="contact digital agency, web development contact, IT consulting Melbourne, digital marketing inquiry, Future Axis Digital contact" />
-                <link rel="canonical" href="https://futureaxisdigital.com/contact" />
+                <title>Contact Us | Start Your Digital Journey with Future Axis</title>
+                <meta name="description" content="Get in touch with Future Axis. Discuss your web development, social media marketing, or IT consulting project. Our team is ready to help your business grow." />
+                <meta name="keywords" content="contact digital agency, web development contact, IT consulting Melbourne, digital marketing inquiry, Future Axis contact" />
 
-                <meta property="og:title" content="Contact Future Axis Digital | Let's Discuss Your Project" />
+                {/* Open Graph */}
+                <meta property="og:title" content="Contact Future Axis | Let's Discuss Your Project" />
                 <meta property="og:description" content="Connect with our creative team to discuss your next project. We combine strategy, design, and technology to craft premium digital experiences." />
-                <meta property="og:url" content="https://futureaxisdigital.com/contact" />
                 <meta property="og:type" content="website" />
-                <meta property="og:site_name" content="Future Axis Digital" />
+                <meta property="og:site_name" content="Future Axis" />
+                <meta property="og:image" content="/og-image-contact.jpg" />
             </Head>
 
             {/* Background Image */}
@@ -45,7 +45,7 @@ export default function ContactPage() {
 
             {/* Content */}
             <div className="relative z-10">
-                <section ref={sectionRef} className="w-full pt-[140px] pb-20 lg:pt-20 lg:pb-[140px]">
+                <section ref={sectionRef} className="w-full pt-[140px] pb-20 lg:pt-36 lg:pb-[140px]">
                     <div className="px-5 lg:px-[90px]">
                         {/* Header Section - No Animation */}
                         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-[95px]">

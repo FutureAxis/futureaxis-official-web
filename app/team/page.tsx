@@ -16,16 +16,16 @@ export default function TeamPage() {
     return (
         <>
             <Head>
-                <title>Our Team | Meet the Digital Experts at Future Axis Digital</title>
+                <title>Our Team | Meet the Digital Experts at Future Axis</title>
                 <meta name="description" content="Meet the passionate team of designers, developers, and digital innovators at Future Axis. We combine creativity, strategy, and technology to help brands grow." />
                 <meta name="keywords" content="web development team Melbourne, digital agency team, IT consultants Australia, web designers, digital marketing experts" />
-                <link rel="canonical" href="https://futureaxisdigital.com/team" />
 
-                <meta property="og:title" content="Our Team | Future Axis Digital - Digital Experts" />
+                {/* Open Graph */}
+                <meta property="og:title" content="Our Team | Future Axis - Digital Experts" />
                 <meta property="og:description" content="Meet our visionary team of co-founders, developers, designers, and digital strategists dedicated to delivering exceptional results." />
-                <meta property="og:url" content="https://futureaxisdigital.com/team" />
                 <meta property="og:type" content="website" />
-                <meta property="og:site_name" content="Future Axis Digital" />
+                <meta property="og:site_name" content="Future Axis" />
+                <meta property="og:image" content="/og-image-team.jpg" />
             </Head>
 
             {/* Background Image with Dark Overlay */}
@@ -43,7 +43,7 @@ export default function TeamPage() {
 
             {/* Content */}
             <div className="relative z-10">
-                <section ref={sectionRef} className="w-full pt-[140px] pb-20 lg:pt-24 lg:pb-[150px]">
+                <section ref={sectionRef} className="w-full pt-[140px] pb-20 lg:pt-36 lg:pb-[150px]">
                     <div className="px-5 lg:px-[90px]">
                         {/* Header - No Animation */}
                         <div className="text-center max-w-3xl mx-auto mb-[80px]">
