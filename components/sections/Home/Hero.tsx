@@ -14,11 +14,16 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="relative w-full h-screen overflow-hidden">
+        <section className="relative w-full md:h-screen h-[80vh] overflow-hidden">
             {/* Mobile Background Image - visible below 768px */}
             <div
-                className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0 md:hidden"
-                style={{ backgroundImage: "url('/images/hero/hero-mobile.png')" }}
+                className="absolute top-0 left-0 w-full h-full md:hidden"
+                style={{
+                    backgroundImage: "url('/images/hero/hero-mobile.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat"
+                }}
             />
 
             {/* Background Video - hidden on mobile, visible above 768px */}
@@ -40,11 +45,7 @@ export default function HeroSection() {
 
             {/* Animated Content - Slide from left */}
             <div
-                className={`absolute bottom-10 left-0 z-20 px-5 lg:px-[90px] transition-all duration-1000 ease-out ${
-                    isContentVisible
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-full"
-                }`}
+                className={`absolute bottom-10 left-0 z-20 px-5 lg:px-[90px] transition-all duration-1000 ease-out `}
             >
                 <div className="space-y-6 max-w-[280px] md:max-w-md lg:max-w-2xl">
                     <div className="flex items-center gap-3 mb-2.5">
