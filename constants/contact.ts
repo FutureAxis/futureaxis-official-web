@@ -15,7 +15,7 @@ export interface SocialLink {
 
 export const CONTACT_INFO: ContactInfo = {
     phone: "+61411749417",
-    email: "futureaxisdigitals.com",
+    email: "futureaxis.com",
     address: "1/21, Dennis Street, Clayton Vic 3168",
 };
 
