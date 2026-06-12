@@ -53,7 +53,7 @@ export const SERVICE_LINKS: ServiceLink[] = [
 ];
 
 export const CONTACT_INFO = {
-    email: "futureaxisdigitals.com",
+    email: "futureaxis.com",
     phone: "+61411749417",
 } as const;
 
