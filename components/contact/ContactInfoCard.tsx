@@ -14,7 +14,7 @@ export const ContactInfoCard = ({ icon, title, content }: ContactInfoCardProps) 
                 background: 'radial-gradient(circle at center, #7C3AED 0%, #341A60 100%)'
             }}
         >
-            {icon}
+            <div className="transition-none">{icon}</div> {/* Wrap icon to prevent transforms */}
         </div>
         <div>
             <h4 className="text-white font-semibold text-[11px]">{title}</h4>
