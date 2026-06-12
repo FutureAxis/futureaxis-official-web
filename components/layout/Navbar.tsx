@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS, SCROLL_THRESHOLD } from "@/constants/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,16 +49,24 @@ export default function Navbar() {
                 className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
                     isScrolled || isMobileMenuOpen
                         ? "bg-black/80 backdrop-blur-md shadow-md"
-                        : "bg-transparent"
+                        : "bg-black md:bg-transparent"
                 }`}
                 style={{ width: "100%", maxWidth: "100vw" }}
             >
                 {/* Inner container to control width */}
-                <div className="w-full flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-[90px] py-6">
+                <div className="w-full flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-[90px] py-3">
                     {/* Logo */}
-                    <Link href="/" className="text-xl sm:text-2xl font-bold text-white hover:opacity-80 transition-opacity whitespace-nowrap">
-                        FutureAxis
+                    <Link href="/" className="relative hover:opacity-80 transition-opacity">
+                        <Image
+                            src="/images/logo/logo.png"
+                            alt="Future Axis"
+                            width={200}
+                            height={100}
+                            className="w-auto h-14 md:h-16 object-contain"
+                            priority
+                        />
                     </Link>
+
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center gap-6 lg:gap-8">
