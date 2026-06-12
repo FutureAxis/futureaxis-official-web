@@ -1,23 +1,15 @@
-// components/layout/Navbar.tsx
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import GradientButton from "@/components/buttons/GradientButton";
 import { usePathname } from "next/navigation";
+import { NAV_ITEMS, SCROLL_THRESHOLD } from "@/constants/navigation";
+import Link from "next/link";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [navbarHeight, setNavbarHeight] = useState(60);
     const pathname = usePathname();
-    const navbarRef = useRef<HTMLElement>(null);
-
-    const navItems = [
-        { id: "home", label: "Home", href: "/" },
-        { id: "team", label: "Our Team", href: "/team" },
-        { id: "contact", label: "Contact", href: "/contact" },
-    ];
 
     // Determine active item based on current path
     const getActiveItem = () => {
@@ -29,132 +21,108 @@ export default function Navbar() {
 
     const activeItem = getActiveItem();
 
-    // Handle scroll effect for navbar background
+    // Add dark shade on scroll
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
+            setIsScrolled(window.scrollY > SCROLL_THRESHOLD);
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Get navbar height dynamically
-    useEffect(() => {
-        if (navbarRef.current) {
-            setNavbarHeight(navbarRef.current.offsetHeight);
-        }
-
-        const handleResize = () => {
-            if (navbarRef.current) {
-                setNavbarHeight(navbarRef.current.offsetHeight);
-            }
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    // Prevent body scroll when mobile menu is open
-    useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "unset";
-        }
-        return () => {
-            document.body.style.overflow = "unset";
-        };
-    }, [isMobileMenuOpen]);
+    // Close mobile menu on route change - Fixed version
+    const previousPathname = React.useRef(pathname);
 
     // Close mobile menu on route change
     useEffect(() => {
-        setIsMobileMenuOpen(false);
+        if (previousPathname.current !== pathname) {
+            setIsMobileMenuOpen(false);
+            previousPathname.current = pathname;
+        }
     }, [pathname]);
 
     return (
         <>
             <nav
-                ref={navbarRef}
-                className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300 ${
-                    isScrolled || isMobileMenuOpen ? "bg-black/80 backdrop-blur-md" : "bg-black/20 backdrop-blur-sm"
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                    isScrolled || isMobileMenuOpen
+                        ? "bg-black/80 backdrop-blur-md shadow-md"
+                        : "bg-transparent"
                 }`}
-                style={{ width: "100%", maxWidth: "100vw", overflowX: "hidden" }}
+                style={{ width: "100%", maxWidth: "100vw" }}
             >
                 {/* Inner container to control width */}
-                <div className="w-full flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-[90px] py-5 md:py-6">
-                    {/* Logo / Brand */}
-                    <a href="/" className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity whitespace-nowrap">
+                <div className="w-full flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-[90px] py-6">
+                    {/* Logo */}
+                    <Link href="/" className="text-xl sm:text-2xl font-bold text-white hover:opacity-80 transition-opacity whitespace-nowrap">
                         FutureAxis
-                    </a>
+                    </Link>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center gap-4 lg:gap-[30px]">
-                        {navItems.map((item) => (
+                    <div className="hidden md:flex items-center gap-6 lg:gap-8">
+                        {NAV_ITEMS.map((item) => (
                             <a
                                 key={item.id}
                                 href={item.href}
-                                className="relative text-white hover:text-[#7C3AED] text-sm font-medium transition-colors duration-200 pb-2"
+                                className="relative text-white/90 hover:text-white text-sm font-medium transition-colors duration-200"
                             >
                                 {item.label}
                                 {activeItem === item.id && (
-                                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#7C3AED] rounded-full" />
+                                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-purple-500 rounded-full" />
                                 )}
                             </a>
                         ))}
-                        <GradientButton>Let's Talk</GradientButton>
+                        <button className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                            Let's Talk
+                        </button>
                     </div>
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-white focus:outline-none z-50 relative"
+                        className="md:hidden text-white focus:outline-none relative z-50"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle menu"
                     >
-                        {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
             </nav>
 
-            {/* Mobile Menu Overlay - No gap */}
+            {/* Mobile Menu Overlay */}
             <div
                 className={`fixed left-0 right-0 z-40 bg-black/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
                     isMobileMenuOpen
                         ? "opacity-100 visible"
                         : "opacity-0 invisible pointer-events-none"
                 }`}
-                style={{ top: `${navbarHeight}px`, bottom: 0, width: "100%", maxWidth: "100vw" }}
+                style={{ top: "55px", bottom: 0, width: "100%", maxWidth: "100vw" }}
             >
                 <div className="w-full h-full overflow-y-auto">
-                    <div className="flex flex-col px-4 sm:px-6 py-6 gap-4">
-                        {navItems.map((item) => (
+                    <div className="flex flex-col px-4 sm:px-6 py-6 gap-2">
+                        {NAV_ITEMS.map((item) => (
                             <a
                                 key={item.id}
                                 href={item.href}
                                 onClick={() => {
                                     setIsMobileMenuOpen(false);
                                 }}
-                                className="text-white hover:text-[#7C3AED] text-lg font-medium transition-colors duration-200 py-3 border-b border-white/10 w-full"
+                                className="text-white hover:text-purple-400 text-lg font-medium transition-colors duration-200 py-3 border-b border-white/10 w-full"
                             >
                                 {item.label}
                                 {activeItem === item.id && (
-                                    <span className="block w-12 h-0.5 bg-[#7C3AED] rounded-full mt-2" />
+                                    <span className="block w-12 h-0.5 bg-purple-500 rounded-full mt-1" />
                                 )}
                             </a>
                         ))}
                         <div className="pt-4">
-                            <GradientButton>Let's Talk</GradientButton>
+                            <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md text-sm font-medium w-full transition-colors duration-200">
+                                Let's Talk
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* Spacer to prevent content from going under fixed navbar */}
-            <div className="h-[60px] sm:h-[68px] md:h-[73px]" />
         </>
     );
 }
