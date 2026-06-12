@@ -40,7 +40,7 @@ export default function ProcessSection() {
     return (
         <section
             ref={sectionRef}
-            className="w-full py-16 lg:pt-24 lg:pb-10"
+            className="w-full pb-20 lg:pt-24 lg:pb-10"
         >
             <div className="px-5 lg:px-[90px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
