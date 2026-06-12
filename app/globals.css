@@ -33,3 +33,9 @@ body {
 h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, label, li {
   font-family: var(--font-body);
 }
+
+/* Add temporarily to see if something is blocking */
+nav, nav * {
+  pointer-events: auto !important;
+  z-index: 9999 !important;
+}
