@@ -9,6 +9,8 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { ContactInfoCard } from "@/components/contact/ContactInfoCard";
 import { SocialMediaIcons } from "@/components/contact/SocialMediaIcons";
 import { ContactForm } from "@/components/contact/ContactForm";
+import {FiPhone} from "react-icons/fi";
+import {MdPhone} from "react-icons/md";
 
 export default function ContactPage() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -43,7 +45,7 @@ export default function ContactPage() {
 
             {/* Content */}
             <div className="relative z-10">
-                <section ref={sectionRef} className="w-full py-16 lg:pt-20 lg:pb-[140px]">
+                <section ref={sectionRef} className="w-full pt-[140px] pb-20 lg:pt-20 lg:pb-[140px]">
                     <div className="px-5 lg:px-[90px]">
                         {/* Header Section - No Animation */}
                         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-[95px]">
@@ -61,7 +63,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Main Content Grid */}
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 max-w-7xl mx-auto">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 lg:gap-16 max-w-7xl mx-auto">
                             {/* LEFT COLUMN - Contact Details */}
                             <div className="lg:col-span-5 space-y-6">
                                 <div>
@@ -82,7 +84,7 @@ export default function ContactPage() {
                                 {/* Contact Info Grid */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <ContactInfoCard
-                                        icon={<FaPhone className="w-3.5 h-3.5 text-white" />}
+                                        icon={<MdPhone className="w-3.5 h-3.5 text-white" />}
                                         title="Call Us"
                                         content={
                                             <a href={`tel:${CONTACT_INFO.phone}`} className="text-[#7D7D7D] text-xs hover:text-[#7C3AED] transition-colors">

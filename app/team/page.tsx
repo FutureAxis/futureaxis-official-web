@@ -17,7 +17,7 @@ export default function TeamPage() {
         <>
             <Head>
                 <title>Our Team | Meet the Digital Experts at Future Axis Digital</title>
-                <meta name="description" content="Meet the passionate team of designers, developers, and digital innovators at Future Axis Digital. We combine creativity, strategy, and technology to help brands grow." />
+                <meta name="description" content="Meet the passionate team of designers, developers, and digital innovators at Future Axis. We combine creativity, strategy, and technology to help brands grow." />
                 <meta name="keywords" content="web development team Melbourne, digital agency team, IT consultants Australia, web designers, digital marketing experts" />
                 <link rel="canonical" href="https://futureaxisdigital.com/team" />
 
@@ -43,10 +43,10 @@ export default function TeamPage() {
 
             {/* Content */}
             <div className="relative z-10">
-                <section ref={sectionRef} className="w-full py-20 lg:pt-24 lg:pb-[150px]">
+                <section ref={sectionRef} className="w-full pt-[140px] pb-20 lg:pt-24 lg:pb-[150px]">
                     <div className="px-5 lg:px-[90px]">
                         {/* Header - No Animation */}
-                        <div className="text-center max-w-3xl mx-auto mb-[130px]">
+                        <div className="text-center max-w-3xl mx-auto mb-[80px]">
                             <h1 className="text-[24px] md:text-[36px] font-semibold text-white leading-[130%] mb-[34px]">
                                 <span>Visionary Team </span>
                                 <span className="bg-gradient-to-r from-[#6A2187] to-[#7C3AED] bg-clip-text text-transparent">
