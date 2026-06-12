@@ -41,7 +41,7 @@ export default function ServicesSection() {
     );
 
     return (
-        <section ref={sectionRef} className="w-full py-12 md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden" id="services">
+        <section ref={sectionRef} className="w-full py-[130px] md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden" id="services">
             <div className="px-4 sm:px-5 lg:px-[90px]">
                 {/* Header - No Animations */}
                 <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
