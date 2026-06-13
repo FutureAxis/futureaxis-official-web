@@ -47,16 +47,22 @@ export default function ContactPage() {
             <div className="relative z-10">
                 <section ref={sectionRef} className="w-full pt-[140px] pb-20 lg:pt-36 lg:pb-[140px]">
                     <div className="px-5 lg:px-[90px]">
-                        {/* Header Section - No Animation */}
+                        {/* Header Section */}
                         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-[95px]">
-                            <h1 className="text-2xl md:text-3xl font-semibold text-white leading-tight mb-[37px]">
+                            <h1
+                                className="text-2xl md:text-3xl font-semibold text-white leading-tight mb-[37px] animate-fade-up"
+                                style={{ animationDelay: "0.3s" }}
+                            >
                                 <span>Let's Talk About Your </span>
                                 <span className="bg-gradient-to-r from-[#6A2187] to-[#7C3AED] bg-clip-text text-transparent">
                                     Next Project
                                 </span>
                             </h1>
 
-                            <p className="text-[#7D7D7D] text-base leading-relaxed max-w-4xl mx-auto">
+                            <p
+                                className="text-[#7D7D7D] text-base leading-relaxed max-w-4xl mx-auto animate-fade-up"
+                                style={{ animationDelay: "0.3s" }}
+                            >
                                 Connect with our creative team to discuss your next project. We combine strategy, design,
                                 and technology to craft premium digital experiences.
                             </p>
