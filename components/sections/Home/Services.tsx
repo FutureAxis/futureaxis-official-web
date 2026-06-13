@@ -52,11 +52,10 @@ export default function ServicesSection() {
                  id="services">
             <div className="px-4 sm:px-5 lg:px-[90px]">
                 {/* Header */}
-                {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
                     <div
                         className="flex items-center justify-center gap-3 mb-[26px] animate-fade-up"
-                        style={{ animationDelay: "0s" }}
+                        style={{ animationDelay: "0.3s" }}
                     >
                         <p className="text-[#7C3AED] uppercase tracking-[3px] text-xs font-semibold">
                             OUR SERVICES
@@ -65,7 +64,7 @@ export default function ServicesSection() {
 
                     <h2
                         className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 md:mb-[48px] px-4 animate-fade-up"
-                        style={{ animationDelay: "0.2s" }}
+                        style={{ animationDelay: "0.3s" }}
                     >
                         Solutions That{" "}
                         <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent whitespace-nowrap">
@@ -75,7 +74,7 @@ export default function ServicesSection() {
 
                     <p
                         className="text-[#7D7D7D] text-sm sm:text-base leading-relaxed px-4 max-w-full mx-auto animate-fade-up"
-                        style={{ animationDelay: "0.4s" }}
+                        style={{ animationDelay: "0.3s" }}
                     >
                         Growth isn't accidental; it's engineered. We deliver end-to-end digital solutions—from custom Web Development and strategic Social Media Marketing to expert IT Consulting—designed to scale your business faster and secure lasting success.
                     </p>
