@@ -45,15 +45,21 @@ export default function TeamPage() {
             <div className="relative z-10">
                 <section ref={sectionRef} className="w-full pt-[140px] pb-20 lg:pt-36 lg:pb-[150px]">
                     <div className="px-5 lg:px-[90px]">
-                        {/* Header - No Animation */}
+                        {/* Header */}
                         <div className="text-center max-w-3xl mx-auto mb-[80px]">
-                            <h1 className="text-[24px] md:text-[36px] font-semibold text-white leading-[130%] mb-[34px]">
+                            <h1
+                                className="text-[24px] md:text-[36px] font-semibold text-white leading-[130%] mb-[34px] animate-fade-up"
+                                style={{ animationDelay: "0.3s" }}
+                            >
                                 <span>Visionary Team </span>
                                 <span className="bg-gradient-to-r from-[#6A2187] to-[#7C3AED] bg-clip-text text-transparent">
                                     Exceptional Results
                                 </span>
                             </h1>
-                            <p className="text-[#7D7D7D] text-base leading-relaxed">
+                            <p
+                                className="text-[#7D7D7D] text-base leading-relaxed animate-fade-up"
+                                style={{ animationDelay: "0.3s" }}
+                            >
                                 We are a passionate team of designers, developers, and digital innovators dedicated to
                                 creating modern experiences that combine creativity, strategy, and technology to help
                                 brands grow in the digital world.

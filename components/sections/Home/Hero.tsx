@@ -44,25 +44,31 @@ export default function HeroSection() {
             </video>
 
             {/* Animated Content - Slide from left */}
-            <div
-                className={`absolute bottom-10 left-0 z-20 px-5 lg:px-[90px] transition-all duration-1000 ease-out `}
-            >
+            <div className="absolute bottom-10 left-0 z-20 px-5 lg:px-[90px]">
                 <div className="space-y-6 max-w-[280px] md:max-w-md lg:max-w-2xl">
-                    <div className="flex items-center gap-3 mb-2.5">
+                    <div
+                        className="flex items-center gap-3 mb-2.5 animate-slide-in-left"
+                        style={{ animationDelay: "0s" }}
+                    >
                         <div className="w-2 h-2 rounded-full bg-[#7C3AED]"/>
                         <p className="text-xs uppercase tracking-[3px] text-white font-semibold whitespace-nowrap">
                             WELCOME TO FUTUREAXIS
                         </p>
                     </div>
 
-                    <p className="text-sm md:text-[17px] text-[#A4A4A4] font-normal leading-[150%] max-w-sm md:max-w-md mb-[23px]">
+                    <p
+                        className="text-sm md:text-[17px] text-[#A4A4A4] font-normal leading-[150%] max-w-sm md:max-w-md mb-[23px] animate-slide-in-left"
+                        style={{ animationDelay: "0.2s" }}
+                    >
                         We deliver reliable, high-quality digital solutions designed to elevate
                         your business and drive long-term growth.
                     </p>
 
-                    <GradientButton className="mt-2">
-                        Find More
-                    </GradientButton>
+                    <div className="animate-slide-in-left" style={{ animationDelay: "0.4s" }}>
+                        <GradientButton className="mt-2">
+                            Find More
+                        </GradientButton>
+                    </div>
                 </div>
             </div>
         </section>

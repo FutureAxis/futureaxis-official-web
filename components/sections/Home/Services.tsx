@@ -17,7 +17,7 @@ export default function ServicesSection() {
     // Reusable card for mobile — image as background, content overlaid on top
     const MobileCard = ({ service }: { service: typeof SERVICES[0] }) => (
         <div
-            className="relative rounded-[18px] overflow-hidden border border-[#15102E] min-h-[460px] transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#7C3AED]/10">
+            className="relative rounded-[18px] overflow-hidden border border-[#15102E] min-h-[420px] transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#7C3AED]/10">
             {/* Background image */}
             <div className="absolute inset-0">
                 <Image
@@ -48,25 +48,34 @@ export default function ServicesSection() {
     );
 
     return (
-        <section ref={sectionRef} className="w-full py-[130px] md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden"
+        <section ref={sectionRef} className="w-full pt-[130px] pb-[100px] md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden"
                  id="services">
             <div className="px-4 sm:px-5 lg:px-[90px]">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
-                    <div className="flex items-center justify-center gap-3 mb-[26px]">
+                    <div
+                        className="flex items-center justify-center gap-3 mb-[26px] animate-fade-up"
+                        style={{ animationDelay: "0.3s" }}
+                    >
                         <p className="text-[#7C3AED] uppercase tracking-[3px] text-xs font-semibold">
                             OUR SERVICES
                         </p>
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 md:mb-[48px] px-4">
+                    <h2
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 md:mb-[48px] px-4 animate-fade-up"
+                        style={{ animationDelay: "0.3s" }}
+                    >
                         Solutions That{" "}
                         <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent whitespace-nowrap">
                             Drive Results
                         </span>
                     </h2>
 
-                    <p className="text-[#7D7D7D] text-sm sm:text-base leading-relaxed px-4 max-w-full mx-auto">
+                    <p
+                        className="text-[#7D7D7D] text-sm sm:text-base leading-relaxed px-4 max-w-full mx-auto animate-fade-up"
+                        style={{ animationDelay: "0.3s" }}
+                    >
                         Growth isn't accidental; it's engineered. We deliver end-to-end digital solutions—from custom Web Development and strategic Social Media Marketing to expert IT Consulting—designed to scale your business faster and secure lasting success.
                     </p>
                 </div>
