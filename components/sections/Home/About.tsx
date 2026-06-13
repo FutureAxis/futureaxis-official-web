@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import GradientButton from "@/components/buttons/GradientButton";
 import Image from "next/image";
 import icon1 from "@/public/images/icons/Vector-1.png";
@@ -9,66 +9,23 @@ import icon3 from "@/public/images/icons/Vector-3.png";
 import icon4 from "@/public/images/icons/Vector-4.png";
 
 export default function AboutSection() {
-    const [isVisible, setIsVisible] = useState(true); // Changed to true by default
-    const sectionRef = useRef<HTMLElement>(null);
-
     const features = [
-        {
-            icon: icon1,
-            title: "Innovation",
-            description: "We embrace creativity and technology to build future-ready solutions.",
-        },
-        {
-            icon: icon2,
-            title: "Partnership",
-            description: "We grow together with our client through collaboration and trust.",
-        },
-        {
-            icon: icon3,
-            title: "Transparency",
-            description: "We believe in clear communication and honesty in every interaction.",
-        },
-        {
-            icon: icon4,
-            title: "Performance",
-            description: "We focus on results that drive real impact and measurable growth.",
-        },
+        { icon: icon1, title: "Innovation", description: "We embrace creativity and technology to build future-ready solutions." },
+        { icon: icon2, title: "Partnership", description: "We grow together with our client through collaboration and trust." },
+        { icon: icon3, title: "Transparency", description: "We believe in clear communication and honesty in every interaction." },
+        { icon: icon4, title: "Performance", description: "We focus on results that drive real impact and measurable growth." },
     ];
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            {
-                threshold: 0.05,
-                rootMargin: "0px 0px -50px 0px",
-            }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
     return (
-        <section ref={sectionRef} className="w-full pt-16 lg:pt-24" id="about">
+        <section className="w-full pt-16 lg:pt-24" id="about">
             <div className="px-5 lg:px-[90px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
-                    {/* Left Column - Fixed visibility */}
-                    <div className="space-y-6">
-                        {/* ABOUT US */}
+                    {/* Left Column */}
+                    <div className="space-y-6 w-full">
                         <div
-                            className={`flex items-center gap-3 mb-[26px] transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
-                                isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-100 translate-y-0" // Always visible
-                            }`}
+                            className="flex items-center gap-3 mb-[26px] w-full animate-slide-in-left"
+                            style={{ animationDelay: "0s" }}
                         >
                             <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
                             <p className="text-[#7C3AED] uppercase tracking-[3px] text-sm font-semibold">
@@ -76,14 +33,7 @@ export default function AboutSection() {
                             </p>
                         </div>
 
-                        {/* Heading */}
-                        <div
-                            className={`transition-all duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100 transform mb-[60px] ${
-                                isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-100 translate-y-0" // Always visible
-                            }`}
-                        >
+                        <div className="mb-[60px] w-full animate-slide-in-left" style={{ animationDelay: "0.1s" }}>
                             <h2 className="text-3xl md:text-[36px] font-semibold leading-[130%]">
                                 <span className="text-white">Driven by Purpose </span>
                                 <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">
@@ -92,14 +42,7 @@ export default function AboutSection() {
                             </h2>
                         </div>
 
-                        {/* Description */}
-                        <div
-                            className={`transition-all duration-1000 delay-200 transform ${
-                                isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-100 translate-y-0" // Always visible
-                            }`}
-                        >
+                        <div className="w-full animate-slide-in-left" style={{ animationDelay: "0.2s" }}>
                             <p className="text-[#7D7D7D] text-base md:text-[18px] leading-[150%] max-w-lg mb-[33px]">
                                 FutureAxis is a digital solutions company focused on delivering
                                 innovative, scalable, and results-driven solutions that help
@@ -107,28 +50,14 @@ export default function AboutSection() {
                             </p>
                         </div>
 
-                        {/* Mission */}
-                        <div
-                            className={`transition-all duration-1000 delay-300 transform mb-8 ${
-                                isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-100 translate-y-0" 
-                            }`}
-                        >
+                        <div className="mb-8 w-full animate-slide-in-left" style={{ animationDelay: "0.3s" }}>
                             <p className="text-[#F8FAFC] text-base md:text-[18px] leading-[150%] max-w-md">
                                 Our Mission is to empower businesses with innovative digital
                                 solutions that drive growth, efficiency, and long-term success.
                             </p>
                         </div>
 
-                        {/* Button */}
-                        <div
-                            className={`transition-all duration-1000 delay-500 transform ${
-                                isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-100 translate-y-0" 
-                            }`}
-                        >
+                        <div className="animate-slide-in-left" style={{ animationDelay: "0.4s" }}>
                             <GradientButton>Meet Our Team</GradientButton>
                         </div>
                     </div>
@@ -137,9 +66,10 @@ export default function AboutSection() {
                     <div className="space-y-6">
                         {features.map((feature, index) => (
                             <React.Fragment key={feature.title}>
-                                <div className="flex gap-4 items-start">
-
-                                    {/* Icon */}
+                                <div
+                                    className="flex gap-4 items-start animate-slide-in-right"
+                                    style={{ animationDelay: `${index * 0.2}s` }}
+                                >
                                     <div className="relative w-[45px] h-[45px] flex-shrink-0">
                                         <div
                                             className="absolute inset-0 rounded-full"
@@ -159,8 +89,6 @@ export default function AboutSection() {
                                             </div>
                                         </div>
                                     </div>
-
-                                    {/* Content */}
                                     <div className="flex-1">
                                         <h3 className="text-white text-lg font-semibold mb-2">
                                             {feature.title}
@@ -168,7 +96,6 @@ export default function AboutSection() {
                                         <p className="text-[#A4A4A4] text-sm leading-relaxed">
                                             {feature.description}
                                         </p>
-
                                         {index < features.length - 1 && (
                                             <div className="w-full h-px bg-gradient-to-r from-[#6A2187] to-[#472187] my-2" />
                                         )}
