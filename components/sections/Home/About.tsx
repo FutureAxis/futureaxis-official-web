@@ -25,7 +25,7 @@ export default function AboutSection() {
                     <div className="space-y-6 w-full">
                         <div
                             className="flex items-center gap-3 mb-[26px] w-full animate-slide-in-left"
-                            style={{ animationDelay: "0s" }}
+                            style={{ animationDelay: "0.3s" }}
                         >
                             <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
                             <p className="text-[#7C3AED] uppercase tracking-[3px] text-sm font-semibold">
@@ -33,7 +33,7 @@ export default function AboutSection() {
                             </p>
                         </div>
 
-                        <div className="mb-[60px] w-full animate-slide-in-left" style={{ animationDelay: "0.1s" }}>
+                        <div className="mb-[60px] w-full animate-slide-in-left" style={{ animationDelay: "0.3s" }}>
                             <h2 className="text-3xl md:text-[36px] font-semibold leading-[130%]">
                                 <span className="text-white">Driven by Purpose </span>
                                 <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">
@@ -42,7 +42,7 @@ export default function AboutSection() {
                             </h2>
                         </div>
 
-                        <div className="w-full animate-slide-in-left" style={{ animationDelay: "0.2s" }}>
+                        <div className="w-full animate-slide-in-left" style={{ animationDelay: "0.3s" }}>
                             <p className="text-[#7D7D7D] text-base md:text-[18px] leading-[150%] max-w-lg mb-[33px]">
                                 FutureAxis is a digital solutions company focused on delivering
                                 innovative, scalable, and results-driven solutions that help
@@ -57,7 +57,7 @@ export default function AboutSection() {
                             </p>
                         </div>
 
-                        <div className="animate-slide-in-left" style={{ animationDelay: "0.4s" }}>
+                        <div className="animate-slide-in-left" style={{ animationDelay: "0.3s" }}>
                             <GradientButton>Meet Our Team</GradientButton>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ export default function AboutSection() {
                             <React.Fragment key={feature.title}>
                                 <div
                                     className="flex gap-4 items-start animate-slide-in-right"
-                                    style={{ animationDelay: `${index * 0.2}s` }}
+                                    style={{ animationDelay: `${index * 0.3}s` }}
                                 >
                                     <div className="relative w-[45px] h-[45px] flex-shrink-0">
                                         <div
