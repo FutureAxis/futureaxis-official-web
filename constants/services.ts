@@ -19,7 +19,7 @@ export const SERVICES: Service[] = [
         features: ["Custom UI/UX Design", "Performance Optimization", "Responsive Development", "Scalable & Secure Solutions"],
         image: card1,
         imageAlt: "Web Design & Development",
-        imagePosition: "object-top",
+        imagePosition: "object-center",
     },
     {
         title: "Social Media Marketing",
@@ -27,7 +27,7 @@ export const SERVICES: Service[] = [
         features: ["Social Media strategy", "Paid Advertising", "Content Creation", "Analytics & Reporting"],
         image: card2,
         imageAlt: "Social Media Marketing",
-        imagePosition: "object-center",
+        imagePosition: "object-top",
     },
     {
         title: "IT Consulting",

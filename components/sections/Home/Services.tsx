@@ -16,7 +16,8 @@ export default function ServicesSection() {
 
     // Reusable card for mobile — image as background, content overlaid on top
     const MobileCard = ({ service }: { service: typeof SERVICES[0] }) => (
-        <div className="relative rounded-[18px] overflow-hidden border border-[#15102E] min-h-[460px] transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#7C3AED]/10">
+        <div
+            className="relative rounded-[18px] overflow-hidden border border-[#15102E] min-h-[460px] transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#7C3AED]/10">
             {/* Background image */}
             <div className="absolute inset-0">
                 <Image
@@ -25,6 +26,8 @@ export default function ServicesSection() {
                     fill
                     className="object-cover"
                 />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40"/>
             </div>
 
             {/* Content on top */}
@@ -35,7 +38,7 @@ export default function ServicesSection() {
                 <div className="flex flex-col gap-2 sm:gap-3 mt-auto">
                     {service.features.map((f, i) => (
                         <div key={i} className="flex items-center gap-3">
-                            <CheckIcon />
+                            <CheckIcon/>
                             <span className="text-[#A4A4A4] text-[14px] sm:text-[15px]">{f}</span>
                         </div>
                     ))}
@@ -45,7 +48,8 @@ export default function ServicesSection() {
     );
 
     return (
-        <section ref={sectionRef} className="w-full py-[130px] md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden" id="services">
+        <section ref={sectionRef} className="w-full py-[130px] md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden"
+                 id="services">
             <div className="px-4 sm:px-5 lg:px-[90px]">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
