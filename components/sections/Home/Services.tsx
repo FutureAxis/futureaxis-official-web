@@ -17,7 +17,7 @@ export default function ServicesSection() {
     // Reusable card for mobile — image as background, content overlaid on top
     const MobileCard = ({ service }: { service: typeof SERVICES[0] }) => (
         <div
-            className="relative rounded-[18px] overflow-hidden border border-[#15102E] min-h-[460px] transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#7C3AED]/10">
+            className="relative rounded-[18px] overflow-hidden border border-[#15102E] min-h-[420px] transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#7C3AED]/10">
             {/* Background image */}
             <div className="absolute inset-0">
                 <Image
@@ -48,7 +48,7 @@ export default function ServicesSection() {
     );
 
     return (
-        <section ref={sectionRef} className="w-full py-[130px] md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden"
+        <section ref={sectionRef} className="w-full pt-[130px] pb-[100px] md:py-16 lg:pt-[146px] lg:pb-24 overflow-hidden"
                  id="services">
             <div className="px-4 sm:px-5 lg:px-[90px]">
                 {/* Header */}
