@@ -39,7 +39,7 @@ export default function HeroSection() {
                     setTimeout(() => setIsContentVisible(true), 50);
                 }}
             >
-                <source src="/images/hero/new-hero-video.mp4" type="video/mp4"/>
+                <source src="/images/hero/hero-v1.mov" type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
 
