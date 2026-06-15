@@ -58,7 +58,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="relative hover:opacity-80 transition-opacity">
                         <Image
-                            src="/images/logo/logo.png"
+                            src="https://res.cloudinary.com/denec4g4s/image/upload/v1781547454/future_axis/logo/logo_oatkdr.png"
                             alt="Future Axis"
                             width={200}
                             height={100}

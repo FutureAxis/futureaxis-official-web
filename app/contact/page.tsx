@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Head from "next/head";
 import { CONTACT_INFO } from "@/constants/contact";
-import backgroundImage from "@/public/images/home/background-bg.png";
+const backgroundImage = "https://res.cloudinary.com/denec4g4s/image/upload/v1781546613/future_axis/home/background-bg_gzcf4u.png";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { ContactInfoCard } from "@/components/contact/ContactInfoCard";
 import { SocialMediaIcons } from "@/components/contact/SocialMediaIcons";

@@ -3,32 +3,35 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import icon1 from "@/public/images/icons/Vector-5.png";
-import icon2 from "@/public/images/icons/Vector-1.png";
-import icon3 from "@/public/images/icons/Vector-6.png";
-import icon4 from "@/public/images/icons/Vector-4.png";
+
+const ICONS = {
+    discover:   "https://res.cloudinary.com/denec4g4s/image/upload/v1781547245/future_axis/icons/Vector-5_emepyk.png",
+    strategize: "https://res.cloudinary.com/denec4g4s/image/upload/v1781547248/future_axis/icons/Vector-1_pjgkjx.png",
+    develop:    "https://res.cloudinary.com/denec4g4s/image/upload/v1781547244/future_axis/icons/Vector-6_lcu6lt.png",
+    scale:      "https://res.cloudinary.com/denec4g4s/image/upload/v1781547245/future_axis/icons/Vector-4_dmulm6.png",
+};
 
 export default function ProcessSection() {
     const sectionRef = useRef<HTMLElement>(null);
 
     const features = [
         {
-            icon: icon1,
+            icon: ICONS.discover,
             title: "Discover",
             description: "We understand your business, goals and target audience.",
         },
         {
-            icon: icon2,
+            icon: ICONS.strategize,
             title: "Strategize",
             description: "We create a tailored strategy to solve real problems.",
         },
         {
-            icon: icon3,
+            icon: ICONS.develop,
             title: "Develop",
             description: "We build fast, scalable, and secure digital solutions.",
         },
         {
-            icon: icon4,
+            icon: ICONS.scale,
             title: "Scale",
             description: "We launch, optimize, and support your continuous growth.",
         },

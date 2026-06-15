@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import checkIcon from "@/public/images/icons/check-icon.png";
+const checkIcon = "https://res.cloudinary.com/denec4g4s/image/upload/v1781547244/future_axis/icons/check-icon_dgldkp.png";
 import Image from "next/image";
 import { SERVICES } from "@/constants/services";
 

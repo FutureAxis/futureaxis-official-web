@@ -20,7 +20,7 @@ export default function HeroSection() {
             <div
                 className="absolute top-0 left-0 w-full h-full md:hidden"
                 style={{
-                    backgroundImage: "url('/images/hero/hero-mobile.png')",
+                    backgroundImage: "url('https://res.cloudinary.com/denec4g4s/image/upload/v1781546254/future_axis/hero/hero-mobile_knnavb.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat"
@@ -40,7 +40,7 @@ export default function HeroSection() {
                     setTimeout(() => setIsContentVisible(true), 50);
                 }}
             >
-                <source src="/images/hero/hero-v1.mov" type="video/mp4"/>
+                <source src="https://res.cloudinary.com/denec4g4s/video/upload/v1781545591/future_axis/hero/hero-v1_irqi9u.mp4" type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
 

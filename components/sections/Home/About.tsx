@@ -4,17 +4,20 @@ import React from "react";
 import { motion } from "framer-motion";
 import GradientButton from "@/components/buttons/GradientButton";
 import Image from "next/image";
-import icon1 from "@/public/images/icons/Vector-1.png";
-import icon2 from "@/public/images/icons/Vector-2.png";
-import icon3 from "@/public/images/icons/Vector-3.png";
-import icon4 from "@/public/images/icons/Vector-4.png";
+
+const ICONS = {
+    innovation: "https://res.cloudinary.com/denec4g4s/image/upload/v1781547248/future_axis/icons/Vector-1_pjgkjx.png",
+    partnership: "https://res.cloudinary.com/denec4g4s/image/upload/v1781547247/future_axis/icons/Vector-2_hsinrf.png",
+    transparency: "https://res.cloudinary.com/denec4g4s/image/upload/v1781547246/future_axis/icons/Vector-3_nuzcmv.png",
+    performance: "https://res.cloudinary.com/denec4g4s/image/upload/v1781547245/future_axis/icons/Vector-4_dmulm6.png",
+};
 
 export default function AboutSection() {
     const features = [
-        { icon: icon1, title: "Innovation", description: "We embrace creativity and technology to build future-ready solutions." },
-        { icon: icon2, title: "Partnership", description: "We grow together with our client through collaboration and trust." },
-        { icon: icon3, title: "Transparency", description: "We believe in clear communication and honesty in every interaction." },
-        { icon: icon4, title: "Performance", description: "We focus on results that drive real impact and measurable growth." },
+        { icon: ICONS.innovation, title: "Innovation", description: "We embrace creativity and technology to build future-ready solutions." },
+        { icon: ICONS.partnership, title: "Partnership", description: "We grow together with our client through collaboration and trust." },
+        { icon: ICONS.transparency, title: "Transparency", description: "We believe in clear communication and honesty in every interaction." },
+        { icon: ICONS.performance, title: "Performance", description: "We focus on results that drive real impact and measurable growth." },
     ];
 
     const slideLeft = {
