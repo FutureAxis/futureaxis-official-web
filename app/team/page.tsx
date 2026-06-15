@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Head from "next/head";
-import backgroundImage from "@/public/images/home/background-bg.png";
+const backgroundImage = "https://res.cloudinary.com/denec4g4s/image/upload/v1781546613/future_axis/home/background-bg_gzcf4u.png";
 import { TEAM_LEADERS, TEAM_MEMBERS } from "@/constants/team";
 import { TeamCard } from "@/components/team/TeamCard";
 
@@ -47,23 +48,29 @@ export default function TeamPage() {
                     <div className="px-5 lg:px-[90px]">
                         {/* Header */}
                         <div className="text-center max-w-3xl mx-auto mb-[80px]">
-                            <h1
-                                className="text-[24px] md:text-[36px] font-semibold text-white leading-[130%] mb-[34px] animate-fade-up"
-                                style={{ animationDelay: "0.3s" }}
+                            <motion.h1
+                                className="text-[24px] md:text-[36px] font-semibold text-white leading-[130%] mb-[34px]"
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.1 }}
+                                transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                             >
                                 <span>Visionary Team </span>
                                 <span className="bg-gradient-to-r from-[#6A2187] to-[#7C3AED] bg-clip-text text-transparent">
                                     Exceptional Results
                                 </span>
-                            </h1>
-                            <p
-                                className="text-[#7D7D7D] text-base leading-relaxed animate-fade-up"
-                                style={{ animationDelay: "0.3s" }}
+                            </motion.h1>
+                            <motion.p
+                                className="text-[#7D7D7D] text-base leading-relaxed"
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.1 }}
+                                transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                             >
                                 We are a passionate team of designers, developers, and digital innovators dedicated to
                                 creating modern experiences that combine creativity, strategy, and technology to help
                                 brands grow in the digital world.
-                            </p>
+                            </motion.p>
                         </div>
 
                         {/* Leaders Section */}
@@ -71,7 +78,7 @@ export default function TeamPage() {
                             <div className="flex justify-center">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto w-full">
                                     {TEAM_LEADERS.map((member, index) => (
-                                        <TeamCard key={member.name} member={member} index={index} isVisible={true} />
+                                        <TeamCard key={member.name} member={member} index={index} isVisible={true} priority={index === 0} />
                                     ))}
                                 </div>
                             </div>
