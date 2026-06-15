@@ -8,7 +8,7 @@ export const TEAM_LEADERS: TeamMember[] = [
     {
         name: "Yehan Pitigala",
         role: "Co-Founder & Head of Business Development",
-        image: "https://res.cloudinary.com/denec4g4s/image/upload/v1781547595/future_axis/team/pathum_zwnzcb.png",
+        image: "https://res.cloudinary.com/denec4g4s/image/upload/v1781547596/future_axis/team/yehan_qkmtmx.png",
     },
     {
         name: "Hirushi Matharaarachchi",
