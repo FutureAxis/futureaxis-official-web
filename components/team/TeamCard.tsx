@@ -5,6 +5,7 @@ interface TeamCardProps {
     member: TeamMember;
     index: number;
     isVisible: boolean;
+    priority?: boolean;
 }
 
 // Define custom focal points for specific members if needed
@@ -21,7 +22,7 @@ const getImagePosition = (name: string): string => {
     }
 };
 
-export const TeamCard = ({ member, index, isVisible }: TeamCardProps) => (
+export const TeamCard = ({ member, index, isVisible, priority = false }: TeamCardProps) => (
     <div
         className={`transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -34,6 +35,7 @@ export const TeamCard = ({ member, index, isVisible }: TeamCardProps) => (
                     src={member.image}
                     alt={`${member.name} - ${member.role}`}
                     fill
+                    priority={priority}
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                     style={{ objectPosition: getImagePosition(member.name) }}

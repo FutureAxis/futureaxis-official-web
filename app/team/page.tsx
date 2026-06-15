@@ -78,7 +78,7 @@ export default function TeamPage() {
                             <div className="flex justify-center">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto w-full">
                                     {TEAM_LEADERS.map((member, index) => (
-                                        <TeamCard key={member.name} member={member} index={index} isVisible={true} />
+                                        <TeamCard key={member.name} member={member} index={index} isVisible={true} priority={index === 0} />
                                     ))}
                                 </div>
                             </div>
