@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import GradientButton from "@/components/buttons/GradientButton";
 import Image from "next/image";
 import icon1 from "@/public/images/icons/Vector-1.png";
@@ -16,6 +17,24 @@ export default function AboutSection() {
         { icon: icon4, title: "Performance", description: "We focus on results that drive real impact and measurable growth." },
     ];
 
+    const slideLeft = {
+        initial: { opacity: 0, x: -50 },
+        whileInView: { opacity: 1, x: 0 },
+        viewport: { once: false, amount: 0.1 },
+    };
+
+    const slideRight = {
+        initial: { opacity: 0, x: 50 },
+        whileInView: { opacity: 1, x: 0 },
+        viewport: { once: false, amount: 0.1 },
+    };
+
+    const slideTransition = (delay: number) => ({
+        duration: 1.8,
+        ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
+        delay,
+    });
+
     return (
         <section className="w-full pt-16 lg:pt-24" id="about">
             <div className="px-5 lg:px-[90px]">
@@ -23,52 +42,69 @@ export default function AboutSection() {
 
                     {/* Left Column */}
                     <div className="space-y-6 w-full">
-                        <div
-                            className="flex items-center gap-3 mb-[26px] w-full animate-slide-in-left"
-                            style={{ animationDelay: "0.3s" }}
+                        <motion.div
+                            className="flex items-center gap-3 mb-[26px] w-full"
+                            {...slideLeft}
+                            transition={slideTransition(0.3)}
                         >
                             <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
                             <p className="text-[#7C3AED] uppercase tracking-[3px] text-sm font-semibold">
                                 ABOUT US
                             </p>
-                        </div>
+                        </motion.div>
 
-                        <div className="mb-[60px] w-full animate-slide-in-left" style={{ animationDelay: "0.3s" }}>
+                        <motion.div
+                            className="mb-[60px] w-full"
+                            {...slideLeft}
+                            transition={slideTransition(0.3)}
+                        >
                             <h2 className="text-3xl md:text-[36px] font-semibold leading-[130%]">
                                 <span className="text-white">Driven by Purpose </span>
                                 <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent">
                                     Focus on Impact
                                 </span>
                             </h2>
-                        </div>
+                        </motion.div>
 
-                        <div className="w-full animate-slide-in-left" style={{ animationDelay: "0.3s" }}>
+                        <motion.div
+                            className="w-full"
+                            {...slideLeft}
+                            transition={slideTransition(0.3)}
+                        >
                             <p className="text-[#7D7D7D] text-base md:text-[18px] leading-[150%] max-w-lg mb-[33px]">
                                 FutureAxis is a digital solutions company focused on delivering
                                 innovative, scalable, and results-driven solutions that help
                                 business grow and succeed in the digital world.
                             </p>
-                        </div>
+                        </motion.div>
 
-                        <div className="mb-8 w-full animate-slide-in-left" style={{ animationDelay: "0.3s" }}>
+                        <motion.div
+                            className="mb-8 w-full"
+                            {...slideLeft}
+                            transition={slideTransition(0.3)}
+                        >
                             <p className="text-[#F8FAFC] text-base md:text-[18px] leading-[150%] max-w-md">
                                 Our Mission is to empower businesses with innovative digital
                                 solutions that drive growth, efficiency, and long-term success.
                             </p>
-                        </div>
+                        </motion.div>
 
-                        <div className="animate-slide-in-left" style={{ animationDelay: "0.3s" }}>
+                        <motion.div
+                            {...slideLeft}
+                            transition={slideTransition(0.3)}
+                        >
                             <GradientButton>Meet Our Team</GradientButton>
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* Right Column */}
                     <div className="space-y-6">
                         {features.map((feature, index) => (
                             <React.Fragment key={feature.title}>
-                                <div
-                                    className="flex gap-4 items-start animate-slide-in-right"
-                                    style={{ animationDelay: `${index * 0.3}s` }}
+                                <motion.div
+                                    className="flex gap-4 items-start"
+                                    {...slideRight}
+                                    transition={slideTransition(index * 0.3)}
                                 >
                                     <div className="relative w-[45px] h-[45px] flex-shrink-0">
                                         <div
@@ -100,7 +136,7 @@ export default function AboutSection() {
                                             <div className="w-full h-px bg-gradient-to-r from-[#6A2187] to-[#472187] my-2" />
                                         )}
                                     </div>
-                                </div>
+                                </motion.div>
                             </React.Fragment>
                         ))}
                     </div>

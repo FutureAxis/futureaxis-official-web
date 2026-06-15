@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import GradientButton from "@/components/buttons/GradientButton";
 
 export default function HeroSection() {
@@ -46,29 +47,40 @@ export default function HeroSection() {
             {/* Animated Content - Slide from left */}
             <div className="absolute bottom-10 left-0 z-20 px-5 lg:px-[90px]">
                 <div className="space-y-6 max-w-[280px] md:max-w-md lg:max-w-2xl">
-                    <div
-                        className="flex items-center gap-3 mb-2.5 animate-slide-in-left"
-                        style={{ animationDelay: "0s" }}
+                    <motion.div
+                        className="flex items-center gap-3 mb-2.5"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: false, amount: 0.1 }}
+                        transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0 }}
                     >
                         <div className="w-2 h-2 rounded-full bg-[#7C3AED]"/>
                         <p className="text-xs uppercase tracking-[3px] text-white font-semibold whitespace-nowrap">
                             WELCOME TO FUTUREAXIS
                         </p>
-                    </div>
+                    </motion.div>
 
-                    <p
-                        className="text-sm md:text-[17px] text-[#A4A4A4] font-normal leading-[150%] max-w-sm md:max-w-md mb-[23px] animate-slide-in-left"
-                        style={{ animationDelay: "0.2s" }}
+                    <motion.p
+                        className="text-sm md:text-[17px] text-[#A4A4A4] font-normal leading-[150%] max-w-sm md:max-w-md mb-[23px]"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: false, amount: 0.1 }}
+                        transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
                     >
                         We deliver reliable, high-quality digital solutions designed to elevate
                         your business and drive long-term growth.
-                    </p>
+                    </motion.p>
 
-                    <div className="animate-slide-in-left" style={{ animationDelay: "0.4s" }}>
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: false, amount: 0.1 }}
+                        transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 }}
+                    >
                         <GradientButton className="mt-2">
                             Find More
                         </GradientButton>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

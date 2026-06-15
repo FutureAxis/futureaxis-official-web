@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import checkIcon from "@/public/images/icons/check-icon.png";
 import Image from "next/image";
 import { SERVICES } from "@/constants/services";
@@ -53,31 +54,40 @@ export default function ServicesSection() {
             <div className="px-4 sm:px-5 lg:px-[90px]">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
-                    <div
-                        className="flex items-center justify-center gap-3 mb-[26px] animate-fade-up"
-                        style={{ animationDelay: "0.3s" }}
+                    <motion.div
+                        className="flex items-center justify-center gap-3 mb-[26px]"
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.1 }}
+                        transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                     >
                         <p className="text-[#7C3AED] uppercase tracking-[3px] text-xs font-semibold">
                             OUR SERVICES
                         </p>
-                    </div>
+                    </motion.div>
 
-                    <h2
-                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 md:mb-[48px] px-4 animate-fade-up"
-                        style={{ animationDelay: "0.3s" }}
+                    <motion.h2
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 md:mb-[48px] px-4"
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.1 }}
+                        transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                     >
                         Solutions That{" "}
                         <span className="bg-gradient-to-r from-[#B42CD5] to-[#7C3AED] bg-clip-text text-transparent whitespace-nowrap">
                             Drive Results
                         </span>
-                    </h2>
+                    </motion.h2>
 
-                    <p
-                        className="text-[#7D7D7D] text-sm sm:text-base leading-relaxed px-4 max-w-full mx-auto animate-fade-up"
-                        style={{ animationDelay: "0.3s" }}
+                    <motion.p
+                        className="text-[#7D7D7D] text-sm sm:text-base leading-relaxed px-4 max-w-full mx-auto"
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.1 }}
+                        transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                     >
                         Growth isn't accidental; it's engineered. We deliver end-to-end digital solutions—from custom Web Development and strategic Social Media Marketing to expert IT Consulting—designed to scale your business faster and secure lasting success.
-                    </p>
+                    </motion.p>
                 </div>
 
                 {/* MOBILE: stacked image-background cards */}

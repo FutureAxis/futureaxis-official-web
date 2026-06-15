@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Head from "next/head";
 import { CONTACT_INFO } from "@/constants/contact";
@@ -49,23 +50,29 @@ export default function ContactPage() {
                     <div className="px-5 lg:px-[90px]">
                         {/* Header Section */}
                         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-[95px]">
-                            <h1
-                                className="text-2xl md:text-3xl font-semibold text-white leading-tight mb-[37px] animate-fade-up"
-                                style={{ animationDelay: "0.3s" }}
+                            <motion.h1
+                                className="text-2xl md:text-3xl font-semibold text-white leading-tight mb-[37px]"
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.1 }}
+                                transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                             >
                                 <span>Let's Talk About Your </span>
                                 <span className="bg-gradient-to-r from-[#6A2187] to-[#7C3AED] bg-clip-text text-transparent">
                                     Next Project
                                 </span>
-                            </h1>
+                            </motion.h1>
 
-                            <p
-                                className="text-[#7D7D7D] text-base leading-relaxed max-w-4xl mx-auto animate-fade-up"
-                                style={{ animationDelay: "0.3s" }}
+                            <motion.p
+                                className="text-[#7D7D7D] text-base leading-relaxed max-w-4xl mx-auto"
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.1 }}
+                                transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                             >
                                 Connect with our creative team to discuss your next project. We combine strategy, design,
                                 and technology to craft premium digital experiences.
-                            </p>
+                            </motion.p>
                         </div>
 
                         {/* Main Content Grid */}
