@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { NAV_ITEMS, SCROLL_THRESHOLD } from "@/constants/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import {CONTACT_INFO} from "@/constants/contact";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -78,13 +79,17 @@ export default function Navbar() {
                             >
                                 {item.label}
                                 {activeItem === item.id && (
-                                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-purple-500 rounded-full" />
+                                    <span
+                                        className="absolute -bottom-1 left-0 w-full h-0.5 bg-purple-500 rounded-full"/>
                                 )}
                             </a>
                         ))}
-                        <button className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                        <a
+                            href={`tel:${CONTACT_INFO.phone}`}
+                            className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                        >
                             Let's Talk
-                        </button>
+                        </a>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -125,9 +130,13 @@ export default function Navbar() {
                             </a>
                         ))}
                         <div className="pt-4">
-                            <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md text-sm font-medium w-full transition-colors duration-200">
+                            <a
+                                href={`tel:${CONTACT_INFO.phone}`}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md text-sm font-medium w-full block text-center transition-colors duration-200"
+                            >
                                 Let's Talk
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
