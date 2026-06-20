@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MdPhone } from "react-icons/md";
+import {MdLocationPin, MdPhone} from "react-icons/md";
 import { IoMail } from "react-icons/io5";
 import {
     SOCIAL_LINKS,
@@ -83,7 +83,7 @@ export default function Footer() {
                         <h3 className="text-white font-semibold text-lg">Contact Us</h3>
                         <ul className="space-y-3">
                             <li className="flex items-center gap-3 text-[#A4A4A4] text-base font-normal break-all sm:break-normal">
-                                <IoMail className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                                <IoMail className="w-4 h-4 text-purple-400 flex-shrink-0"/>
                                 <a
                                     href={`mailto:${CONTACT_INFO.email}`}
                                     className="hover:text-purple-400 transition-colors duration-200"
@@ -92,13 +92,19 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li className="flex items-center gap-3 text-[#A4A4A4] text-base font-normal">
-                                <MdPhone className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                                <MdPhone className="w-4 h-4 text-purple-400 flex-shrink-0"/>
                                 <a
                                     href={`tel:${CONTACT_INFO.phone}`}
                                     className="hover:text-purple-400 transition-colors duration-200"
                                 >
                                     {CONTACT_INFO.phone}
                                 </a>
+                            </li>
+                            <li className="flex items-center gap-3 text-[#A4A4A4] text-base font-normal">
+                                <MdLocationPin className="w-4 h-4 text-purple-400 flex-shrink-0"/>
+                                <span className="hover:text-purple-400 transition-colors duration-200 cursor-pointer">
+                                    {CONTACT_INFO.location}
+                                </span>
                             </li>
                         </ul>
                     </div>
