@@ -14,6 +14,17 @@ export default function HeroSection() {
         }
     }, []);
 
+    // Smooth scroll to services section
+    const scrollToServices = () => {
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+            servicesSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    };
+
     return (
         <section className="relative w-full md:h-screen h-[80vh] overflow-hidden">
             {/* Mobile Background Image - visible below 768px */}
@@ -46,13 +57,26 @@ export default function HeroSection() {
 
             {/* Animated Content - Slide from left */}
             <div className="absolute bottom-10 left-0 z-20 px-5 lg:px-[90px]">
-                <div className="space-y-6 max-w-[280px] md:max-w-md lg:max-w-2xl">
+                <motion.div
+                    className="space-y-6 max-w-[280px] md:max-w-md lg:max-w-2xl p-6 rounded-2xl"
+                    style={{
+                        background: "rgba(255, 255, 255, 0.05)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
+                    }}
+                    initial={{opacity: 0, x: -50}}
+                    whileInView={{opacity: 1, x: 0}}
+                    viewport={{once: false, amount: 0.1}}
+                    transition={{duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0}}
+                >
                     <motion.div
                         className="flex items-center gap-3 mb-2.5"
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: false, amount: 0.1 }}
-                        transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0 }}
+                        initial={{opacity: 0, x: -50}}
+                        whileInView={{opacity: 1, x: 0}}
+                        viewport={{once: false, amount: 0.1}}
+                        transition={{duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.1}}
                     >
                         <div className="w-2 h-2 rounded-full bg-[#7C3AED]"/>
                         <p className="text-xs uppercase tracking-[3px] text-white font-semibold whitespace-nowrap">
@@ -62,26 +86,29 @@ export default function HeroSection() {
 
                     <motion.p
                         className="text-sm md:text-[17px] text-[#A4A4A4] font-normal leading-[150%] max-w-sm md:max-w-md mb-[23px]"
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: false, amount: 0.1 }}
-                        transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
+                        initial={{opacity: 0, x: -50}}
+                        whileInView={{opacity: 1, x: 0}}
+                        viewport={{once: false, amount: 0.1}}
+                        transition={{duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.3}}
                     >
                         We deliver reliable, high-quality digital solutions designed to elevate
                         your business and drive long-term growth.
                     </motion.p>
 
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: false, amount: 0.1 }}
-                        transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 }}
+                        initial={{opacity: 0, x: -50}}
+                        whileInView={{opacity: 1, x: 0}}
+                        viewport={{once: false, amount: 0.1}}
+                        transition={{duration: 1.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.5}}
                     >
-                        <GradientButton className="mt-2">
+                        <GradientButton
+                            className="mt-2 cursor-pointer"
+                            onClick={scrollToServices}
+                        >
                             Find More
                         </GradientButton>
                     </motion.div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
