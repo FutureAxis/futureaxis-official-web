@@ -2,9 +2,15 @@
 
 import React, { useRef } from "react";
 import GradientButton from "@/components/buttons/GradientButton";
+import {useRouter} from "next/navigation";
 
 export default function CTASection() {
     const sectionRef = useRef<HTMLElement>(null);
+    const router = useRouter();
+
+    const navigateToContact = () => {
+        router.push('/contact');
+    };
 
     return (
         <section ref={sectionRef} className="w-full pt-3 pb-[60px]">
@@ -14,7 +20,9 @@ export default function CTASection() {
                         Ready to Build Something Exceptional Together?
                     </h2>
 
-                    <GradientButton className="inline-flex items-center gap-2 text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3">
+                    <GradientButton
+                        onClick={navigateToContact}
+                        className="inline-flex items-center gap-2 text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3">
                         Let's Talk
                     </GradientButton>
                 </div>
