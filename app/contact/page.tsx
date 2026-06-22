@@ -117,17 +117,30 @@ export default function ContactPage() {
                                     />
                                 </div>
 
-                                {/* Office Info */}
-                                <div>
+                                {/* Office Info - Two Addresses */}
+                                <div className="space-y-6">
                                     <ContactInfoCard
                                         icon={<FaMapMarkerAlt className="w-3.5 h-3.5 text-white" />}
-                                        title="Our Office"
+                                        title=""
                                         content={
-                                            <>
-                                                <p className="text-[#7D7D7D] text-xs leading-relaxed">
-                                                    {CONTACT_INFO.address}
-                                                </p>
-                                            </>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                <div>
+                                                    <p className="text-white font-semibold text-[11px]">
+                                                        Head Office (Australia)
+                                                    </p>
+                                                    <p className="text-[#7D7D7D] text-xs leading-relaxed">
+                                                        {CONTACT_INFO.address}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p className="text-white font-semibold text-[11px]">
+                                                        Branch (Sri Lanka)
+                                                    </p>
+                                                    <p className="text-[#7D7D7D] text-xs leading-relaxed">
+                                                        {CONTACT_INFO.branchAddress}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         }
                                     />
                                     <div className="w-full h-px bg-gradient-to-r from-[#6A2187] to-[#7C3AED] mt-[42px]" />

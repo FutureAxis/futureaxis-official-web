@@ -55,6 +55,7 @@ export const SERVICE_LINKS: ServiceLink[] = [
 export const CONTACT_INFO = {
     email: "futureaxis.com",
     phone: "+61411749417",
+    location: "No 282/8B, Namal Place,Katuwana Road,Homagama 10200"
 } as const;
 
 export const FOOTER_CONFIG = {

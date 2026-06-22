@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import GradientButton from "@/components/buttons/GradientButton";
 import Image from "next/image";
+import {useRouter} from "next/navigation";
 
 const ICONS = {
     innovation: "https://res.cloudinary.com/denec4g4s/image/upload/v1781547248/future_axis/icons/Vector-1_pjgkjx.png",
@@ -13,6 +14,7 @@ const ICONS = {
 };
 
 export default function AboutSection() {
+    const router = useRouter();
     const features = [
         { icon: ICONS.innovation, title: "Innovation", description: "We embrace creativity and technology to build future-ready solutions." },
         { icon: ICONS.partnership, title: "Partnership", description: "We grow together with our client through collaboration and trust." },
@@ -37,6 +39,10 @@ export default function AboutSection() {
         ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
         delay,
     });
+
+    const navigateToTeam = () => {
+        router.push('/team');
+    };
 
     return (
         <section className="w-full pt-16 lg:pt-24" id="about">
@@ -96,7 +102,7 @@ export default function AboutSection() {
                             {...slideLeft}
                             transition={slideTransition(0.3)}
                         >
-                            <GradientButton>Meet Our Team</GradientButton>
+                            <GradientButton onClick={navigateToTeam}>Meet Our Team</GradientButton>
                         </motion.div>
                     </div>
 

@@ -4,6 +4,7 @@ export interface ContactInfo {
     phone: string;
     email: string;
     address: string;
+    branchAddress: string;
 }
 
 export interface SocialLink {
@@ -17,6 +18,7 @@ export const CONTACT_INFO: ContactInfo = {
     phone: "+61411749417",
     email: "futureaxis.com",
     address: "1/21, Dennis Street, Clayton Vic 3168",
+    branchAddress: "No 282/8B, Namal Place, Katuwana Road, Homagama 10200",
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
