@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         description: "Transform your business with custom web development, social media marketing, and IT consulting services.",
         siteName: "Future Axis",
         images: [{
-            url: "/og-image.jpg",
+            url: "https://res.cloudinary.com/denec4g4s/image/upload/v1782100592/future_axis/logo/open-graph_a9upl8.jpg",
             width: 1200,
             height: 630,
             alt: "Future Axis",
