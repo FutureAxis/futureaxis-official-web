@@ -59,11 +59,11 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="relative hover:opacity-80 transition-opacity">
                         <Image
-                            src="https://res.cloudinary.com/denec4g4s/image/upload/v1781547454/future_axis/logo/logo_oatkdr.png"
+                            src="https://res.cloudinary.com/denec4g4s/image/upload/v1782101240/future_axis/logo/logo_gjgrof.png"
                             alt="Future Axis"
                             width={200}
                             height={100}
-                            className="w-auto h-14 md:h-16 object-contain"
+                            className="w-auto h-14 md:h-20 object-contain"
                             priority
                         />
                     </Link>
