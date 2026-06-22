@@ -31,7 +31,7 @@ export default function HeroSection() {
             <div
                 className="absolute top-0 left-0 w-full h-full md:hidden"
                 style={{
-                    backgroundImage: "url('https://res.cloudinary.com/denec4g4s/image/upload/v1781546254/future_axis/hero/hero-mobile_knnavb.png')",
+                    backgroundImage: "url('https://res.cloudinary.com/denec4g4s/image/upload/v1782100585/future_axis/logo/mobile-hero_rxzhva.jpg')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat"
