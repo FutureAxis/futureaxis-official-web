@@ -16,7 +16,7 @@ export interface SocialLink {
 
 export const CONTACT_INFO: ContactInfo = {
     phone: "+61411749417",
-    email: "futureaxis.com",
+    email: "info@futureaxisdigital.com",
     address: "1/21, Dennis Street, Clayton Vic 3168",
     branchAddress: "No 282/8B, Namal Place, Katuwana Road, Homagama 10200",
 };
@@ -25,13 +25,13 @@ export const SOCIAL_LINKS: SocialLink[] = [
     {
         name: "Facebook",
         icon: FaFacebookF,
-        url: "#",
+        url: "https://www.facebook.com/share/1BnvvaRCAY/?mibextid=wwXIfr https://www.instagram.com/futureaxis.digital",
         ariaLabel: "Facebook",
     },
     {
         name: "Instagram",
         icon: FaInstagram,
-        url: "#",
+        url: "https://www.instagram.com/futureaxis.digital",
         ariaLabel: "Instagram",
     },
     {
