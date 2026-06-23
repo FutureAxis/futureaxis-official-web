@@ -81,7 +81,7 @@ export default function ContactPage() {
                             <div className="lg:col-span-5 space-y-6">
                                 <div>
                                     <div className="flex items-center justify-start gap-3 mb-[30px]">
-                                        <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
+                                        <div className="w-2 h-2 rounded-full bg-[#7C3AED]"/>
                                         <p className="text-[#7C3AED] uppercase tracking-[3px] text-xs font-semibold">
                                             GET IN TOUCH
                                         </p>
@@ -94,23 +94,40 @@ export default function ContactPage() {
                                     </p>
                                 </div>
 
-                                {/* Contact Info Grid */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="space-y-6">
                                     <ContactInfoCard
-                                        icon={<MdPhone className="w-3.5 h-3.5 text-white" />}
-                                        title="Call Us"
+                                        icon={<MdPhone className="w-3.5 h-3.5 text-white"/>}
+                                        title=""
                                         content={
-                                            <a href={`tel:${CONTACT_INFO.phone}`} className="text-[#7D7D7D] text-xs hover:text-[#7C3AED] transition-colors">
-                                                {CONTACT_INFO.phone}
-                                            </a>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-12 xl:gap-34">
+                                                <div>
+                                                    <p className="text-white font-semibold text-[11px]">
+                                                        Australia
+                                                    </p>
+                                                    <p className="text-[#7D7D7D] text-xs leading-relaxed">
+                                                        {CONTACT_INFO.australiaPhone}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p className="text-white font-semibold text-[11px]">
+                                                        Sri Lanka
+                                                    </p>
+                                                    <p className="text-[#7D7D7D] text-xs leading-relaxed">
+                                                        {CONTACT_INFO.sriLankaPhone}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         }
                                     />
+                                </div>
 
+                                <div className="grid grid-cols-1 gap-4">
                                     <ContactInfoCard
-                                        icon={<FaEnvelope className="w-3.5 h-3.5 text-white" />}
+                                        icon={<FaEnvelope className="w-3.5 h-3.5 text-white"/>}
                                         title="Email Us"
                                         content={
-                                            <a href={`mailto:${CONTACT_INFO.email}`} className="text-[#7D7D7D] text-xs hover:text-[#7C3AED] transition-colors break-all">
+                                            <a href={`mailto:${CONTACT_INFO.email}`}
+                                               className="text-[#7D7D7D] text-xs hover:text-[#7C3AED] transition-colors break-all">
                                                 {CONTACT_INFO.email}
                                             </a>
                                         }
@@ -120,7 +137,7 @@ export default function ContactPage() {
                                 {/* Office Info - Two Addresses */}
                                 <div className="space-y-6">
                                     <ContactInfoCard
-                                        icon={<FaMapMarkerAlt className="w-3.5 h-3.5 text-white" />}
+                                        icon={<FaMapMarkerAlt className="w-3.5 h-3.5 text-white"/>}
                                         title=""
                                         content={
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -143,19 +160,21 @@ export default function ContactPage() {
                                             </div>
                                         }
                                     />
-                                    <div className="w-full h-px bg-gradient-to-r from-[#6A2187] to-[#7C3AED] mt-[42px]" />
+                                    <div
+                                        className="w-full h-px bg-gradient-to-r from-[#6A2187] to-[#7C3AED] mt-[42px]"/>
                                 </div>
 
                                 {/* Social Media */}
                                 <div>
-                                    <h4 className="text-white text-xs font-semibold mb-[18px]">Follow Us on Social Media</h4>
-                                    <SocialMediaIcons />
+                                    <h4 className="text-white text-xs font-semibold mb-[18px]">Follow Us on Social
+                                        Media</h4>
+                                    <SocialMediaIcons/>
                                 </div>
                             </div>
 
                             {/* RIGHT COLUMN - Contact Form */}
                             <div className="lg:col-span-7">
-                                <ContactForm />
+                                <ContactForm/>
                             </div>
                         </div>
                     </div>

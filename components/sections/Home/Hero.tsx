@@ -31,7 +31,7 @@ export default function HeroSection() {
             <div
                 className="absolute top-0 left-0 w-full h-full md:hidden"
                 style={{
-                    backgroundImage: "url('https://res.cloudinary.com/denec4g4s/image/upload/v1782100585/future_axis/logo/mobile-hero_rxzhva.jpg')",
+                    backgroundImage: "url('https://res.cloudinary.com/denec4g4s/image/upload/v1782202336/future_axis/hero/IMG_7816_insu08.jpg')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat"
@@ -58,7 +58,7 @@ export default function HeroSection() {
             {/* Animated Content - Slide from left */}
             <div className="absolute bottom-10 left-0 z-20 px-5 lg:px-[90px]">
                 <motion.div
-                    className="space-y-6 max-w-[280px] md:max-w-md lg:max-w-2xl p-6 rounded-2xl"
+                    className="space-y-6 max-w-[310px] md:max-w-md lg:max-w-2xl p-6 rounded-2xl"
                     style={{
                         background: "rgba(255, 255, 255, 0.05)",
                         backdropFilter: "blur(20px)",
