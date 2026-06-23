@@ -24,7 +24,7 @@ export default function Footer() {
                         <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                             {FOOTER_CONFIG.companyName}
                         </h2>
-                        <p className="text-[#7D7D7D] text-base font-normal leading-relaxed max-w-sm">
+                        <p className="text-[#7D7D7D] text-sm font-normal leading-relaxed max-w-sm">
                             {FOOTER_CONFIG.tagline}
                         </p>
                         {/* Social Icons */}
@@ -52,7 +52,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
-                                        className="text-[#A4A4A4] text-base font-normal hover:text-purple-400 transition-colors duration-200"
+                                        className="text-[#A4A4A4] text-sm font-normal hover:text-purple-400 transition-colors duration-200"
                                     >
                                         {link.name}
                                     </Link>
@@ -69,7 +69,7 @@ export default function Footer() {
                                 <li key={service.name}>
                                     <Link
                                         href={service.href}
-                                        className="text-[#A4A4A4] text-base font-normal hover:text-purple-400 transition-colors duration-200"
+                                        className="text-[#A4A4A4] text-sm font-normal hover:text-purple-400 transition-colors duration-200"
                                     >
                                         {service.name}
                                     </Link>
@@ -81,32 +81,40 @@ export default function Footer() {
                     {/* Contact Us */}
                     <div className="sm:col-span-2 lg:col-span-3 space-y-4">
                         <h3 className="text-white font-semibold text-lg">Contact Us</h3>
-                        <ul className="space-y-3">
-                            <li className="flex items-center gap-3 text-[#A4A4A4] text-base font-normal break-all sm:break-normal">
+
+                        <div className="space-y-3">
+                            <div className="flex items-center gap-3 text-[#A4A4A4] text-sm">
                                 <IoMail className="w-4 h-4 text-purple-400 flex-shrink-0"/>
-                                <a
-                                    href={`mailto:${CONTACT_INFO.email}`}
-                                    className="hover:text-purple-400 transition-colors duration-200"
-                                >
+                                <a href={`mailto:${CONTACT_INFO.email}`}
+                                   className="hover:text-purple-400 transition-colors duration-200 break-all">
                                     {CONTACT_INFO.email}
                                 </a>
-                            </li>
-                            <li className="flex items-center gap-3 text-[#A4A4A4] text-base font-normal">
-                                <MdPhone className="w-4 h-4 text-purple-400 flex-shrink-0"/>
-                                <a
-                                    href={`tel:${CONTACT_INFO.phone}`}
-                                    className="hover:text-purple-400 transition-colors duration-200"
-                                >
-                                    {CONTACT_INFO.phone}
-                                </a>
-                            </li>
-                            <li className="flex items-center gap-3 text-[#A4A4A4] text-base font-normal">
+                            </div>
+                            <div className="flex items-start gap-2 text-[#A4A4A4] text-sm">
+                                <MdPhone className="w-4 h-4 text-purple-400 flex-shrink-0 mt-[4px]"/>
+                                <div className="flex flex-col gap-1">
+                                    <a href={`tel:${CONTACT_INFO.australiaPhone}`}
+                                       className="hover:text-purple-400 transition-colors">
+                                        {CONTACT_INFO.australiaPhone}
+                                    </a>
+                                    <a href={`tel:${CONTACT_INFO.sriLankaPhone}`}
+                                       className="hover:text-purple-400 transition-colors">
+                                        {CONTACT_INFO.sriLankaPhone}
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-2 text-[#A4A4A4] text-sm">
                                 <MdLocationPin className="w-4 h-4 text-purple-400 flex-shrink-0"/>
-                                <span className="hover:text-purple-400 transition-colors duration-200 cursor-pointer">
-                                    {CONTACT_INFO.location}
-                                </span>
-                            </li>
-                        </ul>
+                                <div className="flex flex-col gap-1">
+                                    <span className="hover:text-purple-400 transition-colors duration-200">
+                                        {CONTACT_INFO.australiaAddress}
+                                    </span>
+                                    <span className="hover:text-purple-400 transition-colors duration-200">
+                                        {CONTACT_INFO.sriLankaAddress}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
