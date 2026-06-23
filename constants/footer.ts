@@ -22,13 +22,13 @@ export const SOCIAL_LINKS: SocialLink[] = [
     {
         name: "Facebook",
         icon: FaFacebookF,
-        url: "https://facebook.com/futureaxis",
+        url: "https://www.facebook.com/share/1BnvvaRCAY/?mibextid=wwXIfr https://www.instagram.com/futureaxis.digital",
         ariaLabel: "Follow us on Facebook",
     },
     {
         name: "Instagram",
         icon: FaInstagram,
-        url: "https://instagram.com/futureaxis",
+        url: "https://www.instagram.com/futureaxis.digital",
         ariaLabel: "Follow us on Instagram",
     },
     {
@@ -53,9 +53,11 @@ export const SERVICE_LINKS: ServiceLink[] = [
 ];
 
 export const CONTACT_INFO = {
-    email: "futureaxis.com",
-    phone: "+61411749417",
-    location: "No 282/8B, Namal Place,Katuwana Road,Homagama 10200"
+    email: "info@futureaxisdigital.com",
+    australiaPhone: "+61411749417",
+    sriLankaPhone: "+94773900540",
+    australiaAddress: "1/21, Dennis Street, Clayton Vic 3168",
+    sriLankaAddress: "No 282/8B, Namal Place, Katuwana Road, Homagama 10200"
 } as const;
 
 export const FOOTER_CONFIG = {
