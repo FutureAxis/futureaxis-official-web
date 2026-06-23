@@ -1,7 +1,8 @@
 import {FaFacebookF, FaInstagram, FaLinkedinIn} from "react-icons/fa";
 
 export interface ContactInfo {
-    phone: string;
+    australiaPhone: string;
+    sriLankaPhone: string;
     email: string;
     address: string;
     branchAddress: string;
@@ -15,7 +16,8 @@ export interface SocialLink {
 }
 
 export const CONTACT_INFO: ContactInfo = {
-    phone: "+61411749417",
+    australiaPhone: "+61411749417",
+    sriLankaPhone: "+94773900540",
     email: "info@futureaxisdigital.com",
     address: "1/21, Dennis Street, Clayton Vic 3168",
     branchAddress: "No 282/8B, Namal Place, Katuwana Road, Homagama 10200",
