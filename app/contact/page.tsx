@@ -28,7 +28,7 @@ export default function ContactPage() {
                 <meta property="og:description" content="Connect with our creative team to discuss your next project. We combine strategy, design, and technology to craft premium digital experiences." />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Future Axis" />
-                <meta property="og:image" content="/og-image-contact.jpg" />
+                <meta property="og:image" content="https://res.cloudinary.com/denec4g4s/image/upload/v1782100592/future_axis/logo/open-graph_a9upl8.jpg" />
             </Head>
 
             {/* Background Image */}

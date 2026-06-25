@@ -17,7 +17,7 @@ export const metadata = {
         siteName: "Future Axis",
         images: [
             {
-                url: "/og-image-home.jpg",
+                url: "https://res.cloudinary.com/denec4g4s/image/upload/v1782100592/future_axis/logo/open-graph_a9upl8.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Future Axis - Web Development & Digital Solutions",
