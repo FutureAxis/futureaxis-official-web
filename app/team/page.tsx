@@ -26,7 +26,7 @@ export default function TeamPage() {
                 <meta property="og:description" content="Meet our visionary team of co-founders, developers, designers, and digital strategists dedicated to delivering exceptional results." />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Future Axis" />
-                <meta property="og:image" content="/og-image-team.jpg" />
+                <meta property="og:image" content="https://res.cloudinary.com/denec4g4s/image/upload/v1782100592/future_axis/logo/open-graph_a9upl8.jpg" />
             </Head>
 
             {/* Background Image with Dark Overlay */}
